@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:smart_cart_payment_project/features/auth/data/user_model.dart';
-import 'package:smart_cart_payment_project/features/setting/view/widgets/setting_dialog.dart';
-import 'package:smart_cart_payment_project/features/setting/view/widgets/setting_row.dart';
+import '/../features/auth/data/user_model.dart';
+import '/../features/setting/view/widgets/setting_dialog.dart';
+import '/../features/setting/view/widgets/setting_row.dart';
 import 'package:toastification/toastification.dart';
 import '../../../../core/utils/functions.dart';
 import '../../manager/cubits/get_user_data/get_user_data_cubit.dart';

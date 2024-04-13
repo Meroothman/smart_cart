@@ -3,11 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smart_cart_payment_project/core/utils/constants.dart';
-import 'package:smart_cart_payment_project/core/widgets/button.dart';
-import 'package:smart_cart_payment_project/features/auth/manager/cubits/auth/auth_cubit.dart';
-import 'package:smart_cart_payment_project/features/auth/manager/cubits/user_register/user_register_cubit.dart';
-import 'package:smart_cart_payment_project/features/auth/view/widgets/textformfield.dart';
+import '/../core/utils/constants.dart';
+import '/../core/widgets/button.dart';
+import '/../features/auth/manager/cubits/auth/auth_cubit.dart';
+import '/../features/auth/manager/cubits/user_register/user_register_cubit.dart';
+import '/../features/auth/view/widgets/textformfield.dart';
 import 'package:toastification/toastification.dart';
 import '../../../../core/helper/cache_helper.dart';
 import '../../../../core/utils/functions.dart';

@@ -1,7 +1,7 @@
 // import 'package:flutter/material.dart';
-// import 'package:smart_cart/constants.dart';
-// import 'package:smart_cart/view/widgets/button.dart';
-// //import 'package:smart_cart/view/widgets/textformfield.dart';
+// import '/../constants.dart';
+// import '/../view/widgets/button.dart';
+// //import '/../view/widgets/textformfield.dart';
 
 // class DialogUtils {
 //   static DialogUtils instance = DialogUtils.internal();

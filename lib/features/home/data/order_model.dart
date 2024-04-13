@@ -2,21 +2,24 @@ class OrderModel {
   final String orderId;
   final String uId;
   final String cartId;
-  final List productsId;
+  int totalPrice;
+  List productsId;
 
   OrderModel({
     required this.orderId,
     required this.uId,
     required this.cartId,
     required this.productsId,
+    required this.totalPrice,
   });
 
-  factory OrderModel.fromJson(Map<String, dynamic> json) {
+  factory OrderModel.fromJson(json) {
     return OrderModel(
       orderId: json['orderId'],
       uId: json['uId'],
       cartId: json['cartId'],
       productsId: json['productsId'],
+      totalPrice: json['totalPrice'],
     );
   }
 
@@ -26,6 +29,7 @@ class OrderModel {
       'uId': uId,
       'cartId': cartId,
       'productsId': productsId,
+      'totalPrice': totalPrice,
     };
   }
 }

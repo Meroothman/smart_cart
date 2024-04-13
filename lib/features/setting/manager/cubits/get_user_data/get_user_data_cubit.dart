@@ -1,9 +1,7 @@
-import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:smart_cart_payment_project/core/utils/constants.dart';
-
+import '/../core/utils/constants.dart';
 
 import '../../../../auth/data/user_model.dart';
 
@@ -22,7 +20,6 @@ class GetUserDataCubit extends Cubit<GetUserDataState> {
         .get()
         .then((value) {
       model = UserModel.fromJson(value.data()!);
-      print(model.toMap());
       emit(GetUserDataSuccess());
     }).catchError((e) {
       emit(GetUserDataFailure(error: e));

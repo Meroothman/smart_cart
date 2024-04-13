@@ -1,9 +1,10 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/core/utils/constants.dart';
-import 'package:smart_cart_payment_project/core/utils/functions.dart';
-import 'package:smart_cart_payment_project/features/auth/view/screens/auth_screen.dart';
-import 'package:smart_cart_payment_project/features/home/view/screens/home_screen.dart';
+import '/../core/utils/constants.dart';
+import '/../core/utils/functions.dart';
+import '/../features/auth/view/screens/Auth_screen.dart';
+import '/../features/home/view/screens/home_screen.dart';
 import '../../../setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class SplashScreen extends StatefulWidget {
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
- 
+
 class _SplashScreenState extends State<SplashScreen> {
   Timer? _timer;
 

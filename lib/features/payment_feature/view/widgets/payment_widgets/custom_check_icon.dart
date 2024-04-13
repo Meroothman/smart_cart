@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_cart_payment_project/core/utils/constants.dart';
 
-
 class CustomCheckIcon extends StatelessWidget {
   const CustomCheckIcon({
     super.key,

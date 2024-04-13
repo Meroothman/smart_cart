@@ -1,6 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/core/widgets/button.dart';
+import '/../core/widgets/button.dart';
+
 import '../../../../core/helper/cache_helper.dart';
 import '../../../../core/utils/functions.dart';
 import '../../../auth/view/screens/Auth_screen.dart';

@@ -7,7 +7,6 @@ import 'package:smart_cart_payment_project/features/payment_feature/data/models/
 import 'package:smart_cart_payment_project/features/payment_feature/data/models/payment_intent_input_model.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/data/models/payment_intent_model/payment_intent_model.dart';
 
-
 class StripeService {
   // create payment intent model
   final ApiService apiService = ApiService();
@@ -35,10 +34,11 @@ class StripeService {
 
   Future displayPaymentSheet() async {
     // show payment sheet
-   await Stripe.instance.presentPaymentSheet();
+    await Stripe.instance.presentPaymentSheet();
   }
 
-  Future makePayment( // start point to check out
+  Future makePayment(
+      // start point to check out
       {required PaymentIntentInputModel paymentIntentInputModel}) async {
     var paymentIntentModel = await createPaymentIntent(paymentIntentInputModel);
     var ephemeralkeyModel = await createEphemeralKey(customerId:paymentIntentInputModel.customerId );

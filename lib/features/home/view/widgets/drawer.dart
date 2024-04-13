@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_cart_payment_project/core/utils/constants.dart';
+import '/../core/utils/constants.dart';
+
 import '../../../../core/utils/functions.dart';
 import '../../../auth/data/user_model.dart';
 import '../../../setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
@@ -124,9 +125,7 @@ Drawer drawer(BuildContext context) {
             ],
           );
         } else {
-          return Container(
-            child: const Center(child: CircularProgressIndicator()),
-          );
+          return const Center(child: CircularProgressIndicator());
         }
       },
     ),

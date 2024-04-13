@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_cart_payment_project/core/utils/constants.dart';
 
-
 Widget defaultButton({
   // login and signUp button
   double width = double.infinity,

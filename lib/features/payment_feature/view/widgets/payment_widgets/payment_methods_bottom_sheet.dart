@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/paymentwidgets/custom_button_bloc_consumer.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/paymentwidgets/payment_methods_list_view.dart';
-
+import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/custom_button_bloc_consumer.dart';
+import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/payment_methods_list_view.dart';
 
 class PaymentMethodsBottomSheet extends StatelessWidget {
   const PaymentMethodsBottomSheet({super.key});
@@ -22,4 +21,3 @@ class PaymentMethodsBottomSheet extends StatelessWidget {
     );
   }
 }
-

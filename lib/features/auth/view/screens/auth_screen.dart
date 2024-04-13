@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '/../core/utils/constants.dart';
+import '/../features/auth/manager/cubits/auth/auth_cubit.dart';
+import '/../features/auth/view/widgets/login_tail.dart';
+import '/../features/auth/view/widgets/signup_tail.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:smart_cart_payment_project/core/utils/constants.dart';
-import 'package:smart_cart_payment_project/features/auth/manager/cubits/auth/auth_cubit.dart';
-import 'package:smart_cart_payment_project/features/auth/view/widgets/login_tail.dart';
-import 'package:smart_cart_payment_project/features/auth/view/widgets/signup_tail.dart';
+
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
 
