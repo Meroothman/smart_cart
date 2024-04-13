@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/data/models/payment_intent_input_model.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/manger/payment_cubit.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/view/screens/thank_you_view.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/paymentwidgets/custom_button.dart';
+import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/custom_button.dart';
+
 class CustomButtonBlocConsumer extends StatelessWidget {
   const CustomButtonBlocConsumer({
     super.key,
@@ -41,5 +42,5 @@ class CustomButtonBlocConsumer extends StatelessWidget {
         );
       },
     );
-  }  
+  }
 }

@@ -3,9 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_cart_payment_project/core/widgets/button.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/data/repos/ckeckout_repo_impl.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/manger/payment_cubit.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/paymentwidgets/cart_info_item.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/paymentwidgets/payment_methods_bottom_sheet.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/paymentwidgets/total_price_widget.dart';
+import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/cart_info_item.dart';
+import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/payment_methods_bottom_sheet.dart';
+import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/total_price_widget.dart';
+
 class MyCartViewBody extends StatelessWidget {
   const MyCartViewBody({super.key});
   @override
@@ -54,7 +55,7 @@ class MyCartViewBody extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16)),
                   builder: (context) {
-                    return  BlocProvider(
+                    return BlocProvider(
                       create: (context) => PaymentCubit(CheckOutRepoImpl()),
                       child: const PaymentMethodsBottomSheet(),
                     );

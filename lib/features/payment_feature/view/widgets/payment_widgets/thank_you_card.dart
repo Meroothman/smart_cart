@@ -3,16 +3,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smart_cart_payment_project/core/utils/constants.dart';
 //import 'package:intl/intl.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/core/utils/styles.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/paymentwidgets/card_info_widget.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/paymentwidgets/payment_info_item.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/paymentwidgets/total_price_widget.dart';
+import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/card_info_widget.dart';
+import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/payment_info_item.dart';
+import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/total_price_widget.dart';
+
 class ThankYouCard extends StatelessWidget {
-   const ThankYouCard({
+  const ThankYouCard({
     super.key,
   });
   //DateTime now = DateTime.now();
- // String formattedDate = DateFormat('yyyy-MM-dd').format(now);
- // String formattedTime = DateFormat('HH:mm:ss').format(now);
+  // String formattedDate = DateFormat('yyyy-MM-dd').format(now);
+  // String formattedTime = DateFormat('HH:mm:ss').format(now);
 
   @override
   Widget build(BuildContext context) {

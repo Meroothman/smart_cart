@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/core/widgets/button.dart';
+import '/../core/widgets/button.dart';
 import 'package:toastification/toastification.dart';
+
 import '../../../../core/utils/functions.dart';
 import '../../manager/cubits/change_user_data/change_user_data_cubit.dart';
 import '../../manager/cubits/get_user_data/get_user_data_cubit.dart';

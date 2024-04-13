@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/core/utils/constants.dart';
-
+import '/../core/utils/constants.dart';
 
 Widget defaultTextFormField({
   required TextEditingController controller,

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/core/utils/styles.dart';
 
-
 class OrderInfoItem extends StatelessWidget {
-  const OrderInfoItem({
-    super.key, required this.title, required this.value});
+  const OrderInfoItem({super.key, required this.title, required this.value});
   final String title, value;
   @override
   Widget build(BuildContext context) {

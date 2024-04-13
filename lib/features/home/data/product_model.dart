@@ -2,10 +2,11 @@
 
 class ProductModel {
   final String description;
-  final double price;
+  final int price;
   final String productId;
   final String productName;
-  final int quantity;
+  int quantity;
+  int userQuantity = 0;
   final String url;
 
   ProductModel({
@@ -15,15 +16,17 @@ class ProductModel {
     required this.productName,
     required this.quantity,
     required this.url,
+    required this.userQuantity,
   });
 
-  factory ProductModel.fromJson(Map<String, dynamic> json) {
+  factory ProductModel.fromJson(Map<String, dynamic> json, UserQuantity) {
     return ProductModel(
       description: json['description'],
       price: json['price'],
       productId: json['product_ID'],
       productName: json['product_name'],
       quantity: json['quantity'],
+      userQuantity: UserQuantity,
       url: json['url'],
     );
   }

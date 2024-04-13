@@ -14,6 +14,7 @@ import 'package:smart_cart_payment_project/features/setting/manager/cubits/chang
 import 'package:smart_cart_payment_project/features/setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
 import 'package:smart_cart_payment_project/firebase_options.dart';
 
+import 'features/home/manager/cubits/order/order_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,13 +26,11 @@ void main() async {
   bool checkUserLoggedIn() {
     var uId = CacheHelper.getData(key: "uId");
     bool isUserLoggedIn = (uId != null) ? true : false;
-
-    print(isUserLoggedIn);
     return isUserLoggedIn;
   }
 
-  bool isUserLoggedIn = await checkUserLoggedIn();
-  Stripe.publishableKey =ApiKeys.publishableKey;
+  bool isUserLoggedIn = checkUserLoggedIn();
+  Stripe.publishableKey = ApiKeys.publishableKey;
   runApp(MyApp(isUserLoggedIn: isUserLoggedIn));
 }
 
@@ -48,6 +47,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => UserRegisterCubit()),
         BlocProvider(create: (context) => GetUserDataCubit()),
         BlocProvider(create: (context) => ChangeUserDataCubit()),
+        BlocProvider(create: (context) => OrderCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

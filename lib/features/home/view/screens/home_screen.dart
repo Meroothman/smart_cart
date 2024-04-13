@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/core/widgets/button.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/screens/my_card_view.dart';
+import 'package:smart_cart_payment_project/features/home/view/screens/test.dart';
+
+import '../../../../core/utils/functions.dart';
+import '../../../../core/widgets/button.dart';
+import '../../manager/cubits/order/order_cubit.dart';
 import '../widgets/drawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   bool languageIsSwitched = false;
   bool darkModeIsSwitch = false;
+  String cartId = "45346854843";
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +36,15 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 55, horizontal: 35),
         child: Container(
-          child: Column(
-            children: [
-              defaultButton(onPressed:(){
-               Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return const MyCartView();
-                      }));
-              }, text: "Go To Payment", fontSize: 25)
-            ]
+          child: defaultButton(
+            text: "Start",
+            fontSize: 20,
+            onPressed: () {
+              OrderCubit.get(context).startOrder(cartId);
+              pushNavigate(context, const Test());
+
+              // replacementNavigate(context, const Test());
+            },
           ),
         ),
       ),
