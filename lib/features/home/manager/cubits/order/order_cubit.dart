@@ -54,6 +54,7 @@ class OrderCubit extends Cubit<OrderState> {
         .then((value) {
       int count =
           products.where((element) => element.productId == productId).length;
+      print(count);
       if (state == 'add') {
         if (count == 0) {
           products.add(ProductModel.fromJson(value.data()!, 1));
@@ -66,13 +67,9 @@ class OrderCubit extends Cubit<OrderState> {
         }
       } else if (state == 'remove') {
         if (count == 1) {
-          print("مالواد شاطر اهو");
           products.removeWhere((element) => element.productId == productId);
         } else if (count == 0) {
-          print("فتح شويه ياموديل ياحبيبي");
         } else {
-          print("يافرج الله ");
-
           products
               .where((element) => element.productId == productId)
               .forEach((element) {
@@ -80,8 +77,14 @@ class OrderCubit extends Cubit<OrderState> {
           });
         }
       }
-      products.forEach((element) {});
-      emit(GetProductsSuccess());
+      orderModel.totalPrice = 0;
+      products.forEach((element) {
+        productsId.add(
+            {"productId": element.productId, "quantity": element.userQuantity});
+        orderModel.totalPrice += element.price * element.userQuantity;
+      });
+      emit(GetProductsSuccess(
+          products: products, totalPrice: orderModel.totalPrice));
     }).catchError((e) {
       emit(GetProductsError(
         error: e.toString(),
@@ -95,12 +98,10 @@ class OrderCubit extends Cubit<OrderState> {
         .orderBy('date', descending: false)
         .snapshots()
         .listen((event) {
-      emit(OrderLoading());
       products.clear();
       event.docs.forEach((element) {
         getProducts(element.data()['product_id'], element.data()['state']);
       });
-      emit(AddProductSuccess());
     }).onError((e) {
       emit(AddProductError(
         error: e.toString(),
@@ -109,11 +110,6 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void finishOrder() {
-    products.forEach((element) {
-      productsId.add(
-          {"productId": element.productId, "quantity": element.userQuantity});
-      orderModel.totalPrice += element.price * element.userQuantity;
-    });
     orderModel.productsId = productsId;
     orders.doc(orderModel.orderId).update({
       'productsId': productsId,

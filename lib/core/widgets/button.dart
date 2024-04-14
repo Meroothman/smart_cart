@@ -6,10 +6,13 @@ Widget defaultButton({
   double width = double.infinity,
   double height = 50.5,
   Color background = Constants.primaryColor,
+  Color textColor = Colors.white,
   double radius = 0.0,
+  FontWeight fontWeight = FontWeight.normal,
+  double fontSize = 18,
+  String fontFamily = "RobotoSlab",
   required Function() onPressed,
   required String text,
-  required double fontSize,
 }) =>
     Container(
       width: width,
@@ -23,8 +26,10 @@ Widget defaultButton({
         child: Text(
           text,
           style: TextStyle(
+            color: textColor,
+            fontWeight: fontWeight,
             fontSize: fontSize,
-            color: Colors.white,
+            fontFamily: fontFamily,
           ),
         ),
       ),

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/features/home/view/screens/test.dart';
-
-import '../../../../core/utils/functions.dart';
-import '../../../../core/widgets/button.dart';
-import '../../manager/cubits/order/order_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_cart_payment_project/core/utils/functions.dart';
+import 'package:smart_cart_payment_project/features/home/manager/cubits/order/order_cubit.dart';
+import 'package:smart_cart_payment_project/features/home/manager/cubits/scan_cubit/scan_cubit.dart';
+import 'package:smart_cart_payment_project/features/home/view/screens/cart_view.dart';
+import 'package:toastification/toastification.dart';
+import '../../../../core/utils/constants.dart';
 import '../widgets/drawer.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+// ignore: must_be_immutable
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   bool languageIsSwitched = false;
   bool darkModeIsSwitch = false;
   String cartId = "45346854843";
@@ -23,29 +22,64 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       drawer: drawer(context),
       appBar: AppBar(
+        backgroundColor: Constants.primaryColor,
         actions: [
-          IconButton(
-              onPressed: () {},
-              icon: const ImageIcon(
-                  AssetImage("assets/images/qr_code_scanner.png"))),
+          BlocListener<ScanCubit, ScanState>(
+            listener: (context, state) {
+              if (state is ScanningSuccess) {
+                ///>>>>>>>> cart id == state.cartId
+                OrderCubit.get(context).startOrder(cartId);
+                replacementNavigate(context, const CartView());
+              } else if (state is ScanningError) {
+                showToast(context, state.error, ToastificationType.error);
+              }
+            },
+            child: IconButton(
+                onPressed: () {
+                  ScanCubit.get(context).scanQR();
+                },
+                icon: const ImageIcon(
+                    AssetImage("assets/images/qr_code_scanner.png"))),
+          ),
           const SizedBox(
             width: 20,
           )
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 55, horizontal: 35),
-        child: Container(
-          child: defaultButton(
-            text: "Start",
-            fontSize: 20,
-            onPressed: () {
-              OrderCubit.get(context).startOrder(cartId);
-              pushNavigate(context, const Test());
-
-              // replacementNavigate(context, const Test());
-            },
-          ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+                height: 300,
+                width: 300,
+                child: Image.asset(Constants.scanQrCode)),
+            const Text(
+              "Scan the QR code on your trolley to",
+              style: TextStyle(
+                fontSize: 21,
+                fontWeight: FontWeight.w500,
+                fontFamily: "RobotoSlab",
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                ScanCubit.get(context).scanQR();
+              },
+              child: const Text(
+                " Start Shopping",
+                style: TextStyle(
+                  color: Constants.primaryColor,
+                  fontSize: 21,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: "RobotoSlab",
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 120,
+            )
+          ],
         ),
       ),
     );

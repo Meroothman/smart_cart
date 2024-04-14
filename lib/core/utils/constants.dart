@@ -10,9 +10,12 @@ class Constants {
   static const String googleLogo = "assets/images/google.svg";
   static const String facebookLogo = "assets/images/facebook.svg";
   static const String shoppingImg = "assets/images/shopping-cart.gif";
+  static const String scanQrCode = "assets/images/scanning_qr_code.png";
+  static const String noProducts = "assets/images/no_product.png";
 
   //Colors
   static const Color primaryColor = Color.fromARGB(255, 100, 156, 194);
+  // static const Color primaryColor = Color(0XFFB4D5FF);
   static Color secondaryColor = Colors.grey[600]!;
 
   //Strings
@@ -20,4 +23,5 @@ class Constants {
 
   //variables
   static String uId = CacheHelper.getData(key: "uId");
+  static String userName = CacheHelper.getData(key: "userName");
 }

@@ -20,10 +20,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _startDelay() {
     _timer = Timer(const Duration(seconds: 2), () {
+      // replacementNavigate(context, const AuthScreen());
+
       if (widget.isUserLoggedIn == true) {
         GetUserDataCubit.get(context).getUserData();
 
-        replacementNavigate(context, const HomeScreen());
+        replacementNavigate(context, HomeScreen());
       } else {
         replacementNavigate(context, const AuthScreen());
       }

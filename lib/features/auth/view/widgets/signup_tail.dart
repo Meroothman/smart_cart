@@ -51,9 +51,10 @@ class SignUpTail extends StatelessWidget {
         } else if (state is RegisterSuccess) {
           BlocProvider.of<AuthCubit>(context).isLoading = false;
           CacheHelper.saveData(key: "uId", value: state.uId);
+          CacheHelper.saveData(key: "userName", value: "$firstName $lastName");
           GetUserDataCubit.get(context).getUserData();
 
-          replacementNavigate(context, const HomeScreen());
+          replacementNavigate(context, HomeScreen());
         } else if (state is RegisterFailure) {
           BlocProvider.of<AuthCubit>(context).isLoading = false;
 

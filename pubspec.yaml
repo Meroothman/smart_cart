@@ -51,6 +51,9 @@ dependencies:
   cloud_firestore: ^4.16.1
   modal_progress_hud_nsn: ^0.5.1
   firebase_core: ^2.29.0
+  flutter_screenutil: ^5.9.0
+  flutter_barcode_scanner: ^2.0.0
+  loading_animation_widget: ^1.2.1
 
 dev_dependencies:
   flutter_test:
@@ -90,11 +93,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+    - family: ProtestRiot-Regular
+      fonts:
+        - asset: assets/fonts/ProtestRiot-Regular.ttf
+
+    - family: RobotoSlab
+      fonts:
+        - asset: assets/fonts/RobotoSlab-VariableFont_wght.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
