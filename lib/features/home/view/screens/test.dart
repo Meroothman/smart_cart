@@ -3,7 +3,6 @@ import '../../../../core/utils/functions.dart';
 import '../../../payment_feature/view/screens/my_card_view.dart';
 import '/../features/home/manager/cubits/order/order_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/widgets/button.dart';
 
 class Test extends StatelessWidget {
@@ -21,7 +20,7 @@ class Test extends StatelessWidget {
               fontSize: 20,
               onPressed: () {
                 OrderCubit.get(context).finishOrder();
-                pushNavigate(context, MyCartView());
+                pushNavigate(context, const MyCartView());
               },
             ),
           ),
