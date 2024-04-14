@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_cart_payment_project/core/widgets/button.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/view/screens/thank_you_view.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/custom_credit_card.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/payment_methods_list_view.dart';
+//import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/payment_methods_list_view.dart';
 
 class PaymentDetailsViewBody extends StatefulWidget {
   const PaymentDetailsViewBody({super.key});
@@ -21,7 +21,7 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
     return CustomScrollView(
       slivers: [
         const SliverToBoxAdapter(
-          child: PaymentMethodsListView(),
+          //child: PaymentMethodsListView(),
         ),
         SliverToBoxAdapter(
           child: CustomCreditCard(

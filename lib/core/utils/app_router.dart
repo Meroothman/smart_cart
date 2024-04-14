@@ -1,5 +1,1 @@
-
-
-abstract class AppRouter {
-
-}
+abstract class AppRouter {}
