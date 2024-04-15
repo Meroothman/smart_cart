@@ -1,5 +1,7 @@
 // ignore_for_file: avoid_function_literals_in_foreach_calls
 
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -18,6 +20,8 @@ class OrderCubit extends Cubit<OrderState> {
   List<ProductModel> products = [];
   late OrderModel orderModel;
   List productsId = [];
+  // ignore: prefer_typing_uninitialized_variables
+  var listener;
 
   CollectionReference orders = FirebaseFirestore.instance
       .collection('users')
@@ -47,7 +51,7 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void getProducts(String productId, String state) {
-    print(products.length);
+    print("products.length " + products.length.toString());
     emit(OrderReloading());
     FirebaseFirestore.instance
         .collection('Products')
@@ -60,10 +64,10 @@ class OrderCubit extends Cubit<OrderState> {
           count = element.userQuantity;
         }
       });
-      print(count);
+      print("count $count");
 
-      print(state);
-      print(productId);
+      print("state $state");
+      print("productId $productId");
       //  int count =
       //     products.where((element) => element.productId == productId).length;
       if (state == 'add') {
@@ -107,20 +111,23 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void checkAddProduct() {
-    FirebaseFirestore.instance
-        .collection('product_from_model')
-        .orderBy('date', descending: false)
-        .snapshots()
-        .listen((event) {
-      products.clear();
-      event.docs.forEach((element) {
-        getProducts(element.data()['product_id'], element.data()['state']);
+    try {
+      listener = FirebaseFirestore.instance
+          .collection('product_from_model')
+          .orderBy('date', descending: false)
+          .snapshots()
+          .listen((event) {
+        print("event.docs.length  " + event.docs.length.toString());
+        products.clear();
+        event.docs.forEach((element) {
+          getProducts(element.data()['product_id'], element.data()['state']);
+        });
       });
-    }).onError((e) {
+    } on Exception catch (e) {
       emit(AddProductError(
         error: e.toString(),
       ));
-    });
+    }
   }
 
   void finishOrder() {
@@ -164,6 +171,7 @@ class OrderCubit extends Cubit<OrderState> {
       orders.doc(orderModel.orderId).delete();
       products.clear();
       productsId.clear();
+      listener.cancel();
 
       emit(CancelOrderSuccess());
     } else {
