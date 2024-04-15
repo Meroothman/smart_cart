@@ -47,27 +47,41 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void getProducts(String productId, String state) {
+    print(products.length);
+    emit(OrderReloading());
     FirebaseFirestore.instance
         .collection('Products')
         .doc(productId)
         .get()
         .then((value) {
-      int count =
-          products.where((element) => element.productId == productId).length;
+      int count = 0;
+      products.forEach((element) {
+        if (element.productId == productId) {
+          count = element.userQuantity;
+        }
+      });
       print(count);
+
+      print(state);
+      print(productId);
+      //  int count =
+      //     products.where((element) => element.productId == productId).length;
       if (state == 'add') {
         if (count == 0) {
           products.add(ProductModel.fromJson(value.data()!, 1));
+          emit(ProductIncreasedQuantity());
         } else {
           products
               .where((element) => element.productId == productId)
               .forEach((element) {
             element.userQuantity += 1;
           });
+          emit(ProductIncreasedQuantity());
         }
       } else if (state == 'remove') {
         if (count == 1) {
           products.removeWhere((element) => element.productId == productId);
+          emit(ProductDecreasedQuantity());
         } else if (count == 0) {
         } else {
           products
@@ -75,17 +89,17 @@ class OrderCubit extends Cubit<OrderState> {
               .forEach((element) {
             element.userQuantity -= 1;
           });
+          emit(ProductDecreasedQuantity());
         }
       }
-      orderModel.totalPrice = 0;
-      products.forEach((element) {
-        productsId.add(
-            {"productId": element.productId, "quantity": element.userQuantity});
-        orderModel.totalPrice += element.price * element.userQuantity;
-      });
+
       emit(GetProductsSuccess(
           products: products, totalPrice: orderModel.totalPrice));
+      if (products.isEmpty) {
+        emit(OrderLoading());
+      }
     }).catchError((e) {
+      print(e.toString());
       emit(GetProductsError(
         error: e.toString(),
       ));
@@ -111,12 +125,26 @@ class OrderCubit extends Cubit<OrderState> {
 
   void finishOrder() {
     orderModel.productsId = productsId;
+    products.forEach((element) {
+      productsId.add(
+          {"productId": element.productId, "quantity": element.userQuantity});
+      orderModel.totalPrice += element.price * element.userQuantity;
+    });
     orders.doc(orderModel.orderId).update({
       'productsId': productsId,
       'totalPrice': orderModel.totalPrice
     }).then((value) {
       products.clear();
       productsId.clear();
+
+      FirebaseFirestore.instance
+          .collection('product_from_model')
+          .get()
+          .then((value) {
+        value.docs.forEach((element) {
+          element.reference.delete();
+        });
+      });
       emit(OrderFinished());
     }).catchError((e) {
       emit(FinishOrderError(error: e.toString()));
@@ -125,10 +153,38 @@ class OrderCubit extends Cubit<OrderState> {
 
   void cancelOrder() {
     if (products.isNotEmpty) {
-      emit(CancelOrderError());
-    } else {
+      FirebaseFirestore.instance
+          .collection('product_from_model')
+          .get()
+          .then((value) {
+        value.docs.forEach((element) {
+          element.reference.delete();
+        });
+      });
       orders.doc(orderModel.orderId).delete();
+      products.clear();
+      productsId.clear();
+
       emit(CancelOrderSuccess());
+    } else {
+      FirebaseFirestore.instance
+          .collection('product_from_model')
+          .get()
+          .then((value) {
+        value.docs.forEach((element) {
+          element.reference.delete();
+        });
+      });
+      orders.doc(orderModel.orderId).delete();
+      products.clear();
+      productsId.clear();
     }
+  }
+
+  void addHistory() {
+    FirebaseFirestore.instance
+        .collection("history")
+        .doc(orderModel.orderId)
+        .set(orderModel.toMap());
   }
 }

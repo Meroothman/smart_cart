@@ -20,6 +20,10 @@ final class GetProductsSuccess extends OrderState {
   GetProductsSuccess({required this.products, required this.totalPrice});
 }
 
+final class ProductIncreasedQuantity extends OrderState {}
+
+final class ProductDecreasedQuantity extends OrderState {}
+
 final class StartOrderError extends OrderState {
   final String error;
 

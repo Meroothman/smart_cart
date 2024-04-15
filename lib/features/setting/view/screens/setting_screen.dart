@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+
 import '/../features/auth/data/user_model.dart';
 import '/../features/setting/view/widgets/setting_dialog.dart';
 import '/../features/setting/view/widgets/setting_row.dart';
 import 'package:toastification/toastification.dart';
 import '../../../../core/utils/functions.dart';
 import '../../manager/cubits/get_user_data/get_user_data_cubit.dart';
-import '../widgets/logout_dialog.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
@@ -186,7 +186,7 @@ class SettingScreen extends StatelessWidget {
                       edit: "LogOut",
                       data: "",
                       ontap: () {
-                        LogoutDialog.showCustomDialog(context);
+                        logOut(context);
                       },
                       icon: const Icon(
                         color: Colors.black54,

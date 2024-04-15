@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '/../core/utils/constants.dart';
 
 import '../../../../core/utils/functions.dart';
 import '../../../auth/data/user_model.dart';
 import '../../../setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
 import '../../../setting/view/screens/setting_screen.dart';
-import '../../../setting/view/widgets/logout_dialog.dart';
 
 Drawer drawer(BuildContext context) {
   bool languageIsSwitched = false;
@@ -118,8 +118,8 @@ Drawer drawer(BuildContext context) {
               ListTile(
                 leading: const Icon(Icons.logout_rounded),
                 title: const Text("Logout"),
-                onTap: () async {
-                  LogoutDialog.showCustomDialog(context);
+                onTap: () {
+                  logOut(context);
                 },
               ),
             ],

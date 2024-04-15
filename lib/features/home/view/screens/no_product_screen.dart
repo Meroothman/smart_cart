@@ -13,9 +13,11 @@ class NoProductScreen extends StatelessWidget {
       drawer: drawer(context),
       appBar: AppBar(
         backgroundColor: Constants.primaryColor,
-        actions: const [
-          ImageIcon(AssetImage("assets/images/qr_code_scanner.png")),
-          SizedBox(
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.delete_outline_outlined)),
+          const SizedBox(
             width: 20,
           )
         ],

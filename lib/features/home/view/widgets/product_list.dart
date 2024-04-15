@@ -5,19 +5,18 @@ import 'package:smart_cart_payment_project/features/home/view/widgets/product_ca
 
 import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/functions.dart';
-import '../../../../core/widgets/button.dart';
 import '../../../payment_feature/view/screens/my_card_view.dart';
 import '../../manager/cubits/order/order_cubit.dart';
 
 class ProductList extends StatelessWidget {
-  const ProductList({
+  ProductList({
     super.key,
     required this.productList,
     required this.totalPrice,
   });
 
   final List<ProductModel> productList;
-  final int totalPrice;
+  int totalPrice;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +26,10 @@ class ProductList extends StatelessWidget {
         backgroundColor: Constants.primaryColor,
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: const ImageIcon(
-                  AssetImage("assets/images/qr_code_scanner.png"))),
+              onPressed: () {
+                cancelOrder(context);
+              },
+              icon: const Icon(Icons.delete_outline_outlined)),
           const SizedBox(
             width: 20,
           )
@@ -64,8 +64,7 @@ class ProductList extends StatelessWidget {
                     text: "total: $totalPrice EGP       Checkout >",
                     fontSize: 20,
                     onPressed: () {
-                      OrderCubit.get(context).finishOrder();
-                      pushNavigate(context, const MyCartView());
+                      finishOrder(context);
                     },
                   ),
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/features/home/view/screens/failure_screen.dart';
+import 'package:smart_cart_payment_project/core/utils/functions.dart';
 import 'package:smart_cart_payment_project/features/home/view/widgets/product_list.dart';
+import 'package:toastification/toastification.dart';
 import '../../../../core/utils/constants.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import '/../features/home/manager/cubits/order/order_cubit.dart';
@@ -14,17 +15,13 @@ class CartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<OrderCubit, OrderState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is AddProductError || state is GetProductsError) {
+          showToast(context, "Something went wrong ", ToastificationType.error);
+        }
+      },
       builder: (context, state) {
-        if (state is OrderReloading) {
-          return Scaffold(
-              body: Center(
-            child: LoadingAnimationWidget.beat(
-              color: Constants.primaryColor,
-              size: 200,
-            ),
-          ));
-        } else if (state is OrderLoading || state is OrderAdded) {
+        if (state is OrderAdded) {
           return const NoProductScreen();
         } else if (state is GetProductsSuccess) {
           return ProductList(
@@ -32,7 +29,13 @@ class CartView extends StatelessWidget {
             totalPrice: state.totalPrice,
           );
         } else {
-          return const FailureScreen();
+          return Scaffold(
+              body: Center(
+            child: LoadingAnimationWidget.beat(
+              color: Constants.primaryColor,
+              size: 200,
+            ),
+          ));
         }
       },
     );
