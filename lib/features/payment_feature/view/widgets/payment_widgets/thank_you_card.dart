@@ -64,7 +64,7 @@ class ThankYouCard extends StatelessWidget {
               height: 60,
               thickness: 2,
             ),
-            const TotalPrice(title: 'Total', value: r'$42.97'),
+            TotalPrice(title: 'Total', value: "\$${Constants.totalPrice} "),
             const SizedBox(
               height: 10,
             ),

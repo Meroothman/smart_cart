@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_cart_payment_project/core/utils/constants.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/data/repos/ckeckout_repo_impl.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/manger/payment_cubit.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/cart_info_item.dart';
@@ -23,9 +24,9 @@ class MyCartViewBody extends StatelessWidget {
           const SizedBox(
             height: 25,
           ),
-          const OrderInfoItem(
+          OrderInfoItem(
             title: 'Order Total Price',
-            value: r'42.97$',
+            value: "\$${Constants.totalPrice} ",
           ),
           const SizedBox(
             height: 3,
@@ -42,7 +43,7 @@ class MyCartViewBody extends StatelessWidget {
             height: 34,
             color: Color(0xffC7C7C7),
           ),
-          const TotalPrice(title: 'Total', value: r'42.97$'),
+          TotalPrice(title: 'Total', value: "\$${Constants.totalPrice} "),
           const SizedBox(
             height: 16,
           ),
