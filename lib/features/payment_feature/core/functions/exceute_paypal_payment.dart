@@ -52,7 +52,7 @@ void exceutePaypalPayment(BuildContext context,
           );
         },
         onCancel: () {
-          print('cancelled:');
+         // print('cancelled:');
           Navigator.pop(context);
         },
       ),

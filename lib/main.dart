@@ -9,8 +9,6 @@ import 'package:smart_cart_payment_project/core/utils/constants.dart';
 import 'package:smart_cart_payment_project/features/auth/manager/cubits/auth/auth_cubit.dart';
 import 'package:smart_cart_payment_project/features/auth/manager/cubits/user_login/user_login_cubit.dart';
 import 'package:smart_cart_payment_project/features/auth/manager/cubits/user_register/user_register_cubit.dart';
-import 'package:smart_cart_payment_project/features/home/view/screens/cart_view.dart';
-import 'package:smart_cart_payment_project/features/home/view/screens/no_product_screen.dart';
 import 'package:smart_cart_payment_project/features/home/view/screens/splash_screen.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/core/utils/api_keys.dart';
 import 'package:smart_cart_payment_project/features/setting/manager/cubits/change_user_data/change_user_data_cubit.dart';

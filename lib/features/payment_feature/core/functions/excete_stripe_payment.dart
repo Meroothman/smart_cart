@@ -5,7 +5,7 @@ import 'package:smart_cart_payment_project/features/payment_feature/manger/payme
 
 void excuteStripePayment(BuildContext context) {
     PaymentIntentInputModel paymentIntentInputModel = PaymentIntentInputModel(
-      amount: '100',
+      amount: '500', //edite
       currency: 'USD',
       customerId: "cus_PbeH3D8S6hPNFN",
     );
