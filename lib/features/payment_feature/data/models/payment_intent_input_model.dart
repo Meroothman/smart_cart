@@ -1,3 +1,5 @@
+import 'package:smart_cart_payment_project/core/utils/constants.dart';
+
 class PaymentIntentInputModel {
   final String amount;
   final String currency;
@@ -9,7 +11,7 @@ class PaymentIntentInputModel {
   toJson() {
     //to convert data yo map
     return {
-      'amount': '${amount}00',
+      'amount': '\$${Constants.totalPrice} 00',
       'currency': currency,
       'customer': customerId,
     };

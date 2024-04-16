@@ -48,7 +48,7 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void getProducts(String productId, String state) {
-    print("products.length " + products.length.toString());
+    //print("products.length " + products.length.toString());
     emit(OrderReloading());
 
     FirebaseFirestore.instance
@@ -62,10 +62,10 @@ class OrderCubit extends Cubit<OrderState> {
           count = element.userQuantity;
         }
       });
-      print("count $count");
+      //print("count $count");
 
-      print("state $state");
-      print("productId $productId");
+      //print("state $state");
+      //print("productId $productId");
       //  int count =
       //     products.where((element) => element.productId == productId).length;
       if (state == 'add') {
