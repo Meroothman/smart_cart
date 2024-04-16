@@ -34,6 +34,7 @@ void exceutePaypalPayment(BuildContext context,
               return true;
             } else {
               return false;
+<<<<<<< HEAD
             }
           },
         );
@@ -58,3 +59,15 @@ void exceutePaypalPayment(BuildContext context,
     ),
   ));
 }
+=======
+            },
+          );
+        },
+        onCancel: () {
+         // print('cancelled:');
+          Navigator.pop(context);
+        },
+      ),
+    ));
+  }
+>>>>>>> 6b30953fc9878dc91defdd456b9f2367acd16c9e
