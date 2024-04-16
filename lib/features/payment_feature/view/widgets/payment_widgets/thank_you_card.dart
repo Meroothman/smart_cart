@@ -7,6 +7,8 @@ import 'package:smart_cart_payment_project/features/payment_feature/view/widgets
 import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/payment_info_item.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/total_price_widget.dart';
 
+import '../../../../home/manager/cubits/order/order_cubit.dart';
+
 class ThankYouCard extends StatelessWidget {
   const ThankYouCard({
     super.key,
@@ -64,7 +66,9 @@ class ThankYouCard extends StatelessWidget {
               height: 60,
               thickness: 2,
             ),
-            TotalPrice(title: 'Total', value: "\$${Constants.totalPrice} "),
+            TotalPrice(
+                title: 'Total',
+                value: "\$${OrderCubit.get(context).orderModel.totalPrice} "),
             const SizedBox(
               height: 10,
             ),
