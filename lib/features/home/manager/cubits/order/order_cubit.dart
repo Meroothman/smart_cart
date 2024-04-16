@@ -136,6 +136,7 @@ class OrderCubit extends Cubit<OrderState> {
       productsId.add(
           {"productId": element.productId, "quantity": element.userQuantity});
     });
+    addHistory();
     orders.doc(orderModel.orderId).update({
       'productsId': productsId,
       'totalPrice': orderModel.totalPrice

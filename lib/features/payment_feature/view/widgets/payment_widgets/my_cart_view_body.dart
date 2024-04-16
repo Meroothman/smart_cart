@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_cart_payment_project/core/utils/constants.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/data/repos/ckeckout_repo_impl.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/manger/payment_cubit.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/cart_info_item.dart';
@@ -8,6 +7,7 @@ import 'package:smart_cart_payment_project/features/payment_feature/view/widgets
 import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/total_price_widget.dart';
 
 import '../../../../../core/utils/functions.dart';
+import '../../../../home/manager/cubits/order/order_cubit.dart';
 
 class MyCartViewBody extends StatelessWidget {
   const MyCartViewBody({super.key});
@@ -26,7 +26,7 @@ class MyCartViewBody extends StatelessWidget {
           ),
           OrderInfoItem(
             title: 'Order Total Price',
-            value: "\$${Constants.totalPrice} ",
+            value: "\$${OrderCubit.get(context).orderModel.totalPrice} ",
           ),
           const SizedBox(
             height: 3,
@@ -43,7 +43,9 @@ class MyCartViewBody extends StatelessWidget {
             height: 34,
             color: Color(0xffC7C7C7),
           ),
-          TotalPrice(title: 'Total', value: "\$${Constants.totalPrice} "),
+          TotalPrice(
+              title: 'Total',
+              value: "\$${OrderCubit.get(context).orderModel.totalPrice} "),
           const SizedBox(
             height: 16,
           ),
@@ -63,7 +65,7 @@ class MyCartViewBody extends StatelessWidget {
                     );
                   });
             },
-            text: 'Complete CheckOut',
+            text: ' CheckOut',
             fontSize: 25,
             radius: 15,
             height: 60,
