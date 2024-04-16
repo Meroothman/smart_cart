@@ -6,6 +6,7 @@ import 'package:smart_cart_payment_project/features/payment_feature/manger/payme
 import '../../../home/manager/cubits/order/order_cubit.dart';
 
 void excuteStripePayment(BuildContext context) {
+<<<<<<< HEAD
   PaymentIntentInputModel paymentIntentInputModel = PaymentIntentInputModel(
     amount: '${OrderCubit.get(context).orderModel.totalPrice}',
     currency: 'USD',
@@ -14,3 +15,13 @@ void excuteStripePayment(BuildContext context) {
   BlocProvider.of<PaymentCubit>(context)
       .makePayment(paymentIntentInputModel: paymentIntentInputModel);
 }
+=======
+    PaymentIntentInputModel paymentIntentInputModel = PaymentIntentInputModel(
+      amount: '500', //edite
+      currency: 'USD',
+      customerId: "cus_PbeH3D8S6hPNFN",
+    );
+    BlocProvider.of<PaymentCubit>(context)
+        .makePayment(paymentIntentInputModel: paymentIntentInputModel);
+  }
+>>>>>>> 6b30953fc9878dc91defdd456b9f2367acd16c9e
