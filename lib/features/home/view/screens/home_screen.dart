@@ -12,9 +12,8 @@ import '../widgets/drawer.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  @override
-  bool languageIsSwitched = false;
-  bool darkModeIsSwitch = false;
+  // bool languageIsSwitched = false;
+  // bool darkModeIsSwitch = false;
   String cartId = "45346854843";
 
   @override

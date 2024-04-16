@@ -25,8 +25,8 @@ class CartView extends StatelessWidget {
           return const NoProductScreen();
         } else if (state is GetProductsSuccess) {
           return ProductList(
-            productList: state.products,
-            totalPrice: state.totalPrice,
+            productList: state.products, totalPrice: state.totalPrice,
+            // totalPrice: state.totalPrice,
           );
         } else {
           return Scaffold(

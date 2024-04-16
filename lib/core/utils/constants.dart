@@ -24,4 +24,5 @@ class Constants {
   //variables
   static String uId = CacheHelper.getData(key: "uId");
   static String userName = CacheHelper.getData(key: "userName");
+  static int totalPrice = CacheHelper.getData(key: "totalPrice") ?? 0;
 }

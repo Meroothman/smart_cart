@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_cart_payment_project/core/utils/constants.dart';
@@ -40,7 +42,6 @@ void pushNavigate(BuildContext context, Widget widget) {
 
 void logOut(BuildContext context) {
   return CustomSimpleDialog.showCustomDialog(context, "Logout", () async {
-    print("Logout");
     await FirebaseAuth.instance.signOut();
     CacheHelper.removeData(key: "uId");
     replacementNavigate(context, const AuthScreen());
@@ -54,9 +55,10 @@ void cancelOrder(BuildContext context) {
   }, "Confirm", "Are you sure you want to Cancel your order ?!");
 }
 
-void finishOrder(BuildContext context) {
+void finishOrder(BuildContext context, int totalPrice) {
   return CustomSimpleDialog.showCustomDialog(context, "Cancel Order", () {
     OrderCubit.get(context).finishOrder();
+    CacheHelper.saveData(key: "totalPrice", value: totalPrice);
     replacementNavigate(context, const MyCartView());
   }, "Confirm", "Are you sure you want to Finish your order ?!");
 }

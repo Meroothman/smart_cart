@@ -1,6 +1,9 @@
 // ignore_for_file: avoid_function_literals_in_foreach_calls
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9b33de79d659cc4d66acdc1a338bc190a4066475
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -52,6 +55,7 @@ class OrderCubit extends Cubit<OrderState> {
   void getProducts(String productId, String state) {
     print("products.length " + products.length.toString());
     emit(OrderReloading());
+
     FirebaseFirestore.instance
         .collection('Products')
         .doc(productId)
@@ -95,6 +99,7 @@ class OrderCubit extends Cubit<OrderState> {
           emit(ProductDecreasedQuantity());
         }
       }
+      getTotalPrice();
 
       emit(GetProductsSuccess(
           products: products, totalPrice: orderModel.totalPrice));
@@ -134,7 +139,6 @@ class OrderCubit extends Cubit<OrderState> {
     products.forEach((element) {
       productsId.add(
           {"productId": element.productId, "quantity": element.userQuantity});
-      orderModel.totalPrice += element.price * element.userQuantity;
     });
     orders.doc(orderModel.orderId).update({
       'productsId': productsId,
@@ -151,6 +155,8 @@ class OrderCubit extends Cubit<OrderState> {
           element.reference.delete();
         });
       });
+      listener.cancel();
+
       emit(OrderFinished());
     }).catchError((e) {
       emit(FinishOrderError(error: e.toString()));
@@ -186,6 +192,13 @@ class OrderCubit extends Cubit<OrderState> {
       products.clear();
       productsId.clear();
     }
+  }
+
+  void getTotalPrice() {
+    orderModel.totalPrice = 0;
+    products.forEach((element) {
+      orderModel.totalPrice += element.price * element.userQuantity;
+    });
   }
 
   void addHistory() {

@@ -5,9 +5,8 @@ import 'package:smart_cart_payment_project/features/home/view/widgets/product_ca
 
 import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/functions.dart';
-import '../../../payment_feature/view/screens/my_card_view.dart';
-import '../../manager/cubits/order/order_cubit.dart';
 
+// ignore: must_be_immutable
 class ProductList extends StatelessWidget {
   ProductList({
     super.key,
@@ -64,7 +63,7 @@ class ProductList extends StatelessWidget {
                     text: "total: $totalPrice EGP       Checkout >",
                     fontSize: 20,
                     onPressed: () {
-                      finishOrder(context);
+                      finishOrder(context, totalPrice);
                     },
                   ),
                 ),

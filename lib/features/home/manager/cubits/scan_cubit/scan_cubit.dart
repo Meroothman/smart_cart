@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 part 'scan_state.dart';
 
