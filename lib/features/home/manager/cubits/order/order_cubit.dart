@@ -48,6 +48,8 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void getProducts(String productId, String state) {
+    print(productId);
+    print(state);
     //print("products.length " + products.length.toString());
     emit(OrderReloading());
 

@@ -1,4 +1,4 @@
-part of 'scan_cubit.dart';
+/*part of 'scan_cubit.dart';
 
 @immutable
 sealed class ScanState {}
@@ -15,4 +15,4 @@ final class ScanningError extends ScanState {
   final String error;
 
   ScanningError({required this.error});
-}
+}*/

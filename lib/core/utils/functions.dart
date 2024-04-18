@@ -58,6 +58,8 @@ void cancelOrder(BuildContext context) {
 void finishOrder(BuildContext context, int totalPrice) {
   return CustomSimpleDialog.showCustomDialog(context, "Finish Order", () {
     OrderCubit.get(context).finishOrder();
+    CacheHelper.saveData(key: "totalPrice", value: totalPrice);
+    Constants.totalPrice = CacheHelper.getData(key: "totalPrice");
     replacementNavigate(context, const MyCartView());
   }, "Confirm", "Are you sure you want to Finish your order ?!");
 }

@@ -6,8 +6,9 @@ import 'package:smart_cart_payment_project/features/payment_feature/view/widgets
 import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/payment_methods_bottom_sheet.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/total_price_widget.dart';
 
+import '../../../../../core/utils/constants.dart';
 import '../../../../../core/utils/functions.dart';
-import '../../../../home/manager/cubits/order/order_cubit.dart';
+//import '../../../../home/manager/cubits/order/order_cubit.dart';
 
 class MyCartViewBody extends StatelessWidget {
   const MyCartViewBody({super.key});
@@ -24,9 +25,10 @@ class MyCartViewBody extends StatelessWidget {
           const SizedBox(
             height: 25,
           ),
-          OrderInfoItem(
+           OrderInfoItem(
             title: 'Order Total Price',
-            value: "\$${OrderCubit.get(context).orderModel.totalPrice} ",
+            value: "\$${Constants.totalPrice}",
+            //"\$${OrderCubit.get(context).orderModel!.totalPrice} ",
           ),
           const SizedBox(
             height: 3,
@@ -43,9 +45,11 @@ class MyCartViewBody extends StatelessWidget {
             height: 34,
             color: Color(0xffC7C7C7),
           ),
-          TotalPrice(
+           TotalPrice(
               title: 'Total',
-              value: "\$${OrderCubit.get(context).orderModel.totalPrice} "),
+              value: "\$${Constants.totalPrice}",
+              //"\$${OrderCubit.get(context).orderModel!.totalPrice} "
+              ),
           const SizedBox(
             height: 16,
           ),

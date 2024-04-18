@@ -11,7 +11,7 @@ class ThankYouView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(ontap: () {
-        replacementNavigate(context, HomeScreen());
+        replacementNavigate(context,const HomeScreen());
       }),
       body: Transform.translate(
           // move widget on x,y axis

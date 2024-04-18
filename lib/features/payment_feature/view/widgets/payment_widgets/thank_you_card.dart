@@ -7,7 +7,7 @@ import 'package:smart_cart_payment_project/features/payment_feature/view/widgets
 import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/payment_info_item.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/total_price_widget.dart';
 
-import '../../../../home/manager/cubits/order/order_cubit.dart';
+//import '../../../../home/manager/cubits/order/order_cubit.dart';
 
 class ThankYouCard extends StatelessWidget {
   const ThankYouCard({
@@ -46,7 +46,7 @@ class ThankYouCard extends StatelessWidget {
             ),
             const PaymentItemInfo(
               title: 'Date',
-              value: '01/24/2023',
+              value: '17/04/2024',
             ),
             const SizedBox(
               height: 10,
@@ -66,9 +66,11 @@ class ThankYouCard extends StatelessWidget {
               height: 60,
               thickness: 2,
             ),
-            TotalPrice(
+             TotalPrice(
                 title: 'Total',
-                value: "\$${OrderCubit.get(context).orderModel.totalPrice} "),
+                value: "\$${Constants.totalPrice}",
+                //value: "\$${OrderCubit.get(context).orderModel!.totalPrice}"
+                ),
             const SizedBox(
               height: 10,
             ),
