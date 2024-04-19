@@ -7,6 +7,7 @@ import '/../features/auth/view/screens/Auth_screen.dart';
 import '/../features/home/view/screens/home_screen.dart';
 import '../../../setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
 
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key, required this.isUserLoggedIn});
   final bool isUserLoggedIn;
@@ -25,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (widget.isUserLoggedIn == true) {
         GetUserDataCubit.get(context).getUserData();
 
-        replacementNavigate(context, HomeScreen());
+        replacementNavigate(context,const HomeScreen());
       } else {
         replacementNavigate(context, const AuthScreen());
       }

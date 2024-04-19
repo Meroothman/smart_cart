@@ -1,6 +1,9 @@
 // ignore_for_file: avoid_function_literals_in_foreach_calls
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 1403921c5ad1c2277d0912d22b2fc6d9e79b2bfe
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -50,7 +53,9 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void getProducts(String productId, String state) {
-    print("products.length " + products.length.toString());
+    print(productId);
+    print(state);
+    //print("products.length " + products.length.toString());
     emit(OrderReloading());
 
     FirebaseFirestore.instance
@@ -64,10 +69,10 @@ class OrderCubit extends Cubit<OrderState> {
           count = element.userQuantity;
         }
       });
-      print("count $count");
+      //print("count $count");
 
-      print("state $state");
-      print("productId $productId");
+      //print("state $state");
+      //print("productId $productId");
       //  int count =
       //     products.where((element) => element.productId == productId).length;
       if (state == 'add') {

@@ -1,4 +1,4 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+/*import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
@@ -24,4 +24,4 @@ class ScanCubit extends Cubit<ScanState> {
       emit(ScanningError(error: 'Unable to read QR code'));
     }
   }
-}
+}*/

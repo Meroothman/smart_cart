@@ -1,52 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_cart_payment_project/core/utils/functions.dart';
 import 'package:smart_cart_payment_project/features/home/manager/cubits/order/order_cubit.dart';
-import 'package:smart_cart_payment_project/features/home/manager/cubits/scan_cubit/scan_cubit.dart';
 import 'package:smart_cart_payment_project/features/home/view/screens/cart_view.dart';
-import 'package:toastification/toastification.dart';
+import 'package:smart_cart_payment_project/features/home/view/screens/no_product_screen.dart';
 import '../../../../core/utils/constants.dart';
 import '../widgets/drawer.dart';
 
-// ignore: must_be_immutable
+
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
+
+  @override
 
   // bool languageIsSwitched = false;
-  // bool darkModeIsSwitch = false;
-  String cartId = "45346854843";
+  // String cartId = "45346854843";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: drawer(context),
-      appBar: AppBar(
-        backgroundColor: Constants.primaryColor,
-        actions: [
-          BlocListener<ScanCubit, ScanState>(
-            listener: (context, state) {
-              if (state is ScanningSuccess) {
-                ///>>>>>>>> cart id == state.cartId
-                OrderCubit.get(context).startOrder(cartId);
-                replacementNavigate(context, const CartView());
-              } else if (state is ScanningError) {
-                showToast(context, state.error, ToastificationType.error);
-              }
-            },
-            child: IconButton(
+        drawer: drawer(context),
+        appBar: AppBar(
+          backgroundColor: Constants.primaryColor,
+          actions: [
+            IconButton(
                 onPressed: () {
-                  ScanCubit.get(context).scanQR();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const NoProductScreen()),
+                  );
                 },
                 icon: const ImageIcon(
                     AssetImage("assets/images/qr_code_scanner.png"))),
-          ),
-          const SizedBox(
-            width: 20,
-          )
-        ],
-      ),
-      body: Center(
-        child: Column(
+            const SizedBox(
+              width: 20,
+            )
+          ],
+        ),
+        body: Center(
+            child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
@@ -63,7 +53,9 @@ class HomeScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                ScanCubit.get(context).scanQR();
+                OrderCubit.get(context).startOrder("1542488962");
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const CartView()));
               },
               child: const Text(
                 " Start Shopping",
@@ -79,8 +71,6 @@ class HomeScreen extends StatelessWidget {
               height: 120,
             )
           ],
-        ),
-      ),
-    );
+        )));
   }
 }

@@ -53,9 +53,13 @@ dependencies:
   firebase_core: ^2.29.0
   flutter_paypal_payment: ^1.0.6
   flutter_screenutil: ^5.9.0
-  flutter_barcode_scanner: ^2.0.0
   loading_animation_widget: ^1.2.1
+  flutter_barcode_scanner: ^2.0.0
 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 1403921c5ad1c2277d0912d22b2fc6d9e79b2bfe
 
 
 
