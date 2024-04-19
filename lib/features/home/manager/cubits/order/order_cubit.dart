@@ -1,9 +1,6 @@
 // ignore_for_file: avoid_function_literals_in_foreach_calls
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 9b33de79d659cc4d66acdc1a338bc190a4066475
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';

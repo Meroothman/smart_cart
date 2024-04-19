@@ -6,7 +6,7 @@ import 'package:smart_cart_payment_project/features/home/manager/cubits/order/or
 
 void excuteStripePayment(BuildContext context) {
   PaymentIntentInputModel paymentIntentInputModel = PaymentIntentInputModel(
-    amount: '${OrderCubit.get(context).orderModel.totalPrice * 100}',
+    amount: '${OrderCubit.get(context).orderModel.totalPrice }',
     currency: 'USD',
     customerId: "cus_PbeH3D8S6hPNFN",
   );

@@ -56,12 +56,6 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0
   loading_animation_widget: ^1.2.1
 
-  flutter_icons:
-  android: true
-  ios: true
-  image_path: "assets/icons/logo_icon.png"
-  dark_mode:
-  image_path: "assets/icons/dark_logo.png"
 
 
 
