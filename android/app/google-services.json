@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "171192483195",
+    "project_id": "smart-cart-be4cd",
+    "storage_bucket": "smart-cart-be4cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171192483195:android:24e6901d618235631c51de",
+        "android_client_info": {
+          "package_name": "com.example.smart_cart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1MaaqxtL9Xz3t9as-IsyKq_9edtaAQgc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171192483195:android:74ee66c77abbe2591c51de",
+        "android_client_info": {
+          "package_name": "com.example.smart_cart_payment_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1MaaqxtL9Xz3t9as-IsyKq_9edtaAQgc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

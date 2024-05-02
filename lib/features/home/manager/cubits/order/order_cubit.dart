@@ -1,9 +1,5 @@
 // ignore_for_file: avoid_function_literals_in_foreach_calls
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 1403921c5ad1c2277d0912d22b2fc6d9e79b2bfe
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -37,7 +33,8 @@ class OrderCubit extends Cubit<OrderState> {
       'cartId': cartId,
       'uId': Constants.uId,
       'productsId': productsId,
-      'totalPrice': 0
+      'totalPrice': 0,
+      'date': DateTime.now().toString(),
     }).then((value) {
       orders.doc(value.id).update({'orderId': value.id});
       emit(OrderAdded());
@@ -46,16 +43,13 @@ class OrderCubit extends Cubit<OrderState> {
       });
       checkAddProduct();
     }).catchError((e) {
-      emit(StartOrderError(
+      emit(OrderError(
         error: e.toString(),
       ));
     });
   }
 
   void getProducts(String productId, String state) {
-    print(productId);
-    print(state);
-    //print("products.length " + products.length.toString());
     emit(OrderReloading());
 
     FirebaseFirestore.instance
@@ -64,17 +58,14 @@ class OrderCubit extends Cubit<OrderState> {
         .get()
         .then((value) {
       int count = 0;
-      products.forEach((element) {
-        if (element.productId == productId) {
-          count = element.userQuantity;
-        }
-      });
-      //print("count $count");
 
-      //print("state $state");
-      //print("productId $productId");
-      //  int count =
-      //     products.where((element) => element.productId == productId).length;
+      for (int i = 0; i < products.length; i++) {
+        if (products[i].productId == productId) {
+          count = products[i].userQuantity;
+          break;
+        }
+      }
+
       if (state == 'add') {
         if (count == 0) {
           products.add(ProductModel.fromJson(value.data()!, 1));
@@ -101,7 +92,7 @@ class OrderCubit extends Cubit<OrderState> {
           emit(ProductDecreasedQuantity());
         }
       }
-      getTotalPrice();
+      calculateTotalPrice();
 
       emit(GetProductsSuccess(
           products: products, totalPrice: orderModel.totalPrice));
@@ -109,8 +100,7 @@ class OrderCubit extends Cubit<OrderState> {
         emit(OrderLoading());
       }
     }).catchError((e) {
-      print(e.toString());
-      emit(GetProductsError(
+      emit(OrderError(
         error: e.toString(),
       ));
     });
@@ -123,81 +113,51 @@ class OrderCubit extends Cubit<OrderState> {
           .orderBy('date', descending: false)
           .snapshots()
           .listen((event) {
-        print("event.docs.length  " + event.docs.length.toString());
         products.clear();
         event.docs.forEach((element) {
           getProducts(element.data()['product_id'], element.data()['state']);
+
+          // print(
+          //     "element.data()['cart_id']: ${element.data()['cart_id']} ${orderModel.cartId}");
+          // if (element.data()['cart_id'] == orderModel.cartId) {
+          //   getProducts(element.data()['product_id'], element.data()['state']);
+          // }
         });
       });
     } on Exception catch (e) {
-      emit(AddProductError(
+      emit(OrderError(
         error: e.toString(),
       ));
     }
   }
 
   void finishOrder() {
-    orderModel.productsId = productsId;
     products.forEach((element) {
       productsId.add(
           {"productId": element.productId, "quantity": element.userQuantity});
     });
+    orderModel.productsId = productsId;
+
     addHistory();
     orders.doc(orderModel.orderId).update({
       'productsId': productsId,
       'totalPrice': orderModel.totalPrice
     }).then((value) {
-      products.clear();
-      productsId.clear();
-
-      FirebaseFirestore.instance
-          .collection('product_from_model')
-          .get()
-          .then((value) {
-        value.docs.forEach((element) {
-          element.reference.delete();
-        });
-      });
-      listener.cancel();
-
       emit(OrderFinished());
     }).catchError((e) {
-      emit(FinishOrderError(error: e.toString()));
+      emit(OrderError(error: e.toString()));
     });
   }
 
   void cancelOrder() {
-    if (products.isNotEmpty) {
-      FirebaseFirestore.instance
-          .collection('product_from_model')
-          .get()
-          .then((value) {
-        value.docs.forEach((element) {
-          element.reference.delete();
-        });
-      });
-      orders.doc(orderModel.orderId).delete();
-      products.clear();
-      productsId.clear();
-      listener.cancel();
+    orders.doc(orderModel.orderId).delete();
 
-      emit(CancelOrderSuccess());
-    } else {
-      FirebaseFirestore.instance
-          .collection('product_from_model')
-          .get()
-          .then((value) {
-        value.docs.forEach((element) {
-          element.reference.delete();
-        });
-      });
-      orders.doc(orderModel.orderId).delete();
-      products.clear();
-      productsId.clear();
-    }
+    clearData();
+
+    emit(CancelOrderSuccess());
   }
 
-  void getTotalPrice() {
+  void calculateTotalPrice() {
     orderModel.totalPrice = 0;
     products.forEach((element) {
       orderModel.totalPrice += element.price * element.userQuantity;
@@ -207,7 +167,33 @@ class OrderCubit extends Cubit<OrderState> {
   void addHistory() {
     FirebaseFirestore.instance
         .collection("history")
+        .doc(orderModel.date.substring(0, 10))
+        .collection("orders")
         .doc(orderModel.orderId)
         .set(orderModel.toMap());
+  }
+
+  void clearData() {
+    reduceQuantity();
+    FirebaseFirestore.instance
+        .collection('product_from_model')
+        .get()
+        .then((value) {
+      value.docs.forEach((element) {
+        element.reference.delete();
+      });
+    });
+    products.clear();
+    productsId.clear();
+    listener.cancel();
+  }
+
+  void reduceQuantity() {
+    for (var element in products) {
+      FirebaseFirestore.instance
+          .collection('Products')
+          .doc(element.productId)
+          .update({'quantity': element.quantity - element.userQuantity});
+    }
   }
 }

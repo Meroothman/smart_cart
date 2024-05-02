@@ -7,7 +7,6 @@ import '/../features/auth/view/screens/Auth_screen.dart';
 import '/../features/home/view/screens/home_screen.dart';
 import '../../../setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
 
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key, required this.isUserLoggedIn});
   final bool isUserLoggedIn;
@@ -21,15 +20,15 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _startDelay() {
     _timer = Timer(const Duration(seconds: 2), () {
-      // replacementNavigate(context, const AuthScreen());
+      replacementNavigate(context, const AuthScreen());
 
-      if (widget.isUserLoggedIn == true) {
-        GetUserDataCubit.get(context).getUserData();
+      // if (widget.isUserLoggedIn == true) {
+      //   GetUserDataCubit.get(context).getUserData();
 
-        replacementNavigate(context,const HomeScreen());
-      } else {
-        replacementNavigate(context, const AuthScreen());
-      }
+      //   replacementNavigate(context, const HomeScreen());
+      // } else {
+      //   replacementNavigate(context, const AuthScreen());
+      // }
     });
   }
 

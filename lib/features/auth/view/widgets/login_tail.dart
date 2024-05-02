@@ -9,8 +9,6 @@ import '/../features/auth/manager/cubits/user_login/user_login_cubit.dart';
 import '/../features/auth/view/widgets/textformfield.dart';
 import '/../features/home/view/screens/home_screen.dart';
 import 'package:toastification/toastification.dart';
-
-import '../../../../core/helper/cache_helper.dart';
 import '../../../../core/utils/functions.dart';
 import '../../../setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
 
@@ -33,16 +31,14 @@ class LoginTail extends StatelessWidget {
     return BlocListener<UserLoginCubit, UserLoginState>(
       listener: (context, state) {
         if (state is LoginLoading) {
-          BlocProvider.of<AuthCubit>(context).isLoading = true;
+          BlocProvider.of<AuthCubit>(context).loadingState(true);
         } else if (state is LoginSuccess) {
-          BlocProvider.of<AuthCubit>(context).isLoading = false;
-          CacheHelper.saveData(key: "uId", value: state.uId);
+          BlocProvider.of<AuthCubit>(context).loadingState(false);
           // CacheHelper.saveData(key: "userName", value: state.name);
-
           GetUserDataCubit.get(context).getUserData();
-          replacementNavigate(context, HomeScreen());
+          replacementNavigate(context, const HomeScreen());
         } else if (state is LoginFailure) {
-          BlocProvider.of<AuthCubit>(context).isLoading = false;
+          BlocProvider.of<AuthCubit>(context).loadingState(false);
 
           showToast(context, state.message, ToastificationType.error);
         }

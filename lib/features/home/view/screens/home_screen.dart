@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:smart_cart_payment_project/features/home/manager/cubits/order/order_cubit.dart';
 import 'package:smart_cart_payment_project/features/home/view/screens/cart_view.dart';
-import 'package:smart_cart_payment_project/features/home/view/screens/no_product_screen.dart';
 import '../../../../core/utils/constants.dart';
 import '../widgets/drawer.dart';
-
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-
-  // bool languageIsSwitched = false;
-  // String cartId = "45346854843";
-
   @override
   Widget build(BuildContext context) {
+    void startShopping() {
+      OrderCubit.get(context).startOrder("123456mmshf");
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const CartView()));
+    }
+
     return Scaffold(
         drawer: drawer(context),
         appBar: AppBar(
@@ -23,10 +23,7 @@ class HomeScreen extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const NoProductScreen()),
-                  );
+                  startShopping();
                 },
                 icon: const ImageIcon(
                     AssetImage("assets/images/qr_code_scanner.png"))),
@@ -53,9 +50,7 @@ class HomeScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                OrderCubit.get(context).startOrder("1542488962");
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const CartView()));
+                startShopping();
               },
               child: const Text(
                 " Start Shopping",

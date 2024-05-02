@@ -24,28 +24,10 @@ final class ProductIncreasedQuantity extends OrderState {}
 
 final class ProductDecreasedQuantity extends OrderState {}
 
-final class StartOrderError extends OrderState {
+final class OrderError extends OrderState {
   final String error;
 
-  StartOrderError({required this.error});
-}
-
-final class GetProductsError extends OrderState {
-  final String error;
-
-  GetProductsError({required this.error});
-}
-
-final class AddProductError extends OrderState {
-  final String error;
-
-  AddProductError({required this.error});
-}
-
-final class FinishOrderError extends OrderState {
-  final String error;
-
-  FinishOrderError({required this.error});
+  OrderError({required this.error});
 }
 
 final class OrderFinished extends OrderState {}

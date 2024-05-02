@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_cart_payment_project/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
 
+import '../screens/history_screen.dart';
 import '/../core/utils/constants.dart';
 
 import '../../../../core/utils/functions.dart';
@@ -114,6 +116,14 @@ Drawer drawer(BuildContext context) {
                   },
                   leading: const Icon(Icons.settings),
                   title: const Text("Setting "),
+                  trailing: const Icon(Icons.arrow_forward_ios)),
+              ListTile(
+                  onTap: () {
+                    GetOrdersCubit.get(context).getOrders();
+                    pushNavigate(context, History());
+                  },
+                  leading: const Icon(Icons.archive_rounded),
+                  title: const Text("History "),
                   trailing: const Icon(Icons.arrow_forward_ios)),
               ListTile(
                 leading: const Icon(Icons.logout_rounded),

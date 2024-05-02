@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/constants.dart';
+import '../../../../core/utils/functions.dart';
 import '../widgets/drawer.dart';
 
 class NoProductScreen extends StatelessWidget {
@@ -15,7 +16,9 @@ class NoProductScreen extends StatelessWidget {
         backgroundColor: Constants.primaryColor,
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                cancelOrder(context);
+              },
               icon: const Icon(Icons.delete_outline_outlined)),
           const SizedBox(
             width: 20,

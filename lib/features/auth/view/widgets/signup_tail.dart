@@ -8,7 +8,6 @@ import '/../features/auth/manager/cubits/auth/auth_cubit.dart';
 import '/../features/auth/manager/cubits/user_register/user_register_cubit.dart';
 import '/../features/auth/view/widgets/textformfield.dart';
 import 'package:toastification/toastification.dart';
-import '../../../../core/helper/cache_helper.dart';
 import '../../../../core/utils/functions.dart';
 import '../../../home/view/screens/home_screen.dart';
 import '../../../setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
@@ -46,16 +45,13 @@ class SignUpTail extends StatelessWidget {
     return BlocListener<UserRegisterCubit, UserRegisterState>(
       listener: (context, state) {
         if (state is RegisterLoading) {
-          BlocProvider.of<AuthCubit>(context).isLoading = true;
+          BlocProvider.of<AuthCubit>(context).loadingState(true);
         } else if (state is RegisterSuccess) {
-          BlocProvider.of<AuthCubit>(context).isLoading = false;
-          CacheHelper.saveData(key: "uId", value: state.uId);
-          CacheHelper.saveData(key: "userName", value: "$firstName $lastName");
           GetUserDataCubit.get(context).getUserData();
-
-          replacementNavigate(context, HomeScreen());
+          BlocProvider.of<AuthCubit>(context).loadingState(false);
+          replacementNavigate(context, const HomeScreen());
         } else if (state is RegisterFailure) {
-          BlocProvider.of<AuthCubit>(context).isLoading = false;
+          BlocProvider.of<AuthCubit>(context).loadingState(false);
 
           showToast(context, state.message, ToastificationType.error);
         }

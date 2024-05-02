@@ -20,6 +20,8 @@ class GetUserDataCubit extends Cubit<GetUserDataState> {
         .get()
         .then((value) {
       model = UserModel.fromJson(value.data()!);
+      Constants.userName = model.name;
+
       emit(GetUserDataSuccess());
     }).catchError((e) {
       emit(GetUserDataFailure(error: e));

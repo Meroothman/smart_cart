@@ -2,6 +2,7 @@ class OrderModel {
   final String orderId;
   final String uId;
   final String cartId;
+  final String date;
   int totalPrice;
   List productsId;
 
@@ -11,6 +12,7 @@ class OrderModel {
     required this.cartId,
     required this.productsId,
     required this.totalPrice,
+    required this.date,
   });
 
   factory OrderModel.fromJson(json) {
@@ -20,6 +22,7 @@ class OrderModel {
       cartId: json['cartId'],
       productsId: json['productsId'],
       totalPrice: json['totalPrice'],
+      date: json['date'],
     );
   }
 
@@ -30,6 +33,7 @@ class OrderModel {
       'cartId': cartId,
       'productsId': productsId,
       'totalPrice': totalPrice,
+      'date': date,
     };
   }
 }

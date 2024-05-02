@@ -9,8 +9,6 @@ class ChangeUserDataCubit extends Cubit<ChangeUserDataState> {
   static ChangeUserDataCubit get(context) => BlocProvider.of(context);
   CollectionReference users = FirebaseFirestore.instance.collection('users');
 
-  // UserModel user = GetUserDataCubit().model;
-
   changeUserData(String key, String updateValue) async {
     emit(ChangeUserDataLoading());
     await users.doc(Constants.uId).update({key: updateValue}).then((value) {

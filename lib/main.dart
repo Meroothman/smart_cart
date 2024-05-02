@@ -14,8 +14,8 @@ import 'package:smart_cart_payment_project/features/payment_feature/core/utils/a
 import 'package:smart_cart_payment_project/features/setting/manager/cubits/change_user_data/change_user_data_cubit.dart';
 import 'package:smart_cart_payment_project/features/setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
 import 'package:smart_cart_payment_project/firebase_options.dart';
+import 'features/home/manager/cubits/get_orders/get_orders_cubit.dart';
 import 'features/home/manager/cubits/order/order_cubit.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,7 +49,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => GetUserDataCubit()),
         BlocProvider(create: (context) => ChangeUserDataCubit()),
         BlocProvider(create: (context) => OrderCubit()),
-       // BlocProvider(create: (context) => ScanCubit()),
+        BlocProvider(create: (context) => GetOrdersCubit()),
+        // BlocProvider(create: (context) => ScanCubit()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),

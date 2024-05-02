@@ -2,6 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
+import '../../../../../core/helper/cache_helper.dart';
+import '../../../../../core/utils/constants.dart';
+
 part 'user_login_state.dart';
 
 class UserLoginCubit extends Cubit<UserLoginState> {
@@ -13,6 +16,8 @@ class UserLoginCubit extends Cubit<UserLoginState> {
     await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
+      Constants.uId = value.user!.uid;
+      CacheHelper.saveData(key: "uId", value: value.user!.uid);
       emit(LoginSuccess(value.user!.uid));
     }).catchError((e) {
       if (e.code == 'user-not-found') {

@@ -3,6 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
+import '../../../../../core/helper/cache_helper.dart';
+import '../../../../../core/utils/constants.dart';
+
 part 'user_register_state.dart';
 
 class UserRegisterCubit extends Cubit<UserRegisterState> {
@@ -43,15 +46,6 @@ class UserRegisterCubit extends Cubit<UserRegisterState> {
       String uId) async {
     CollectionReference users = FirebaseFirestore.instance.collection('users');
 
-    // UserModel user = UserModel(
-    //     name: '$fName $lName',
-    //     email: email,
-    //     phone: phone,
-    //     uId: uId,
-    //     isEmailVerified: false,
-    //     image:
-    //         'https://as2.ftcdn.net/v2/jpg/00/64/67/63/1000_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg');
-
     await users.doc(uId).set({
       "name": '$fName $lName',
       "email": email,
@@ -62,6 +56,8 @@ class UserRegisterCubit extends Cubit<UserRegisterState> {
           'https://as2.ftcdn.net/v2/jpg/00/64/67/63/1000_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg',
     }).then((value) {
       emit(RegisterSuccess(uId));
+      CacheHelper.saveData(key: "uId", value: uId);
+      Constants.uId = uId;
     }).catchError((error) {
       emit(CreateFailure(message: error));
     });

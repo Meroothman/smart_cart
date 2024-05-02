@@ -27,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -45,17 +42,17 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyDnFBkOPMwSo7XPIbKR69gvcFrp5uUwLyA',
-    appId: '1:171192483195:web:7b6b6add5e7e584c1c51de',
+    appId: '1:171192483195:web:8fb89b4417bfc3a81c51de',
     messagingSenderId: '171192483195',
     projectId: 'smart-cart-be4cd',
     authDomain: 'smart-cart-be4cd.firebaseapp.com',
     storageBucket: 'smart-cart-be4cd.appspot.com',
-    measurementId: 'G-88XYB4LF1T',
+    measurementId: 'G-6XX2KB605S',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyD1MaaqxtL9Xz3t9as-IsyKq_9edtaAQgc',
-    appId: '1:171192483195:android:24e6901d618235631c51de',
+    appId: '1:171192483195:android:74ee66c77abbe2591c51de',
     messagingSenderId: '171192483195',
     projectId: 'smart-cart-be4cd',
     storageBucket: 'smart-cart-be4cd.appspot.com',
@@ -63,19 +60,30 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyB2my_6jutQ5akX-24SPFC93jQy4EsK-Wo',
-    appId: '1:171192483195:ios:44eaa26d9d54639e1c51de',
+    appId: '1:171192483195:ios:ac12ddfa123ea7021c51de',
     messagingSenderId: '171192483195',
     projectId: 'smart-cart-be4cd',
     storageBucket: 'smart-cart-be4cd.appspot.com',
-    iosBundleId: 'com.example.smartCart',
+    iosBundleId: 'com.example.smartCartPaymentProject',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyB2my_6jutQ5akX-24SPFC93jQy4EsK-Wo',
-    appId: '1:171192483195:ios:b8e66bfc89abf5a81c51de',
+    appId: '1:171192483195:ios:ac12ddfa123ea7021c51de',
     messagingSenderId: '171192483195',
     projectId: 'smart-cart-be4cd',
     storageBucket: 'smart-cart-be4cd.appspot.com',
-    iosBundleId: 'com.example.smartCart.RunnerTests',
+    iosBundleId: 'com.example.smartCartPaymentProject',
   );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyDnFBkOPMwSo7XPIbKR69gvcFrp5uUwLyA',
+    appId: '1:171192483195:web:30cd7b45aa6e54221c51de',
+    messagingSenderId: '171192483195',
+    projectId: 'smart-cart-be4cd',
+    authDomain: 'smart-cart-be4cd.firebaseapp.com',
+    storageBucket: 'smart-cart-be4cd.appspot.com',
+    measurementId: 'G-E5B163G672',
+  );
+
 }

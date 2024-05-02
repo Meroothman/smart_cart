@@ -4,6 +4,7 @@ import 'package:smart_cart_payment_project/features/home/view/widgets/product_li
 import 'package:toastification/toastification.dart';
 import '../../../../core/utils/constants.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import '../../../../core/utils/dialog.dart';
 import '/../features/home/manager/cubits/order/order_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,14 +17,17 @@ class CartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<OrderCubit, OrderState>(
       listener: (context, state) {
-        if (state is AddProductError || state is GetProductsError) {
-          showToast(context, "Something went wrong ", ToastificationType.error);
+        if (state is OrderError) {
+          CustomSimpleDialog.showCustomDialog(context, "Error", () {
+            OrderCubit.get(context).checkAddProduct();
+            replacementNavigate(context, const CartView());
+          }, "Retry", "Something went wrong , please try again");
         }
       },
       builder: (context, state) {
         if (state is OrderAdded) {
           return const NoProductScreen();
-        } else if (state is GetProductsSuccess ) {
+        } else if (state is GetProductsSuccess) {
           return ProductList(
             productList: state.products, totalPrice: state.totalPrice,
             // totalPrice: state.totalPrice,
