@@ -49,8 +49,8 @@ class GetOrdersCubit extends Cubit<GetOrdersState> {
   }
 
   void getOrders() async {
-    userOrders.clear();
     emit(GetOrdersLoading());
+    userOrders.clear();
     await FirebaseFirestore.instance
         .collection("users")
         .doc(Constants.uId)
@@ -59,6 +59,9 @@ class GetOrdersCubit extends Cubit<GetOrdersState> {
         .then((value) {
       for (var element in value.docs) {
         getOrderDetails(element.data()["orderId"]);
+      }
+      if (userOrders.isEmpty) {
+        emit(NoOrders());
       }
     }).catchError((e) {});
   }

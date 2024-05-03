@@ -20,15 +20,15 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _startDelay() {
     _timer = Timer(const Duration(seconds: 2), () {
-      replacementNavigate(context, const AuthScreen());
+      // replacementNavigate(context, const AuthScreen());
 
-      // if (widget.isUserLoggedIn == true) {
-      //   GetUserDataCubit.get(context).getUserData();
+      if (widget.isUserLoggedIn == true) {
+        GetUserDataCubit.get(context).getUserData();
 
-      //   replacementNavigate(context, const HomeScreen());
-      // } else {
-      //   replacementNavigate(context, const AuthScreen());
-      // }
+        replacementNavigate(context, const HomeScreen());
+      } else {
+        replacementNavigate(context, const AuthScreen());
+      }
     });
   }
 

@@ -70,7 +70,7 @@ class History extends StatelessWidget {
                     height: 10.h,
                   ),
                   Text(
-                    "No orders yet! Come and enjoy shopping at our supermarket.",
+                    "No orders yet! Go shopping!",
                     style: TextStyle(
                       color: Constants.secondaryColor,
                       fontSize: 16.sp,
