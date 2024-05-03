@@ -97,7 +97,7 @@ class OrderCubit extends Cubit<OrderState> {
       emit(GetProductsSuccess(
           products: products, totalPrice: orderModel.totalPrice));
       if (products.isEmpty) {
-        emit(OrderLoading());
+        emit(NoProduct());
       }
     }).catchError((e) {
       emit(OrderError(

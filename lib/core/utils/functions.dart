@@ -10,6 +10,7 @@ import 'package:toastification/toastification.dart';
 
 import '../../features/auth/view/screens/auth_screen.dart';
 import '../../features/home/manager/cubits/order/order_cubit.dart';
+import '../../features/home/view/screens/cart_view.dart';
 import '../helper/cache_helper.dart';
 
 void showToast(BuildContext context, String text, ToastificationType type) {
@@ -57,11 +58,21 @@ void cancelOrder(BuildContext context) {
 
 void finishOrder(BuildContext context, int totalPrice) {
   return CustomSimpleDialog.showCustomDialog(context, "Finish Order", () {
-    OrderCubit.get(context).finishOrder();
     CacheHelper.saveData(key: "totalPrice", value: totalPrice);
     Constants.totalPrice = CacheHelper.getData(key: "totalPrice");
     replacementNavigate(context, const MyCartView());
   }, "Confirm", "Are you sure you want to Finish your order ?!");
+}
+
+void backShopping(context) {
+  CustomSimpleDialog.showCustomDialog(context, "Back", () {
+    replacementNavigate(context, const CartView());
+  }, "Back", "Are you sure you want to back to your order ?!");
+}
+
+void secondFinishOrder(BuildContext context) {
+  OrderCubit.get(context).finishOrder();
+  replacementNavigate(context, const HomeScreen());
 }
 
 defaultButton({
