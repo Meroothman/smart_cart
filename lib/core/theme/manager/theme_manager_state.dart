@@ -5,4 +5,4 @@ abstract class ThemeManagerState {}
 
 final class ThemeManagerInitial extends ThemeManagerState {}
 
-final class ThemeChanged extends ThemeManagerState {}
+final class ThemeModeChanged extends ThemeManagerState {}

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_cart_payment_project/features/home/data/order_model.dart';
-
-import '../../../../core/utils/constants.dart';
+import 'package:smart_cart_payment_project/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
 
 class OrderHistoryCard extends StatelessWidget {
   const OrderHistoryCard({
@@ -21,7 +20,7 @@ class OrderHistoryCard extends StatelessWidget {
         padding: EdgeInsets.only(top: 15.h, bottom: 5.h, right: 10.w),
         margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).scaffoldBackgroundColor,
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
@@ -37,27 +36,41 @@ class OrderHistoryCard extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.only(left: 10.w),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+              child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Order ID : ${order.orderId}",
-                    style: const TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                        color: Constants.primaryColor),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Order ID : ${order.orderId}",
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).primaryColor),
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      Text(
+                        "Order Date : ${order.date.characters.take(16).toString()}",
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).hintColor),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  Text(
-                    "Order Date : ${order.date.characters.take(10).toString()}",
-                    style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                        color: Constants.secondaryColor),
-                  ),
+                  const Spacer(),
+                  IconButton(
+                    onPressed: () {
+                      GetOrdersCubit.get(context).deleteOrder(order.orderId);
+                    },
+                    icon: Icon(
+                      Icons.delete_rounded,
+                      color: Colors.deepOrangeAccent[100],
+                    ),
+                  )
                 ],
               ),
             ),
@@ -81,8 +94,7 @@ class OrderHistoryCard extends StatelessWidget {
                       Text("${productsData[index]['name'].substring(0, 22)}..",
                           style: TextStyle(
                             fontSize: 15.sp,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87,
+                            fontWeight: FontWeight.w800,
                           )),
                       const Spacer(
                         flex: 3,
@@ -91,7 +103,7 @@ class OrderHistoryCard extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 15.sp,
                             fontWeight: FontWeight.bold,
-                            color: Constants.secondaryColor,
+                            color: Theme.of(context).hintColor,
                           )),
                       const Spacer(
                         flex: 1,
@@ -100,7 +112,7 @@ class OrderHistoryCard extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 15.sp,
                             fontWeight: FontWeight.bold,
-                            color: Constants.secondaryColor,
+                            color: Theme.of(context).hintColor,
                           )),
                     ]),
                   );
@@ -115,12 +127,12 @@ class OrderHistoryCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text(
+                Text(
                   "Total :",
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Constants.primaryColor),
+                      color: Theme.of(context).primaryColor),
                 ),
                 SizedBox(
                   width: 10.w,
@@ -130,7 +142,7 @@ class OrderHistoryCard extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
-                      color: Constants.secondaryColor),
+                      color: Theme.of(context).hintColor),
                 ),
               ],
             ),

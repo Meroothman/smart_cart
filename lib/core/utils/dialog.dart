@@ -10,10 +10,14 @@ class CustomSimpleDialog {
         context: context,
         builder: (_) {
           return AlertDialog(
-            title: Text(title),
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            title: Text(
+              title,
+              style: TextStyle(color: Theme.of(context).primaryColor),
+            ),
             content: Text(
               text,
-              style: const TextStyle(color: Colors.black, fontSize: 17),
+              style: const TextStyle(fontSize: 17),
             ),
             actions: <Widget>[
               defaultButton(
@@ -23,9 +27,10 @@ class CustomSimpleDialog {
                   },
                   text: 'Cancel',
                   fontSize: 15,
-                  background: Colors.grey,
+                  background: Theme.of(context).secondaryHeaderColor,
                   radius: 20),
               defaultButton(
+                  background: Theme.of(context).primaryColor,
                   width: 100,
                   onPressed: confirm,
                   text: okText,

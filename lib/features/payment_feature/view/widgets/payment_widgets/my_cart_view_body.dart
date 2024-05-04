@@ -25,9 +25,10 @@ class MyCartViewBody extends StatelessWidget {
           const SizedBox(
             height: 25,
           ),
-           OrderInfoItem(
+          OrderInfoItem(
             title: 'Order Total Price',
             value: "\$${Constants.totalPrice}",
+
             //"\$${OrderCubit.get(context).orderModel!.totalPrice} ",
           ),
           const SizedBox(
@@ -45,11 +46,11 @@ class MyCartViewBody extends StatelessWidget {
             height: 34,
             color: Color(0xffC7C7C7),
           ),
-           TotalPrice(
-              title: 'Total',
-              value: "\$${Constants.totalPrice}",
-              //"\$${OrderCubit.get(context).orderModel!.totalPrice} "
-              ),
+          TotalPrice(
+            title: 'Total',
+            value: "\$${Constants.totalPrice}",
+            //"\$${OrderCubit.get(context).orderModel!.totalPrice} "
+          ),
           const SizedBox(
             height: 16,
           ),

@@ -144,6 +144,7 @@ class OrderCubit extends Cubit<OrderState> {
       'totalPrice': orderModel.totalPrice
     }).then((value) {
       emit(OrderFinished());
+      clearData();
     }).catchError((e) {
       emit(OrderError(error: e.toString()));
     });

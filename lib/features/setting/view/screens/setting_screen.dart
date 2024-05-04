@@ -21,23 +21,20 @@ class SettingScreen extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back_ios,
-            color: Colors.black,
+            color: Theme.of(context).hintColor,
           ),
         ),
         centerTitle: true,
-        title: const Row(
+        title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(right: 50),
+              padding: const EdgeInsets.only(right: 50),
               child: Text(
                 "Account",
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                style: Theme.of(context).textTheme.displayMedium,
               ),
             ),
           ],
@@ -54,38 +51,9 @@ class SettingScreen extends StatelessWidget {
           builder: (context, state) {
             UserModel model = GetUserDataCubit.get(context).model;
             return Column(children: [
-              // Container(
-              //   width: double.infinity,
-              //   height: 150,
-              //   color: Colors.grey[100],
-              //   child: Center(
-              //     child: Stack(children: [
-              //       CircleAvatar(
-              //         maxRadius: 55,
-              //         backgroundImage: NetworkImage(model.image),
-              //       ),
-              //       Positioned(
-              //         bottom: 30,
-              //         height: 5,
-              //         left: 55,
-              //         child: IconButton(
-              //           onPressed: () {
-              //             print("object");
-              //           },
-              //           icon: const Icon(
-              //             Icons.camera_alt,
-              //             color: Colors.black,
-              //             size: 30,
-              //           ),
-              //         ),
-              //       ),
-              //     ]),
-              //   ),
-              // ),
               const SizedBox(
                 height: 30,
               ),
-
               Stack(
                 children: [
                   SizedBox(
@@ -103,12 +71,12 @@ class SettingScreen extends StatelessWidget {
                         height: 40,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
-                            color: Colors.white),
+                            color: Colors.transparent),
                         child: IconButton(
                           onPressed: () {},
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.camera_alt,
-                            color: Colors.black,
+                            color: Theme.of(context).hintColor,
                             size: 30,
                           ),
                         )),
@@ -131,8 +99,8 @@ class SettingScreen extends StatelessWidget {
                             userKey: 'name',
                             controller: model.name);
                       },
-                      icon: const Icon(
-                        color: Colors.black54,
+                      icon: Icon(
+                        color: Theme.of(context).hintColor,
                         Icons.person,
                         size: 25,
                       )),
@@ -147,8 +115,8 @@ class SettingScreen extends StatelessWidget {
                             okButtonFunction: () {},
                             userKey: 'email');
                       },
-                      icon: const Icon(
-                        color: Colors.black54,
+                      icon: Icon(
+                        color: Theme.of(context).hintColor,
                         Icons.email,
                         size: 25,
                       )),
@@ -163,8 +131,8 @@ class SettingScreen extends StatelessWidget {
                             userKey: 'phone',
                             controller: model.phone);
                       },
-                      icon: const Icon(
-                        color: Colors.black54,
+                      icon: Icon(
+                        color: Theme.of(context).hintColor,
                         Icons.phone,
                         size: 25,
                       )),
@@ -177,8 +145,8 @@ class SettingScreen extends StatelessWidget {
                   //           okButtonFunction: () {},
                   //           controller: '', userKey: '');
                   //     },
-                  //     icon: const Icon(
-                  //       color: Colors.black54,
+                  //     icon:  Icon(
+                  //       color: Theme.of(context).hintColor,
                   //       Icons.password,
                   //       size: 25,
                   //     )),
@@ -188,8 +156,8 @@ class SettingScreen extends StatelessWidget {
                       ontap: () {
                         logOut(context);
                       },
-                      icon: const Icon(
-                        color: Colors.black54,
+                      icon: Icon(
+                        color: Theme.of(context).hintColor,
                         Icons.logout,
                         size: 25,
                       )),

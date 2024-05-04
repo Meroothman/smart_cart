@@ -22,7 +22,6 @@ class ProductList extends StatelessWidget {
     return Scaffold(
       drawer: drawer(context),
       appBar: AppBar(
-        backgroundColor: Constants.primaryColor,
         actions: [
           IconButton(
               onPressed: () {
@@ -57,6 +56,7 @@ class ProductList extends StatelessWidget {
                   left: 20,
                   right: 20,
                   child: defaultButton(
+                    background: Theme.of(context).primaryColor,
                     radius: 20,
                     width: 300,
                     fontFamily: "ProtestRiot-Regular",

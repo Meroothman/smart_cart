@@ -35,7 +35,7 @@ class CartView extends StatelessWidget {
           return Scaffold(
               body: Center(
             child: LoadingAnimationWidget.beat(
-              color: Constants.primaryColor,
+              color: Theme.of(context).primaryColor,
               size: 200,
             ),
           ));

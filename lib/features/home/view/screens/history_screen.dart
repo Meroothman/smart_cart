@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:smart_cart_payment_project/core/theme/manager/theme_manager_cubit.dart';
 import 'package:smart_cart_payment_project/core/utils/constants.dart';
 import 'package:smart_cart_payment_project/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
 
@@ -29,7 +30,6 @@ class History extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        backgroundColor: Constants.primaryColor,
       ),
       body: BlocBuilder<GetOrdersCubit, GetOrdersState>(
         builder: (context, state) {
@@ -38,7 +38,7 @@ class History extends StatelessWidget {
               state is GetOrderDetailsLoading) {
             return Center(
               child: LoadingAnimationWidget.beat(
-                color: Constants.primaryColor,
+                color: Theme.of(context).primaryColor,
                 size: 200,
               ),
             );
@@ -65,14 +65,18 @@ class History extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset(Constants.noProducts),
+                  Image.asset(
+                    ThemeManagerCubit.get(context).isDark
+                        ? Constants.noProductsDark
+                        : Constants.noProducts,
+                  ),
                   SizedBox(
                     height: 10.h,
                   ),
                   Text(
                     "No orders yet! Go shopping!",
                     style: TextStyle(
-                      color: Constants.secondaryColor,
+                      color: Theme.of(context).hintColor,
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w500,
                       fontFamily: "RobotoSlab",

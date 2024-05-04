@@ -23,7 +23,8 @@ class ThankYouViewBody extends StatelessWidget {
             //right circleAvater
             right: -20,
             bottom: MediaQuery.sizeOf(context).height * .2,
-            child: const CircleAvatar(backgroundColor: Colors.white),
+            child: CircleAvatar(
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor),
           ),
           Positioned(
             // -----line
@@ -36,7 +37,8 @@ class ThankYouViewBody extends StatelessWidget {
             // left circleAvater
             left: -20,
             bottom: MediaQuery.sizeOf(context).height * .2,
-            child: const CircleAvatar(backgroundColor: Colors.white),
+            child: CircleAvatar(
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor),
           ),
         ],
       ),

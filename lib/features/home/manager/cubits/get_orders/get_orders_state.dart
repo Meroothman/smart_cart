@@ -20,4 +20,6 @@ class GetOrderDetailsLoading extends GetOrdersState {}
 
 class GetOrderDetailsSuccess extends GetOrdersState {}
 
+class OrderDeleted extends GetOrdersState {}
+
 class GetOrderDetailsError extends GetOrdersState {}

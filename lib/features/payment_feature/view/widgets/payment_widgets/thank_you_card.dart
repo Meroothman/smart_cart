@@ -22,7 +22,7 @@ class ThankYouCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: ShapeDecoration(
-        color: const Color(0xFFEDEDED),
+        color: Theme.of(context).secondaryHeaderColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -66,11 +66,11 @@ class ThankYouCard extends StatelessWidget {
               height: 60,
               thickness: 2,
             ),
-             TotalPrice(
-                title: 'Total',
-                value: "\$${Constants.totalPrice}",
-                //value: "\$${OrderCubit.get(context).orderModel!.totalPrice}"
-                ),
+            TotalPrice(
+              title: 'Total',
+              value: "\$${Constants.totalPrice}",
+              //value: "\$${OrderCubit.get(context).orderModel!.totalPrice}"
+            ),
             const SizedBox(
               height: 10,
             ),
@@ -88,8 +88,8 @@ class ThankYouCard extends StatelessWidget {
                   height: 50,
                   decoration: ShapeDecoration(
                     shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                          width: 1.50, color: Constants.primaryColor),
+                      side: BorderSide(
+                          width: 1.50, color: Theme.of(context).primaryColor),
                       borderRadius: BorderRadius.circular(15),
                     ),
                   ),

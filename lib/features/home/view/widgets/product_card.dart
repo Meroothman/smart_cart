@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,7 +22,7 @@ class ProductCard extends StatelessWidget {
       padding: EdgeInsets.only(top: 5.h, bottom: 5.h, right: 10.w),
       margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).scaffoldBackgroundColor,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(

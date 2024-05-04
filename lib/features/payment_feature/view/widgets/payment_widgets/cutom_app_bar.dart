@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/core/utils/styles.dart';
 
-AppBar buildAppBar({final String? title, required final Function() ontap}) {
+AppBar buildAppBar(
+    {final String? title, required final Function() ontap, required context}) {
   return AppBar(
     leading: InkWell(
       onTap: ontap,
@@ -18,7 +19,13 @@ AppBar buildAppBar({final String? title, required final Function() ontap}) {
     title: Text(
       title ?? '',
       textAlign: TextAlign.center,
-      style: Styles.style25,
+      style: TextStyle(
+        color: Theme.of(context).hintColor,
+        fontSize: 25,
+        fontFamily: 'Inter',
+        fontWeight: FontWeight.w500,
+        height: 0,
+      ),
     ),
   );
 }

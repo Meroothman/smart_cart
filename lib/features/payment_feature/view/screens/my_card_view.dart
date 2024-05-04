@@ -11,6 +11,7 @@ class MyCartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(
+          context: context,
           title: 'My Cart',
           ontap: () {
             backShopping(context);

@@ -25,8 +25,8 @@ class SettingRow extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10),
                 child: Text(
                   edit,
-                  style: const TextStyle(
-                    color: Colors.black54,
+                  style: TextStyle(
+                    color: Theme.of(context).hintColor,
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
                   ),
@@ -37,13 +37,14 @@ class SettingRow extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 10),
                 child: Text(
                   data,
-                  style: const TextStyle(color: Colors.black38, fontSize: 15),
+                  style: TextStyle(
+                      color: Theme.of(context).hintColor, fontSize: 15),
                 ),
               ),
               InkWell(
                 onTap: ontap,
-                child: const Icon(
-                  color: Colors.black54,
+                child: Icon(
+                  color: Theme.of(context).hintColor,
                   Icons.arrow_forward_ios_sharp,
                   size: 15,
                 ),

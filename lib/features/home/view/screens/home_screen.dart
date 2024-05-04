@@ -19,7 +19,6 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
         drawer: drawer(context),
         appBar: AppBar(
-          backgroundColor: Constants.primaryColor,
           actions: [
             IconButton(
                 onPressed: () {
@@ -52,10 +51,10 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 startShopping();
               },
-              child: const Text(
+              child: Text(
                 " Start Shopping",
                 style: TextStyle(
-                  color: Constants.primaryColor,
+                  color: Theme.of(context).primaryColor,
                   fontSize: 21,
                   fontWeight: FontWeight.w500,
                   fontFamily: "RobotoSlab",

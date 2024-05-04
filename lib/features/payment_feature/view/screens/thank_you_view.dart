@@ -9,9 +9,11 @@ class ThankYouView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(ontap: () {
-        secondFinishOrder(context);
-      }),
+      appBar: buildAppBar(
+          context: context,
+          ontap: () {
+            secondFinishOrder(context);
+          }),
       body: Transform.translate(
           // move widget on x,y axis
           offset: const Offset(0, -16),

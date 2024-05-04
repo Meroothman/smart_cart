@@ -12,6 +12,28 @@ class GetOrdersCubit extends Cubit<GetOrdersState> {
 
   List<OrderModel> userOrders = [];
 
+  void getOrders() async {
+    emit(GetOrdersLoading());
+    userOrders.clear();
+    await ordersLoop();
+  }
+
+  Future<void> ordersLoop() async {
+    await FirebaseFirestore.instance
+        .collection("users")
+        .doc(Constants.uId)
+        .collection("orders")
+        .get()
+        .then((value) {
+      if (value.docs.isEmpty) {
+        emit(NoOrders());
+      }
+      for (var element in value.docs) {
+        getOrderDetails(element.data()["orderId"]);
+      }
+    }).catchError((e) {});
+  }
+
   void getOrderDetails(String orderId) async {
     List productsData = [];
     emit(GetOrderDetailsLoading());
@@ -43,26 +65,17 @@ class GetOrdersCubit extends Cubit<GetOrdersState> {
       emit(GetOrdersSuccess(
         userOrders,
       ));
-    }).catchError((e) {
-      emit(GetOrderDetailsError());
-    });
+    }).catchError((e) {});
   }
 
-  void getOrders() async {
-    emit(GetOrdersLoading());
-    userOrders.clear();
+  void deleteOrder(String orderId) async {
     await FirebaseFirestore.instance
         .collection("users")
         .doc(Constants.uId)
         .collection("orders")
-        .get()
-        .then((value) {
-      for (var element in value.docs) {
-        getOrderDetails(element.data()["orderId"]);
-      }
-      if (userOrders.isEmpty) {
-        emit(NoOrders());
-      }
-    }).catchError((e) {});
+        .doc(orderId)
+        .delete()
+        .then((value) => getOrders())
+        .catchError(onError);
   }
 }

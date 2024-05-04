@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_cart_payment_project/core/theme/manager/theme_manager_cubit.dart';
 import 'package:smart_cart_payment_project/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
-
 import '../screens/history_screen.dart';
 import '/../core/utils/constants.dart';
 
@@ -12,26 +12,14 @@ import '../../../setting/view/screens/setting_screen.dart';
 
 Drawer drawer(BuildContext context) {
   bool languageIsSwitched = false;
-  bool darkModeIsSwitch = false;
   return Drawer(
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     child: BlocBuilder<GetUserDataCubit, GetUserDataState>(
       builder: (context, state) {
         if (state is GetUserDataSuccess) {
           UserModel model = GetUserDataCubit.get(context).model;
           return ListView(
             children: [
-              // UserAccountsDrawerHeader(
-              //     decoration: BoxDecoration(color: Colors.grey[100]),
-              //     currentAccountPicture: const CircleAvatar(
-              //       backgroundColor: Colors.white,
-              //       backgroundImage: AssetImage("assets/images/person_image_2.png"),
-              //     ),
-              //     accountName: const Text(
-              //       "Mariam fawzy",
-              //       style: TextStyle(color: Colors.black),
-              //     ),
-              //     accountEmail: const Text("mariamfawzy@gamil.com",
-              //         style: TextStyle(color: Colors.black))),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -56,18 +44,16 @@ Drawer drawer(BuildContext context) {
                       onTap: () {
                         pushNavigate(context, const SettingScreen());
                       },
-                      child: const Icon(
+                      child: Icon(
                         Icons.settings,
-                        color: Colors.black54,
+                        color: Theme.of(context).hintColor,
                         size: 25,
                       ),
                     ),
                   ),
                 ],
               ),
-
               const Divider(),
-
               ListTile(
                 leading: const Icon(Icons.person),
                 title: const Text("Name"),
@@ -84,17 +70,20 @@ Drawer drawer(BuildContext context) {
                 subtitle: Text(model.phone),
               ),
               const Divider(),
-              ListTile(
-                leading: const Icon(Icons.dark_mode_outlined),
-                title: const Text("Dark mode"),
-                trailing: Switch(
-                  value: darkModeIsSwitch,
-                  onChanged: (value) {
-                    // setState(() {
-                    //   darkModeIsSwitch = value;
-                    // });
-                  },
-                ),
+              BlocBuilder<ThemeManagerCubit, ThemeManagerState>(
+                builder: (context, state) {
+                  return ListTile(
+                    leading: const Icon(Icons.dark_mode_outlined),
+                    title: const Text("Dark mode"),
+                    trailing: Switch(
+                      activeColor: Theme.of(context).primaryColor,
+                      value: ThemeManagerCubit.get(context).isDark,
+                      onChanged: (value) {
+                        ThemeManagerCubit.get(context).themeChange();
+                      },
+                    ),
+                  );
+                },
               ),
               ListTile(
                 leading: const Icon(Icons.language_rounded),
