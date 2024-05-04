@@ -24,7 +24,7 @@ class CartView extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        if (state is OrderAdded) {
+        if (state is OrderAdded || state is NoProduct) {
           return const NoProductScreen();
         } else if (state is GetProductsSuccess) {
           return ProductList(

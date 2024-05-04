@@ -11,6 +11,8 @@ final class OrderReloading extends OrderState {}
 
 final class OrderAdded extends OrderState {}
 
+final class NoProduct extends OrderState {}
+
 final class AddProductSuccess extends OrderState {}
 
 final class GetProductsSuccess extends OrderState {
