@@ -85,5 +85,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'smart-cart-be4cd.appspot.com',
     measurementId: 'G-E5B163G672',
   );
-
 }

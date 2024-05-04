@@ -52,7 +52,7 @@ void logOut(BuildContext context) {
 void cancelOrder(BuildContext context) {
   return CustomSimpleDialog.showCustomDialog(context, "Cancel Order", () {
     OrderCubit.get(context).cancelOrder();
-    replacementNavigate(context, HomeScreen());
+    replacementNavigate(context, const HomeScreen());
   }, "Confirm", "Are you sure you want to Cancel your order ?!");
 }
 
