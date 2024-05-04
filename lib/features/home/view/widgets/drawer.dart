@@ -120,7 +120,7 @@ Drawer drawer(BuildContext context) {
               ListTile(
                   onTap: () {
                     GetOrdersCubit.get(context).getOrders();
-                    pushNavigate(context, History());
+                    pushNavigate(context, const History());
                   },
                   leading: const Icon(Icons.archive_rounded),
                   title: const Text("History "),

@@ -50,7 +50,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ChangeUserDataCubit()),
         BlocProvider(create: (context) => OrderCubit()),
         BlocProvider(create: (context) => GetOrdersCubit()),
-        // BlocProvider(create: (context) => ScanCubit()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),
