@@ -33,7 +33,7 @@ void main() async {
     return isUserLoggedIn;
   }
 
-  bool isDark = CacheHelper.getData(key: 'isDark');
+  bool? isDark = CacheHelper.getData(key: 'isDark');
 
   bool isUserLoggedIn = checkUserLoggedIn();
   Stripe.publishableKey = ApiKeys.publishableKey;
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
     required this.isDark,
   });
   final bool isUserLoggedIn;
-  final bool isDark;
+  final bool? isDark;
 
   @override
   Widget build(BuildContext context) {

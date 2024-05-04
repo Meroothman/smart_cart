@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_cart_payment_project/core/utils/functions.dart';
+import 'package:smart_cart_payment_project/features/home/manager/cubits/order/order_cubit.dart';
+import 'package:smart_cart_payment_project/features/home/view/screens/cart_view.dart';
 import 'package:smart_cart_payment_project/features/home/view/screens/qr_code_screen.dart';
 import '../../../../core/utils/constants.dart';
 import '../widgets/drawer.dart';
@@ -11,7 +13,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void scanQrCode() {
-      pushNavigate(context, const QrCodeScreen());
+      // pushNavigate(context, const QrCodeScreen());
+      OrderCubit.get(context).startOrder("123456mmshf");
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const CartView()));
     }
 
     return Scaffold(
@@ -48,7 +53,6 @@ class HomeScreen extends StatelessWidget {
             TextButton(
               onPressed: () {
                 scanQrCode();
-              
               },
               child: Text(
                 " Start Shopping",
