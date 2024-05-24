@@ -60,6 +60,7 @@ class MyCartViewBody extends StatelessWidget {
                  return const PaymentDetailsView();
                }));*/
               showModalBottomSheet(
+                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                   context: context,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16)),

@@ -6,6 +6,7 @@ import 'package:smart_cart_payment_project/core/theme/manager/theme_manager_cubi
 import 'package:smart_cart_payment_project/core/utils/constants.dart';
 import 'package:smart_cart_payment_project/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
 
+import '../../../../core/helper/cache_helper.dart';
 import '../widgets/order_history_card.dart';
 
 class History extends StatelessWidget {
@@ -66,7 +67,7 @@ class History extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(
-                    ThemeManagerCubit.get(context).isDark
+                    CacheHelper.getData(key: "isDark")
                         ? Constants.noProductsDark
                         : Constants.noProducts,
                   ),

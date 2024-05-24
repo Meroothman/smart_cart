@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_cart_payment_project/core/utils/functions.dart';
 import 'package:smart_cart_payment_project/features/home/manager/cubits/order/order_cubit.dart';
 import 'package:smart_cart_payment_project/features/home/view/screens/cart_view.dart';
@@ -35,39 +36,43 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         body: Center(
-            child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(
-                height: 300,
-                width: 300,
-                child: Image.asset(Constants.scanQrCode)),
-            const Text(
-              "Scan the QR code on your trolley to",
-              style: TextStyle(
-                fontSize: 21,
-                fontWeight: FontWeight.w500,
-                fontFamily: "RobotoSlab",
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                scanQrCode();
-              },
-              child: Text(
-                " Start Shopping",
+            child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                  height: 300.h,
+                  width: 300.w,
+                  child: Image.asset(Constants.scanQrCode)),
+              Text(
+                "Scan the QR code on your trolley to",
+                maxLines: 1,
                 style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontSize: 21,
+                  fontSize: 19.sp,
                   fontWeight: FontWeight.w500,
                   fontFamily: "RobotoSlab",
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 120,
-            )
-          ],
+              TextButton(
+                onPressed: () {
+                  scanQrCode();
+                },
+                child: Text(
+                  " Start Shopping",
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 21,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "RobotoSlab",
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 120,
+              )
+            ],
+          ),
         )));
   }
 }

@@ -33,13 +33,10 @@ void main() async {
     return isUserLoggedIn;
   }
 
-  bool? isDark = CacheHelper.getData(key: 'isDark');
-
   bool isUserLoggedIn = checkUserLoggedIn();
   Stripe.publishableKey = ApiKeys.publishableKey;
   runApp(MyApp(
     isUserLoggedIn: isUserLoggedIn,
-    isDark: isDark,
   ));
 }
 
@@ -47,13 +44,14 @@ class MyApp extends StatelessWidget {
   const MyApp({
     super.key,
     required this.isUserLoggedIn,
-    required this.isDark,
   });
   final bool isUserLoggedIn;
-  final bool? isDark;
 
   @override
   Widget build(BuildContext context) {
+    Brightness systemBrightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = systemBrightness == Brightness.dark;
+    CacheHelper.saveData(key: "isDark", value: isDarkMode);
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AuthCubit()..changeScreenTail(true)),
@@ -63,48 +61,39 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ChangeUserDataCubit()),
         BlocProvider(create: (context) => OrderCubit()),
         BlocProvider(create: (context) => GetOrdersCubit()),
-        BlocProvider(
-            create: (context) =>
-                ThemeManagerCubit()..themeChange(cacheValue: isDark)),
       ],
-      child: BlocBuilder<ThemeManagerCubit, ThemeManagerState>(
-        builder: (context, state) {
-          return ScreenUtilInit(
-            designSize: const Size(360, 690),
-            minTextAdapt: true,
-            splitScreenMode: true,
-            // Use builder only if you need to use library outside ScreenUtilInit context
-            builder: (_, child) {
-              return MaterialApp(
-                debugShowCheckedModeBanner: false,
-                title: Constants.appName,
-                themeMode: ThemeManagerCubit.get(context).isDark
-                    ? ThemeMode.dark
-                    : ThemeMode.light,
-                theme: ThemeData(
-                    shadowColor: Colors.black54,
-                    scaffoldBackgroundColor: Colors.white,
-                    primaryColor: Constants.primaryColor,
-                    secondaryHeaderColor: Constants.secondaryColor,
-                    appBarTheme: AppBarThemeConstants.lightAppBarTheme,
-                    textTheme: TextThemeConstants.lightTextTheme,
-                    brightness: Brightness.light),
-                darkTheme: ThemeData(
-                    shadowColor: Colors.white70,
-                    scaffoldBackgroundColor: Constants.darkBGColor,
-                    primaryColor: Constants.darkPrimaryColor,
-                    secondaryHeaderColor: Constants.darkSecondaryColor,
-                    appBarTheme: AppBarThemeConstants.darkAppBarTheme,
-                    textTheme: TextThemeConstants.darkTextTheme,
-                    brightness: Brightness.dark),
-                // You can use the library anywhere in the app even in theme
-                // theme: ThemeData(
-                //   primarySwatch: Colors.blue,
-                //   textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-                // ),
-                home: SplashScreen(isUserLoggedIn: isUserLoggedIn),
-              );
-            },
+      child: ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        // Use builder only if you need to use library outside ScreenUtilInit context
+        builder: (_, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: Constants.appName,
+            themeMode: ThemeMode.system,
+            theme: ThemeData(
+                shadowColor: Colors.black54,
+                scaffoldBackgroundColor: Colors.white,
+                primaryColor: Constants.primaryColor,
+                secondaryHeaderColor: Constants.secondaryColor,
+                appBarTheme: AppBarThemeConstants.lightAppBarTheme,
+                textTheme: TextThemeConstants.lightTextTheme,
+                brightness: Brightness.light),
+            darkTheme: ThemeData(
+                shadowColor: Colors.white70,
+                scaffoldBackgroundColor: Constants.darkBGColor,
+                primaryColor: Constants.darkPrimaryColor,
+                secondaryHeaderColor: Constants.darkSecondaryColor,
+                appBarTheme: AppBarThemeConstants.darkAppBarTheme,
+                textTheme: TextThemeConstants.darkTextTheme,
+                brightness: Brightness.dark),
+            // You can use the library anywhere in the app even in theme
+            // theme: ThemeData(
+            //   primarySwatch: Colors.blue,
+            //   textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+            // ),
+            home: SplashScreen(isUserLoggedIn: isUserLoggedIn),
           );
         },
       ),

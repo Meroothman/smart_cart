@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smart_cart_payment_project/core/helper/cache_helper.dart';
 import 'package:smart_cart_payment_project/core/theme/manager/theme_manager_cubit.dart';
 
 import '../../../../core/utils/constants.dart';
@@ -30,7 +31,7 @@ class NoProductScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
-              ThemeManagerCubit.get(context).isDark
+              CacheHelper.getData(key: "isDark")
                   ? Constants.noProductsDark
                   : Constants.noProducts,
             ),

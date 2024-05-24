@@ -70,21 +70,21 @@ Drawer drawer(BuildContext context) {
                 subtitle: Text(model.phone),
               ),
               const Divider(),
-              BlocBuilder<ThemeManagerCubit, ThemeManagerState>(
-                builder: (context, state) {
-                  return ListTile(
-                    leading: const Icon(Icons.dark_mode_outlined),
-                    title: const Text("Dark mode"),
-                    trailing: Switch(
-                      activeColor: Theme.of(context).primaryColor,
-                      value: ThemeManagerCubit.get(context).isDark,
-                      onChanged: (value) {
-                        ThemeManagerCubit.get(context).themeChange();
-                      },
-                    ),
-                  );
-                },
-              ),
+              // BlocBuilder<ThemeManagerCubit, ThemeManagerState>(
+              //   builder: (context, state) {
+              //     return ListTile(
+              //       leading: const Icon(Icons.dark_mode_outlined),
+              //       title: const Text("Dark mode"),
+              //       trailing: Switch(
+              //         activeColor: Theme.of(context).primaryColor,
+              //         value: ThemeManagerCubit.get(context).isDark,
+              //         onChanged: (value) {
+              //           ThemeManagerCubit.get(context).themeChange();
+              //         },
+              //       ),
+              //     );
+              //   },
+              // ),
               ListTile(
                 leading: const Icon(Icons.language_rounded),
                 title: const Text("Language"),
