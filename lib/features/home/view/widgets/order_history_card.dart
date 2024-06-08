@@ -138,7 +138,7 @@ class OrderHistoryCard extends StatelessWidget {
                   width: 10.w,
                 ),
                 Text(
-                  "${order.totalPrice ?? ""} EGP",
+                  "${order.totalPrice} EGP",
                   style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/core/utils/styles.dart';
 
 AppBar buildAppBar(
     {final String? title, required final Function() ontap, required context}) {

@@ -5,8 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:smart_cart_payment_project/core/helper/bloc_observer.dart';
 import 'package:smart_cart_payment_project/core/helper/cache_helper.dart';
-import 'package:smart_cart_payment_project/core/theme/manager/theme_manager_cubit.dart';
-import 'package:smart_cart_payment_project/core/theme/theme_constants/appBar_theme.dart';
+import 'package:smart_cart_payment_project/core/theme/theme_constants/app_bar_theme.dart';
 import 'package:smart_cart_payment_project/core/utils/constants.dart';
 import 'package:smart_cart_payment_project/features/auth/manager/cubits/auth/auth_cubit.dart';
 import 'package:smart_cart_payment_project/features/auth/manager/cubits/user_login/user_login_cubit.dart';
@@ -51,7 +50,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Brightness systemBrightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = systemBrightness == Brightness.dark;
-    CacheHelper.saveData(key: "isDark", value: isDarkMode);
+    CacheHelper.saveData(key: "isDark", value: true);
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AuthCubit()..changeScreenTail(true)),
@@ -71,7 +70,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: Constants.appName,
-            themeMode: ThemeMode.system,
+            themeMode: ThemeMode.dark,
             theme: ThemeData(
                 shadowColor: Colors.black54,
                 scaffoldBackgroundColor: Colors.white,

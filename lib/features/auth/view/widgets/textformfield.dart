@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/helper/cache_helper.dart';
 import '/../core/utils/constants.dart';
 
 Widget defaultTextFormField({
@@ -16,9 +17,12 @@ Widget defaultTextFormField({
         Text(
           label,
           style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w600,
-              color: Colors.grey[600]),
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+            color: CacheHelper.getData(key: "isDark")
+                ? Colors.white
+                : Colors.grey[600],
+          ),
         ),
         const SizedBox(height: 5),
         TextFormField(

@@ -72,6 +72,7 @@ class LoginTail extends StatelessWidget {
                     }
                   },
                   text: 'Login',
+                  background: Theme.of(context).primaryColor,
                   height: 45,
                   radius: 4,
                   fontSize: 20),

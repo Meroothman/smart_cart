@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_cart_payment_project/core/helper/cache_helper.dart';
 import '/../core/utils/constants.dart';
 import '/../features/auth/manager/cubits/auth/auth_cubit.dart';
 import '/../features/auth/view/widgets/login_tail.dart';
@@ -22,9 +23,11 @@ class AuthScreen extends StatelessWidget {
             ),
             child: Scaffold(
                 body: Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage(Constants.backgroundImg),
+                      image: AssetImage(CacheHelper.getData(key: "isDark")
+                          ? Constants.darkBackgroundImg
+                          : Constants.backgroundImg),
                       fit: BoxFit.fill)),
               child: ListView(
                 children: [
@@ -46,14 +49,14 @@ class AuthScreen extends StatelessWidget {
                                     fontSize: 22,
                                     fontWeight: FontWeight.w500,
                                     color: !loginIsActive
-                                        ? Constants.primaryColor
+                                        ? Theme.of(context).primaryColor
                                         : Constants.secondaryColor),
                               ),
                               SizedBox(
                                 width: 55,
                                 child: Divider(
                                   color: !loginIsActive
-                                      ? Constants.primaryColor
+                                      ? Theme.of(context).primaryColor
                                       : Colors.transparent,
                                   thickness: 4,
                                   height: 20,

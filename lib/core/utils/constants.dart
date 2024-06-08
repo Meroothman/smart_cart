@@ -14,6 +14,8 @@ class Constants {
   static const String noProducts = "assets/images/no_product.png";
 
   //images in dark mode
+  static const String darkBackgroundImg = "assets/images/dark_background.jpg";
+
   static const String noProductsDark = "assets/images/no_product-dark.png";
 
   //Light Theme Colors

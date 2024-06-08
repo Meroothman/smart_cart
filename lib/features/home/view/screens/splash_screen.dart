@@ -20,15 +20,15 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _startDelay() {
     _timer = Timer(const Duration(seconds: 2), () {
-      // replacementNavigate(context, const AuthScreen());
+      replacementNavigate(context, const AuthScreen());
 
-      if (widget.isUserLoggedIn == true) {
-        GetUserDataCubit.get(context).getUserData();
+      // if (widget.isUserLoggedIn == true) {
+      //   GetUserDataCubit.get(context).getUserData();
 
-        replacementNavigate(context, const HomeScreen());
-      } else {
-        replacementNavigate(context, const AuthScreen());
-      }
+      //   replacementNavigate(context, const HomeScreen());
+      // } else {
+      //   replacementNavigate(context, const AuthScreen());
+      // }
     });
   }
 
@@ -47,8 +47,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 55, horizontal: 35),
+        padding: const EdgeInsets.symmetric(vertical: 1, horizontal: 1),
         child: Container(
           height: double.infinity,
           width: double.infinity,

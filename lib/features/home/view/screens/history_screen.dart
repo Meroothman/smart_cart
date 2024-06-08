@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:smart_cart_payment_project/core/theme/manager/theme_manager_cubit.dart';
 import 'package:smart_cart_payment_project/core/utils/constants.dart';
 import 'package:smart_cart_payment_project/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
 

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smart_cart_payment_project/core/utils/functions.dart';
 import 'package:smart_cart_payment_project/features/home/manager/cubits/order/order_cubit.dart';
 import 'package:smart_cart_payment_project/features/home/view/screens/cart_view.dart';
-import 'package:smart_cart_payment_project/features/home/view/screens/qr_code_screen.dart';
 import '../../../../core/utils/constants.dart';
 import '../widgets/drawer.dart';
 

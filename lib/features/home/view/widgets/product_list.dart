@@ -3,7 +3,6 @@ import 'package:smart_cart_payment_project/features/home/data/product_model.dart
 import 'package:smart_cart_payment_project/features/home/view/widgets/drawer.dart';
 import 'package:smart_cart_payment_project/features/home/view/widgets/product_card.dart';
 
-import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/functions.dart';
 
 // ignore: must_be_immutable
