@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_cart_payment_project/features/home/data/product_model.dart';
 import 'package:smart_cart_payment_project/features/home/view/widgets/drawer.dart';
 import 'package:smart_cart_payment_project/features/home/view/widgets/product_card.dart';
+import 'package:smart_cart_payment_project/generated/l10n.dart';
 
 import '../../../../core/utils/functions.dart';
 
@@ -59,7 +60,7 @@ class ProductList extends StatelessWidget {
                     radius: 20,
                     width: 300,
                     fontFamily: "ProtestRiot-Regular",
-                    text: "total: $totalPrice EGP       Checkout >",
+                    text: "${S.of(context).total_text} $totalPrice ${S.of(context).EGP} ${S.of(context).check_out_text}",
                     fontSize: 20,
                     onPressed: () {
                       finishOrder(context, totalPrice);

@@ -11,6 +11,7 @@ import 'package:toastification/toastification.dart';
 import '../../features/auth/view/screens/auth_screen.dart';
 import '../../features/home/manager/cubits/order/order_cubit.dart';
 import '../../features/home/view/screens/cart_view.dart';
+import '../../generated/l10n.dart';
 import '../helper/cache_helper.dart';
 
 void showToast(BuildContext context, String text, ToastificationType type) {
@@ -42,32 +43,32 @@ void pushNavigate(BuildContext context, Widget widget) {
 }
 
 void logOut(BuildContext context) {
-  return CustomSimpleDialog.showCustomDialog(context, "Logout", () async {
+  return CustomSimpleDialog.showCustomDialog(context, S.of(context).logout_text, () async {
     await FirebaseAuth.instance.signOut();
     CacheHelper.removeData(key: "uId");
     replacementNavigate(context, const AuthScreen());
-  }, "Logout", "Are you sure you want to log out ?!");
+  }, S.of(context).logout, S.of(context).logout_title);
 }
 
 void cancelOrder(BuildContext context) {
-  return CustomSimpleDialog.showCustomDialog(context, "Cancel Order", () {
+  return CustomSimpleDialog.showCustomDialog(context, S.of(context).cancel_order_text, () {
     OrderCubit.get(context).cancelOrder();
     replacementNavigate(context, const HomeScreen());
-  }, "Confirm", "Are you sure you want to Cancel your order ?!");
+  }, S.of(context).confirm_text, S.of(context).cancel_title);
 }
 
 void finishOrder(BuildContext context, int totalPrice) {
-  return CustomSimpleDialog.showCustomDialog(context, "Finish Order", () {
+  return CustomSimpleDialog.showCustomDialog(context, S.of(context).finish_order_text, () {
     CacheHelper.saveData(key: "totalPrice", value: totalPrice);
     Constants.totalPrice = CacheHelper.getData(key: "totalPrice");
     replacementNavigate(context, const MyCartView());
-  }, "Confirm", "Are you sure you want to Finish your order ?!");
+  }, S.of(context).confirm_text, S.of(context).finish_title);
 }
 
 void backShopping(context) {
-  CustomSimpleDialog.showCustomDialog(context, "Back", () {
+  CustomSimpleDialog.showCustomDialog(context, S.of(context).back_text, () {
     replacementNavigate(context, const CartView());
-  }, "Back", "Are you sure you want to back to your order ?!");
+  }, S.of(context).back_text, S.of(context).back_title);
 }
 
 void secondFinishOrder(BuildContext context) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smart_cart_payment_project/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
+import 'package:smart_cart_payment_project/generated/l10n.dart';
 import '../screens/history_screen.dart';
 import '/../core/utils/constants.dart';
 
@@ -55,17 +56,17 @@ Drawer drawer(BuildContext context) {
               const Divider(),
               ListTile(
                 leading: const Icon(Icons.person),
-                title: const Text("Name"),
+                title:  Text(S.of(context).name_title),
                 subtitle: Text(model.name),
               ),
               ListTile(
                 leading: const Icon(Icons.email),
-                title: const Text("E-mail"),
+                title:  Text(S.of(context).email_title),
                 subtitle: Text(model.email),
               ),
               ListTile(
                 leading: const Icon(Icons.phone),
-                title: const Text("Phone"),
+                title:  Text(S.of(context).phone_title),
                 subtitle: Text(model.phone),
               ),
               const Divider(),
@@ -86,7 +87,7 @@ Drawer drawer(BuildContext context) {
               // ),
               ListTile(
                 leading: const Icon(Icons.language_rounded),
-                title: const Text("Language"),
+                title:  Text(S.of(context).language_text),
                 trailing: Switch(
                   activeColor: Constants.primaryColor,
                   value: languageIsSwitched,
@@ -103,7 +104,7 @@ Drawer drawer(BuildContext context) {
                     pushNavigate(context, const SettingScreen());
                   },
                   leading: const Icon(Icons.settings),
-                  title: const Text("Setting "),
+                  title:  Text(S.of(context).setting_text),
                   trailing: const Icon(Icons.arrow_forward_ios)),
               ListTile(
                   onTap: () {
@@ -111,11 +112,11 @@ Drawer drawer(BuildContext context) {
                     pushNavigate(context, const History());
                   },
                   leading: const Icon(Icons.archive_rounded),
-                  title: const Text("History "),
+                  title: Text(S.of(context).history_text),
                   trailing: const Icon(Icons.arrow_forward_ios)),
               ListTile(
                 leading: const Icon(Icons.logout_rounded),
-                title: const Text("Logout"),
+                title:  Text(S.of(context).logout_text),
                 onTap: () {
                   logOut(context);
                 },

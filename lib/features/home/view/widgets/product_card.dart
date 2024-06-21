@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../generated/l10n.dart';
+
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
@@ -64,7 +66,7 @@ class ProductCard extends StatelessWidget {
                   padding: EdgeInsets.only(left: 5.w),
                   child: Row(children: [
                     Text(
-                      "price : \$$productPrice",
+                      "${S.of(context).price_text} $productPrice ${S.of(context).EGP}",
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
@@ -76,7 +78,7 @@ class ProductCard extends StatelessWidget {
                       width: 20.w,
                     ),
                     Text(
-                      "quantity : $productQuantity",
+                    " ${S.of(context).quantity_text} $productQuantity",
                       style: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 14,
@@ -93,7 +95,7 @@ class ProductCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(right: 20),
                     child: Text(
-                      'Total : \$${productPrice * productQuantity}',
+                      '${S.of(context).total_text} ${productPrice * productQuantity} ${S.of(context).EGP}',
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 13.sp,

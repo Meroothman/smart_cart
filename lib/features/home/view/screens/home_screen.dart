@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_cart_payment_project/features/home/manager/cubits/order/order_cubit.dart';
 import 'package:smart_cart_payment_project/features/home/view/screens/cart_view.dart';
 import '../../../../core/utils/constants.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/drawer.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -44,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                   width: 300.w,
                   child: Image.asset(Constants.scanQrCode)),
               Text(
-                "Scan the QR code on your trolley to",
+               S.of(context).scan_qr_title,
                 maxLines: 1,
                 style: TextStyle(
                   fontSize: 19.sp,
@@ -57,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                   scanQrCode();
                 },
                 child: Text(
-                  " Start Shopping",
+                  S.of(context).start_shopping_text,
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
                     fontSize: 21,

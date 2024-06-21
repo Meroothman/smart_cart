@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_cart_payment_project/features/home/data/order_model.dart';
 import 'package:smart_cart_payment_project/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
 
+import '../../../../generated/l10n.dart';
+
 class OrderHistoryCard extends StatelessWidget {
   const OrderHistoryCard({
     super.key,
@@ -43,7 +45,7 @@ class OrderHistoryCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Order ID : ${order.orderId}",
+                        "${S.of(context).order_id} ${order.orderId}",
                         style: TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
@@ -53,7 +55,7 @@ class OrderHistoryCard extends StatelessWidget {
                         height: 5.h,
                       ),
                       Text(
-                        "Order Date : ${order.date.characters.take(16).toString()}",
+                        "${S.of(context).order_date} ${order.date.characters.take(16).toString()}",
                         style: TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
@@ -108,7 +110,8 @@ class OrderHistoryCard extends StatelessWidget {
                       const Spacer(
                         flex: 1,
                       ),
-                      Text("${productsData[index]['price'] ?? ""} EGP",
+                      Text(
+                          "${productsData[index]['price'] ?? ""} ${S.of(context).EGP}",
                           style: TextStyle(
                             fontSize: 15.sp,
                             fontWeight: FontWeight.bold,
@@ -128,7 +131,7 @@ class OrderHistoryCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "Total :",
+                  S.of(context).total_text,
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -138,7 +141,7 @@ class OrderHistoryCard extends StatelessWidget {
                   width: 10.w,
                 ),
                 Text(
-                  "${order.totalPrice} EGP",
+                  "${order.totalPrice}  ${S.of(context).EGP}",
                   style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,

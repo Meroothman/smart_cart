@@ -4,6 +4,7 @@ import 'package:smart_cart_payment_project/core/helper/cache_helper.dart';
 
 import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/functions.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/drawer.dart';
 
 class NoProductScreen extends StatelessWidget {
@@ -38,7 +39,7 @@ class NoProductScreen extends StatelessWidget {
               height: 10.h,
             ),
             Text(
-              "No Product Go find products and add to cart.",
+              S.of(context).no_product_text,
               style: TextStyle(
                 color: Theme.of(context).hintColor,
                 fontSize: 16.sp,

@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:smart_cart_payment_project/core/helper/bloc_observer.dart';
@@ -18,6 +19,7 @@ import 'package:smart_cart_payment_project/firebase_options.dart';
 import 'core/theme/theme_constants/text_theme.dart';
 import 'features/home/manager/cubits/get_orders/get_orders_cubit.dart';
 import 'features/home/manager/cubits/order/order_cubit.dart';
+import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -69,7 +71,16 @@ class MyApp extends StatelessWidget {
         builder: (_, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: Constants.appName,
+            locale: const Locale('ar'),
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+             //title: S.of(context).app_name,
+             title: Constants.appName,
             themeMode: ThemeMode.dark,
             theme: ThemeData(
                 shadowColor: Colors.black54,

@@ -8,6 +8,7 @@ import 'package:smart_cart_payment_project/features/payment_feature/view/widgets
 
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/utils/functions.dart';
+import '../../../../../generated/l10n.dart';
 //import '../../../../home/manager/cubits/order/order_cubit.dart';
 
 class MyCartViewBody extends StatelessWidget {
@@ -26,17 +27,17 @@ class MyCartViewBody extends StatelessWidget {
             height: 25,
           ),
           OrderInfoItem(
-            title: 'Order Total Price',
-            value: "\$${Constants.totalPrice}",
+            title: S.of(context).order_info_item_title,
+            value: "${Constants.totalPrice}  ${S.of(context).EGP}",
 
             //"\$${OrderCubit.get(context).orderModel!.totalPrice} ",
           ),
           const SizedBox(
             height: 3,
           ),
-          const OrderInfoItem(
-            title: 'Discount',
-            value: r'0$',
+           OrderInfoItem(
+            title: S.of(context).order_discount_title,
+            value: ' 0  ${S.of(context).EGP}',
           ),
           const SizedBox(
             height: 3,
@@ -47,8 +48,8 @@ class MyCartViewBody extends StatelessWidget {
             color: Color(0xffC7C7C7),
           ),
           TotalPrice(
-            title: 'Total',
-            value: "\$${Constants.totalPrice}",
+            title: S.of(context).total_price,
+            value: "${Constants.totalPrice} ${S.of(context).EGP}",
             //"\$${OrderCubit.get(context).orderModel!.totalPrice} "
           ),
           const SizedBox(
@@ -71,7 +72,7 @@ class MyCartViewBody extends StatelessWidget {
                     );
                   });
             },
-            text: ' CheckOut',
+            text: S.of(context).check_out_title,
             fontSize: 25,
             radius: 15,
             height: 60,

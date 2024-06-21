@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smart_cart_payment_project/generated/l10n.dart';
 import '/../core/utils/constants.dart';
 import '/../features/auth/manager/cubits/auth/auth_cubit.dart';
 import '/../features/auth/manager/cubits/user_register/user_register_cubit.dart';
@@ -69,7 +70,7 @@ class SignUpTail extends StatelessWidget {
                       firstName = data;
                     },
                     controller: firstNameController,
-                    label: "First Name",
+                    label: S.of(context).fName_title,
                   ),
                 ),
                 const SizedBox(
@@ -81,7 +82,7 @@ class SignUpTail extends StatelessWidget {
                         lastName = data;
                       },
                       controller: lastNameController,
-                      label: "Last Name"),
+                      label: S.of(context).lName_title  ),
                 ),
               ],
             ),
@@ -92,7 +93,7 @@ class SignUpTail extends StatelessWidget {
                     email = data;
                   },
                   controller: emailController,
-                  label: "Email"),
+                  label: S.of(context).email_title),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10),
@@ -101,7 +102,7 @@ class SignUpTail extends StatelessWidget {
                     phone = data;
                   },
                   controller: phoneController,
-                  label: "phone"),
+                  label: S.of(context).phone_title),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10),
@@ -110,7 +111,7 @@ class SignUpTail extends StatelessWidget {
                     password = data;
                   },
                   controller: passwordController,
-                  label: "Password",
+                  label: S.of(context).password_title,
                   obscureText: true),
             ),
             Padding(
@@ -122,7 +123,7 @@ class SignUpTail extends StatelessWidget {
                           email!, password!, firstName!, lastName!, phone!);
                     }
                   },
-                  text: 'Sign up',
+                  text: S.of(context).sign_up_title,
                   height: 45,
                   radius: 4,
                   fontSize: 20),
@@ -143,7 +144,7 @@ class SignUpTail extends StatelessWidget {
                   FittedBox(
                     fit: BoxFit.contain,
                     child: Text(
-                      "or continue with",
+                      S.of(context).continue_with_text,
                       style: TextStyle(color: Constants.secondaryColor),
                     ),
                   ),
