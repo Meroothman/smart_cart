@@ -1,8 +1,11 @@
 // ignore_for_file: avoid_function_literals_in_foreach_calls
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:toastification/toastification.dart';
+import '../../../../../core/utils/functions.dart';
 import '/../core/utils/constants.dart';
 import '/../features/home/data/order_model.dart';
 
@@ -20,6 +23,7 @@ class OrderCubit extends Cubit<OrderState> {
   List productsId = [];
   // ignore: prefer_typing_uninitialized_variables
   var listener;
+  bool orderSaved = false;
 
   CollectionReference orders = FirebaseFirestore.instance
       .collection('users')
@@ -27,20 +31,27 @@ class OrderCubit extends Cubit<OrderState> {
       .collection('orders');
 
   void startOrder(String cartId) {
+    orderSaved = false;
     emit(OrderLoading());
+    CollectionReference history = FirebaseFirestore.instance
+        .collection('history')
+        .doc(DateTime.now().toString().substring(0, 10))
+        .collection("orders");
 
-    orders.add({
+    history.add({
       'cartId': cartId,
       'uId': Constants.uId,
       'productsId': productsId,
       'totalPrice': 0,
       'date': DateTime.now().toString(),
     }).then((value) {
-      orders.doc(value.id).update({'orderId': value.id});
-      emit(OrderAdded());
-      orders.doc(value.id).get().then((value) {
+      history.doc(value.id).update({'orderId': value.id});
+
+      history.doc(value.id).get().then((value) {
         orderModel = OrderModel.fromJson(value.data()!);
       });
+      emit(OrderAdded());
+
       checkAddProduct();
     }).catchError((e) {
       emit(OrderError(
@@ -116,12 +127,6 @@ class OrderCubit extends Cubit<OrderState> {
         products.clear();
         event.docs.forEach((element) {
           getProducts(element.data()['product_id'], element.data()['state']);
-
-          // print(
-          //     "element.data()['cart_id']: ${element.data()['cart_id']} ${orderModel.cartId}");
-          // if (element.data()['cart_id'] == orderModel.cartId) {
-          //   getProducts(element.data()['product_id'], element.data()['state']);
-          // }
         });
       });
     } on Exception catch (e) {
@@ -132,14 +137,17 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void finishOrder() {
-    products.forEach((element) {
-      productsId.add(
-          {"productId": element.productId, "quantity": element.userQuantity});
-    });
-    orderModel.productsId = productsId;
+    FirebaseFirestore.instance
+        .collection("history")
+        .doc(orderModel.date.substring(0, 10))
+        .set({"date": orderModel.date.substring(0, 10)});
 
-    addHistory();
-    orders.doc(orderModel.orderId).update({
+    CollectionReference history = FirebaseFirestore.instance
+        .collection('history')
+        .doc(DateTime.now().toString().substring(0, 10))
+        .collection("orders");
+
+    history.doc(orderModel.orderId).update({
       'productsId': productsId,
       'totalPrice': orderModel.totalPrice
     }).then((value) {
@@ -151,7 +159,11 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void cancelOrder() {
-    orders.doc(orderModel.orderId).delete();
+    CollectionReference history = FirebaseFirestore.instance
+        .collection('history')
+        .doc(DateTime.now().toString().substring(0, 10))
+        .collection("orders");
+    history.doc(orderModel.orderId).delete();
 
     clearData();
 
@@ -163,15 +175,6 @@ class OrderCubit extends Cubit<OrderState> {
     products.forEach((element) {
       orderModel.totalPrice += element.price * element.userQuantity;
     });
-  }
-
-  void addHistory() {
-    FirebaseFirestore.instance
-        .collection("history")
-        .doc(orderModel.date.substring(0, 10))
-        .collection("orders")
-        .doc(orderModel.orderId)
-        .set(orderModel.toMap());
   }
 
   void clearData() {
@@ -195,6 +198,47 @@ class OrderCubit extends Cubit<OrderState> {
           .collection('Products')
           .doc(element.productId)
           .update({'quantity': element.quantity - element.userQuantity});
+    }
+  }
+
+  void retryOrder(context) async {
+    try {
+      // Query the collection, ordering by the timestamp field in descending order and limit to 1
+      QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+          .collection("product_from_model")
+          .orderBy('date', descending: true)
+          .get();
+
+      // Check if there is any document in the collection
+      if (querySnapshot.docs.isNotEmpty) {
+        // Get the document ID of the last added document
+        String docId = querySnapshot.docs.first.id;
+
+        // Delete the document
+        await FirebaseFirestore.instance
+            .collection("product_from_model")
+            .doc(docId)
+            .delete();
+        checkAddProduct();
+        Navigator.pop(context);
+      } else {}
+    } catch (e) {}
+  }
+
+  void saveOrder(context) {
+    products.forEach((element) {
+      productsId.add(
+          {"productId": element.productId, "quantity": element.userQuantity});
+    });
+    orderModel.productsId = productsId;
+
+    try {
+      orders.add(orderModel.toMap());
+      orderSaved = true;
+      showToast(
+          context, "Order Saved Successfully", ToastificationType.success);
+    } on Exception catch (e) {
+      showToast(context, "Order Not Saved !", ToastificationType.error);
     }
   }
 }

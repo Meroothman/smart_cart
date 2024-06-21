@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Brightness systemBrightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = systemBrightness == Brightness.dark;
-    CacheHelper.saveData(key: "isDark", value: true);
+    CacheHelper.saveData(key: "isDark", value: isDarkMode);
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AuthCubit()..changeScreenTail(true)),
@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: Constants.appName,
-            themeMode: ThemeMode.dark,
+            themeMode: ThemeMode.system,
             theme: ThemeData(
                 shadowColor: Colors.black54,
                 scaffoldBackgroundColor: Colors.white,
