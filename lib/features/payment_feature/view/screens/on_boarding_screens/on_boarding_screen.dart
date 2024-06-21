@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_cart_payment_project/features/home/view/screens/home_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../../core/utils/constants.dart';
+import '../../../../../generated/l10n.dart';
 import 'on_boarding_model.dart';
 import 'on_boarding_widget.dart';
 
@@ -13,44 +14,41 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   var boardingController = PageController();
-  List<BoardingModel> boarding = [
-    BoardingModel(
-      title: "Welcome to Smart Market ",
-      image: "assets/images/1.png",
-      body:
-          " Prepare for a seamless shopping experience with our smart trolley.Let's start!",
-    ),
-    BoardingModel(
-      title: "Easy Scan QR Code",
-      image: "assets/images/2.png",
-      body:
-          "Link your Cart to the app by scanning its QR code for convenient shopping features",
-    ),
-    BoardingModel(
-      title: "Easy Shopping for you ",
-      image: "assets/images/3.png",
-      body:
-          "Put Your Products in Trolley Ensure products are placed clearly in the trolley for easy reading, enabling a smooth shopping experience",
-    ),
-    BoardingModel(
-      title: "Easy end of your shopping",
-      image: "assets/images/4.png",
-      body:
-          "The app calculates your total in real-time. Click checkout when done.",
-    ),
-    BoardingModel(
-      title: "Secure and Easy Payment",
-      image: "assets/images/5.png",
-      body:
-          "Pay securely through the app for a hassle-free checkout, embracing the future of shopping!",
-    ),
-  ];
   bool isLast = false;
   bool isActive = false;
-   bool skipIsActive = false;
+  bool skipIsActive = false;
 
   @override
   Widget build(BuildContext context) {
+    
+  List<BoardingModel> boarding = [
+    BoardingModel(
+      title: S.of(context).on_board_title,
+      image: "assets/images/1.png",
+      body:S.of(context).on_board_body,
+    ),
+    BoardingModel(
+      title: S.of(context).on_board_title2,
+      image: "assets/images/2.png",
+      body:S.of(context).on_board_body2,
+    ),
+    BoardingModel(
+      title: S.of(context).on_board_title3,
+      image: "assets/images/3.png",
+      body:S.of(context).on_board_body3,
+    ),
+    BoardingModel(
+      title: S.of(context).on_board_title4,
+      image: "assets/images/4.png",
+      body:S.of(context).on_board_body4,
+    ),
+    BoardingModel(
+      title: S.of(context).on_board_title5,
+      image: "assets/images/5.png",
+      body:S.of(context).on_board_body5,
+    ),
+  ];
+ 
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -66,7 +64,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               );
             },
             child: Text(
-              "Skip",
+              S.of(context).skip_text,
               style: TextStyle(
                 fontSize: 25,
                 fontFamily: 'Inter',
@@ -118,7 +116,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     }
                   },
                   child: Text(
-                    "Back",
+                    S.of(context).back_text,
                     style: TextStyle(
                       fontSize: 25,
                       fontFamily: 'Inter',
@@ -160,7 +158,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     }
                   },
                   child: Text(
-                    "Next",
+                    S.of(context).next_text,
                     style: TextStyle(
                       fontSize: 25,
                       fontFamily: 'Inter',

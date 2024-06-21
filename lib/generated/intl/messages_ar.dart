@@ -65,8 +65,29 @@ class MessageLookup extends MessageLookupByLibrary {
             "هل أنت متأكد أنك تريد تسجيل الخروج ؟!"),
         "my_cart_title": MessageLookupByLibrary.simpleMessage(" عربتي "),
         "name_title": MessageLookupByLibrary.simpleMessage(" الاسم "),
+        "next_text": MessageLookupByLibrary.simpleMessage("التالي"),
         "no_product_text": MessageLookupByLibrary.simpleMessage(
             "لا يوجد منتج، ابحث عن المنتجات وأضفها إلى سلة التسوق"),
+        "on_board_body": MessageLookupByLibrary.simpleMessage(
+            "استعد لتجربة تسوق سلسة مع عربتنا الذكية. لنبدأ!"),
+        "on_board_body2": MessageLookupByLibrary.simpleMessage(
+            "قم بربط سلة التسوق الخاصة بك بالتطبيق عن طريق مسح رمز QR code الخاص بها للحصول على ميزات تسوق مريحة"),
+        "on_board_body3": MessageLookupByLibrary.simpleMessage(
+            "ضع منتجاتك في العربة تأكد من وضع المنتجات بشكل واضح في العربة لتسهيل القراءة، مما يتيح تجربة تسوق سلسة"),
+        "on_board_body4": MessageLookupByLibrary.simpleMessage(
+            "التطبيق يحسب الإجمالي الخاص بك في الوقت الحقيقي. انقر فوق الخروج عند الانتهاء."),
+        "on_board_body5": MessageLookupByLibrary.simpleMessage(
+            "ادفع بشكل آمن من خلال التطبيق لإجراء عملية دفع خالية من المتاعب،"),
+        "on_board_title":
+            MessageLookupByLibrary.simpleMessage("مرحبا بكم في الماركت الذكي "),
+        "on_board_title2":
+            MessageLookupByLibrary.simpleMessage("امسح ال QR code بسهوله"),
+        "on_board_title3":
+            MessageLookupByLibrary.simpleMessage("تجربه تسوق سهله لك"),
+        "on_board_title4":
+            MessageLookupByLibrary.simpleMessage("نهاية سهلة للتسوق الخاص بك"),
+        "on_board_title5":
+            MessageLookupByLibrary.simpleMessage("الدفع الآمن والسهل"),
         "order_date": MessageLookupByLibrary.simpleMessage("تاريخ الطلب :"),
         "order_discount_title": MessageLookupByLibrary.simpleMessage("الخصم"),
         "order_id": MessageLookupByLibrary.simpleMessage("رقم الطلب :"),
@@ -84,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "امسح رمز الاستجابة السريعة الموجود على عربتك"),
         "setting_text": MessageLookupByLibrary.simpleMessage("الاعدادات "),
         "sign_up_title": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
+        "skip_text": MessageLookupByLibrary.simpleMessage("تخطي"),
         "start_shopping_text":
             MessageLookupByLibrary.simpleMessage("لبدء التسوق"),
         "total_price": MessageLookupByLibrary.simpleMessage("الاجمالي"),

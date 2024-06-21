@@ -63,8 +63,29 @@ class MessageLookup extends MessageLookupByLibrary {
             "Are you sure you want to log out ?!"),
         "my_cart_title": MessageLookupByLibrary.simpleMessage("My Cart"),
         "name_title": MessageLookupByLibrary.simpleMessage(" Name"),
+        "next_text": MessageLookupByLibrary.simpleMessage("Next"),
         "no_product_text": MessageLookupByLibrary.simpleMessage(
             "No Product Go find products and add to cart."),
+        "on_board_body": MessageLookupByLibrary.simpleMessage(
+            "Prepare for a seamless shopping experience with our smart trolley.Let\'s start!"),
+        "on_board_body2": MessageLookupByLibrary.simpleMessage(
+            "Link your Cart to the app by scanning its QR code for convenient shopping features"),
+        "on_board_body3": MessageLookupByLibrary.simpleMessage(
+            "Put Your Products in Trolley Ensure products are placed clearly in the trolley for easy reading, enabling a smooth shopping experience"),
+        "on_board_body4": MessageLookupByLibrary.simpleMessage(
+            "The app calculates your total in real-time. Click checkout when done."),
+        "on_board_body5": MessageLookupByLibrary.simpleMessage(
+            "Pay securely through the app for a hassle-free checkout, embracing the future of shopping!"),
+        "on_board_title":
+            MessageLookupByLibrary.simpleMessage("Welcome to Smart Market"),
+        "on_board_title2":
+            MessageLookupByLibrary.simpleMessage("Easy Scan QR Code"),
+        "on_board_title3":
+            MessageLookupByLibrary.simpleMessage("Easy Shopping for you"),
+        "on_board_title4":
+            MessageLookupByLibrary.simpleMessage("Easy end of your shopping"),
+        "on_board_title5":
+            MessageLookupByLibrary.simpleMessage("Secure and Easy Payment"),
         "order_date": MessageLookupByLibrary.simpleMessage("Order Date :"),
         "order_discount_title":
             MessageLookupByLibrary.simpleMessage("Discount"),
@@ -83,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Scan the QR code on your trolley to"),
         "setting_text": MessageLookupByLibrary.simpleMessage("Setting "),
         "sign_up_title": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "skip_text": MessageLookupByLibrary.simpleMessage("Skip"),
         "start_shopping_text":
             MessageLookupByLibrary.simpleMessage("Start shopping"),
         "total_price": MessageLookupByLibrary.simpleMessage(" Total Price"),

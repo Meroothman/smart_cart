@@ -60,25 +60,125 @@ class S {
     );
   }
 
-  // skipped getter for the 'page1_title ' key
+  /// `Welcome to Smart Market`
+  String get on_board_title {
+    return Intl.message(
+      'Welcome to Smart Market',
+      name: 'on_board_title',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'page2_title ' key
+  /// `Easy Scan QR Code`
+  String get on_board_title2 {
+    return Intl.message(
+      'Easy Scan QR Code',
+      name: 'on_board_title2',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'page3_title ' key
+  /// `Easy Shopping for you`
+  String get on_board_title3 {
+    return Intl.message(
+      'Easy Shopping for you',
+      name: 'on_board_title3',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'page4_title ' key
+  /// `Easy end of your shopping`
+  String get on_board_title4 {
+    return Intl.message(
+      'Easy end of your shopping',
+      name: 'on_board_title4',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'page5_title ' key
+  /// `Secure and Easy Payment`
+  String get on_board_title5 {
+    return Intl.message(
+      'Secure and Easy Payment',
+      name: 'on_board_title5',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'page1_body ' key
+  /// `Prepare for a seamless shopping experience with our smart trolley.Let's start!`
+  String get on_board_body {
+    return Intl.message(
+      'Prepare for a seamless shopping experience with our smart trolley.Let\'s start!',
+      name: 'on_board_body',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'page2_body ' key
+  /// `Link your Cart to the app by scanning its QR code for convenient shopping features`
+  String get on_board_body2 {
+    return Intl.message(
+      'Link your Cart to the app by scanning its QR code for convenient shopping features',
+      name: 'on_board_body2',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'page3_body ' key
+  /// `Put Your Products in Trolley Ensure products are placed clearly in the trolley for easy reading, enabling a smooth shopping experience`
+  String get on_board_body3 {
+    return Intl.message(
+      'Put Your Products in Trolley Ensure products are placed clearly in the trolley for easy reading, enabling a smooth shopping experience',
+      name: 'on_board_body3',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'page4_body ' key
+  /// `The app calculates your total in real-time. Click checkout when done.`
+  String get on_board_body4 {
+    return Intl.message(
+      'The app calculates your total in real-time. Click checkout when done.',
+      name: 'on_board_body4',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'page5_body ' key
+  /// `Pay securely through the app for a hassle-free checkout, embracing the future of shopping!`
+  String get on_board_body5 {
+    return Intl.message(
+      'Pay securely through the app for a hassle-free checkout, embracing the future of shopping!',
+      name: 'on_board_body5',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get next_text {
+    return Intl.message(
+      'Next',
+      name: 'next_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skip`
+  String get skip_text {
+    return Intl.message(
+      'Skip',
+      name: 'skip_text',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `My Cart`
   String get my_cart_title {
