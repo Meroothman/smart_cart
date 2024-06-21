@@ -21,7 +21,7 @@ class MyCartViewBody extends StatelessWidget {
           const SizedBox(
             height: 18,
           ),
-          Expanded(child: Image.asset('assets/images/basket_image_3.png')),
+          Expanded(child: Image.asset('assets/images/cart.png')),
           const SizedBox(
             height: 25,
           ),
