@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smart_cart_payment_project/core/utils/constants.dart';
 import 'package:smart_cart_payment_project/features/home/data/product_model.dart';
