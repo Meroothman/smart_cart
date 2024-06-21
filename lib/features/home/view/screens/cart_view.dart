@@ -17,8 +17,7 @@ class CartView extends StatelessWidget {
       listener: (context, state) {
         if (state is OrderError) {
           CustomSimpleDialog.showCustomDialog(context, "Error", () {
-            OrderCubit.get(context).checkAddProduct();
-            replacementNavigate(context, const CartView());
+            OrderCubit().retryOrder(context);
           }, "Retry", "Something went wrong , please try again");
         }
       },

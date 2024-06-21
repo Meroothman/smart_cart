@@ -45,7 +45,11 @@ class OrderHistoryCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
+<<<<<<< HEAD
                         "${S.of(context).order_id} ${order.orderId}",
+=======
+                        "Order ID : ${order.orderId.characters.take(25).toString()}",
+>>>>>>> 3e4bb25dfeddf45bc1cee9178dd9cec3ba7aa28d
                         style: TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.bold,

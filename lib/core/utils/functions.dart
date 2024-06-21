@@ -76,6 +76,12 @@ void secondFinishOrder(BuildContext context) {
   replacementNavigate(context, const HomeScreen());
 }
 
+void orderNotSaved(context) {
+  CustomSimpleDialog.showCustomDialog(context, "order Not Saved", () {
+    secondFinishOrder(context);
+  }, "Continue", "Are you sure you want to continue without save order ?!");
+}
+
 defaultButton({
   // login and signUp button
   double width = double.infinity,
