@@ -45,6 +45,7 @@ class GetOrdersCubit extends Cubit<GetOrdersState> {
         .get()
         .then((value) async {
       OrderModel order = OrderModel.fromJson(value.data()!);
+
       for (int i = 0; i < order.productsId.length; i++) {
         await FirebaseFirestore.instance
             .collection("Products")

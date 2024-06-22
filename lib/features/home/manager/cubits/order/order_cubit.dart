@@ -137,6 +137,15 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void finishOrder() {
+    products.forEach((element) {
+      productsId.add(
+          {"productId": element.productId, "quantity": element.userQuantity});
+    });
+    orderModel.productsId = productsId;
+    if (orderSaved) {
+      orders.doc(orderModel.orderId).set(orderModel.toMap());
+    }
+
     FirebaseFirestore.instance
         .collection("history")
         .doc(orderModel.date.substring(0, 10))
@@ -226,14 +235,7 @@ class OrderCubit extends Cubit<OrderState> {
   }
 
   void saveOrder(context) {
-    products.forEach((element) {
-      productsId.add(
-          {"productId": element.productId, "quantity": element.userQuantity});
-    });
-    orderModel.productsId = productsId;
-
     try {
-      orders.add(orderModel.toMap());
       orderSaved = true;
       showToast(
           context, "Order Saved Successfully", ToastificationType.success);
