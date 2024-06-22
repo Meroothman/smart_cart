@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smart_cart_payment_project/generated/l10n.dart';
 import '/../core/utils/constants.dart';
 import '/../features/auth/manager/cubits/auth/auth_cubit.dart';
 import '/../features/auth/manager/cubits/user_login/user_login_cubit.dart';
@@ -52,7 +53,7 @@ class LoginTail extends StatelessWidget {
                   email = data;
                 },
                 controller: emailController,
-                label: "Email"),
+                label: S.of(context).email_title),
             Padding(
               padding: const EdgeInsets.only(top: 35),
               child: defaultTextFormField(
@@ -60,7 +61,7 @@ class LoginTail extends StatelessWidget {
                     password = data;
                   },
                   controller: passwordController,
-                  label: "Password",
+                  label:S.of(context).password_title,
                   obscureText: true),
             ),
             Padding(
@@ -68,10 +69,10 @@ class LoginTail extends StatelessWidget {
               child: defaultButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      UserLoginCubit.get(context).userLogin(email!, password!);
+                      UserLoginCubit.get(context).userLogin(email!, password!,context);
                     }
                   },
-                  text: 'Login',
+                  text: S.of(context).login_title,
                   background: Theme.of(context).primaryColor,
                   height: 45,
                   radius: 4,
@@ -93,7 +94,7 @@ class LoginTail extends StatelessWidget {
                   FittedBox(
                     fit: BoxFit.contain,
                     child: Text(
-                      "or continue with",
+                      S.of(context).continue_with_text,
                       style: TextStyle(color: Constants.secondaryColor),
                     ),
                   ),

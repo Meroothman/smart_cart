@@ -9,8 +9,10 @@ final class PaymentLoading extends PaymentState {}
 
 final class PaymentSuccess extends PaymentState {}
 
+// ignore: must_be_immutable
 final class PaymentFailure extends PaymentState {
-  final String errorMessage;
+ String errorMessage ="some thing went wrong, please try again";
 
   PaymentFailure({required this.errorMessage});
+  
 }

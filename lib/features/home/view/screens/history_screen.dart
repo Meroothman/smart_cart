@@ -6,6 +6,7 @@ import 'package:smart_cart_payment_project/core/utils/constants.dart';
 import 'package:smart_cart_payment_project/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
 
 import '../../../../core/helper/cache_helper.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/order_history_card.dart';
 
 class History extends StatelessWidget {
@@ -16,9 +17,9 @@ class History extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          "Orders History",
-          style: TextStyle(
+        title: Text(
+          S.of(context).orders_history_text,
+          style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
               fontFamily: "RobotoSlab"),
@@ -74,7 +75,7 @@ class History extends StatelessWidget {
                     height: 10.h,
                   ),
                   Text(
-                    "No orders yet! Go shopping!",
+                    S.of(context).orders_history_title,
                     style: TextStyle(
                       color: Theme.of(context).hintColor,
                       fontSize: 16.sp,

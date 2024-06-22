@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/core/utils/functions.dart';
 import 'package:smart_cart_payment_project/features/home/view/widgets/product_list.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import '../../../../core/utils/dialog.dart';

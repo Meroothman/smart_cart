@@ -3,7 +3,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:toastification/toastification.dart';
 import '../../../../../core/utils/functions.dart';
 import '/../core/utils/constants.dart';

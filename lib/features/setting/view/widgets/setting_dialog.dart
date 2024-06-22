@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:toastification/toastification.dart';
 
 import '../../../../core/utils/functions.dart';
+import '../../../../generated/l10n.dart';
 import '../../manager/cubits/change_user_data/change_user_data_cubit.dart';
 import '../../manager/cubits/get_user_data/get_user_data_cubit.dart';
 
@@ -36,7 +37,7 @@ class DialogUtils {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  text: 'Cancel',
+                  text: S.of(context).cancel_text,
                   fontSize: 15,
                   background: Colors.grey,
                   radius: 20),
@@ -50,13 +51,13 @@ class DialogUtils {
                     }
                     ChangeUserDataCubit.get(context)
                         .changeUserData(userKey, newData);
-                    showToast(context, 'Data Changed Successfully',
+                    showToast(context, S.of(context).data_changed_successfully_text,
                         ToastificationType.success);
                     GetUserDataCubit.get(context).getUserData();
 
                     Navigator.pop(context);
                   },
-                  text: 'Confirm',
+                  text: S.of(context).confirm_text,
                   fontSize: 15,
                   radius: 20),
             ],

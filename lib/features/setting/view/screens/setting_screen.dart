@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../generated/l10n.dart';
 import '/../features/auth/data/user_model.dart';
 import '/../features/setting/view/widgets/setting_dialog.dart';
 import '/../features/setting/view/widgets/setting_row.dart';
@@ -33,7 +34,7 @@ class SettingScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 50),
               child: Text(
-                "Account",
+                S.of(context).account_text,
                 style: Theme.of(context).textTheme.displayMedium,
               ),
             ),
@@ -44,7 +45,7 @@ class SettingScreen extends StatelessWidget {
         child: BlocConsumer<GetUserDataCubit, GetUserDataState>(
           listener: (context, state) {
             if (state is GetUserDataFailure) {
-              showToast(context, ' Something went wrong , please try again',
+              showToast(context, S.of(context).update_failure_text,
                   ToastificationType.error);
             }
           },
@@ -89,12 +90,12 @@ class SettingScreen extends StatelessWidget {
               Column(
                 children: [
                   SettingRow(
-                      edit: "Name",
+                      edit: S.of(context).name_title,
                       data: model.name,
                       ontap: () {
                         DialogUtils.showCustomDialog(
                             context: context,
-                            title: "Edit Name",
+                            title: S.of(context).edit_name_text,
                             okButtonFunction: () {},
                             userKey: 'name',
                             controller: model.name);
@@ -105,12 +106,12 @@ class SettingScreen extends StatelessWidget {
                         size: 25,
                       )),
                   SettingRow(
-                      edit: "Email",
+                      edit: S.of(context).email_title,
                       data: model.email,
                       ontap: () {
                         DialogUtils.showCustomDialog(
                             context: context,
-                            title: "Edit Email",
+                            title: S.of(context).edit_email_text,
                             controller: model.email,
                             okButtonFunction: () {},
                             userKey: 'email');
@@ -121,12 +122,12 @@ class SettingScreen extends StatelessWidget {
                         size: 25,
                       )),
                   SettingRow(
-                      edit: "Phone",
+                      edit: S.of(context).phone_title,
                       data: model.phone,
                       ontap: () {
                         DialogUtils.showCustomDialog(
                             context: context,
-                            title: "Edit Phone",
+                            title: S.of(context).edit_phone_text,
                             okButtonFunction: () {},
                             userKey: 'phone',
                             controller: model.phone);
@@ -151,7 +152,7 @@ class SettingScreen extends StatelessWidget {
                   //       size: 25,
                   //     )),
                   SettingRow(
-                      edit: "LogOut",
+                      edit: S.of(context).logout_text,
                       data: "",
                       ontap: () {
                         logOut(context);

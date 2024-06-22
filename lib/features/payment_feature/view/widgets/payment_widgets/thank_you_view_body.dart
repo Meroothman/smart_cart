@@ -6,7 +6,7 @@ import 'package:smart_cart_payment_project/features/payment_feature/view/widgets
 class ThankYouViewBody extends StatelessWidget {
   const ThankYouViewBody({super.key});
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Stack(

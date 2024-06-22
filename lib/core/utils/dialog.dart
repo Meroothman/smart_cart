@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:smart_cart_payment_project/core/utils/functions.dart';
+import 'package:smart_cart_payment_project/generated/l10n.dart';
 
 class CustomSimpleDialog {
   static void showCustomDialog(BuildContext context, String title,
@@ -25,7 +26,7 @@ class CustomSimpleDialog {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  text: 'Cancel',
+                  text: S.of(context).cancel_text,
                   fontSize: 15,
                   background: Theme.of(context).secondaryHeaderColor,
                   radius: 20),

@@ -1,23 +1,25 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:smart_cart_payment_project/core/helper/bloc_observer.dart';
 import 'package:smart_cart_payment_project/core/helper/cache_helper.dart';
-import 'package:smart_cart_payment_project/core/theme/theme_constants/app_bar_theme.dart';
 import 'package:smart_cart_payment_project/core/utils/constants.dart';
 import 'package:smart_cart_payment_project/features/auth/manager/cubits/auth/auth_cubit.dart';
 import 'package:smart_cart_payment_project/features/auth/manager/cubits/user_login/user_login_cubit.dart';
 import 'package:smart_cart_payment_project/features/auth/manager/cubits/user_register/user_register_cubit.dart';
-import 'package:smart_cart_payment_project/features/home/view/screens/splash_screen.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/core/utils/api_keys.dart';
 import 'package:smart_cart_payment_project/features/setting/manager/cubits/change_user_data/change_user_data_cubit.dart';
 import 'package:smart_cart_payment_project/features/setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
 import 'package:smart_cart_payment_project/firebase_options.dart';
+import 'core/theme/theme_constants/app_bar_theme.dart';
 import 'core/theme/theme_constants/text_theme.dart';
 import 'features/home/manager/cubits/get_orders/get_orders_cubit.dart';
 import 'features/home/manager/cubits/order/order_cubit.dart';
+import 'features/home/view/screens/splash_screen.dart';
+import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -69,6 +71,14 @@ class MyApp extends StatelessWidget {
         builder: (_, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
+            locale: const Locale('ar'),
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
             title: Constants.appName,
             themeMode: ThemeMode.system,
             theme: ThemeData(

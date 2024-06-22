@@ -3,6 +3,7 @@ import 'package:smart_cart_payment_project/features/payment_feature/view/widgets
 import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/my_cart_view_body.dart';
 
 import '../../../../core/utils/functions.dart';
+import '../../../../generated/l10n.dart';
 
 class MyCartView extends StatelessWidget {
   const MyCartView({super.key});
@@ -12,7 +13,7 @@ class MyCartView extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(
           context: context,
-          title: 'My Cart',
+          title: S.of(context).my_cart_title,
           ontap: () {
             backShopping(context);
           }),
