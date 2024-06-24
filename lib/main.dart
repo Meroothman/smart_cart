@@ -10,6 +10,7 @@ import 'package:smart_cart_payment_project/core/utils/constants.dart';
 import 'package:smart_cart_payment_project/features/auth/manager/cubits/auth/auth_cubit.dart';
 import 'package:smart_cart_payment_project/features/auth/manager/cubits/user_login/user_login_cubit.dart';
 import 'package:smart_cart_payment_project/features/auth/manager/cubits/user_register/user_register_cubit.dart';
+import 'package:smart_cart_payment_project/features/home/manager/cubits/language/language_cubit.dart';
 import 'package:smart_cart_payment_project/features/payment_feature/core/utils/api_keys.dart';
 import 'package:smart_cart_payment_project/features/setting/manager/cubits/change_user_data/change_user_data_cubit.dart';
 import 'package:smart_cart_payment_project/features/setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
@@ -34,10 +35,13 @@ void main() async {
     return isUserLoggedIn;
   }
 
+  String? language = CacheHelper.getData(key: "language");
+
   bool isUserLoggedIn = checkUserLoggedIn();
   Stripe.publishableKey = ApiKeys.publishableKey;
   runApp(MyApp(
     isUserLoggedIn: isUserLoggedIn,
+    language: language,
   ));
 }
 
@@ -45,9 +49,10 @@ class MyApp extends StatelessWidget {
   const MyApp({
     super.key,
     required this.isUserLoggedIn,
+    required this.language,
   });
   final bool isUserLoggedIn;
-
+  final String? language;
   @override
   Widget build(BuildContext context) {
     Brightness systemBrightness = MediaQuery.of(context).platformBrightness;
@@ -62,6 +67,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ChangeUserDataCubit()),
         BlocProvider(create: (context) => OrderCubit()),
         BlocProvider(create: (context) => GetOrdersCubit()),
+        BlocProvider(
+            create: (context) =>
+                LanguageCubit()..languageChange(language: language)),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),
@@ -69,40 +77,46 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         // Use builder only if you need to use library outside ScreenUtilInit context
         builder: (_, child) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            locale: const Locale('ar'),
-              localizationsDelegates: const [
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
-            title: Constants.appName,
-            themeMode: ThemeMode.system,
-            theme: ThemeData(
-                shadowColor: Colors.black54,
-                scaffoldBackgroundColor: Colors.white,
-                primaryColor: Constants.primaryColor,
-                secondaryHeaderColor: Constants.secondaryColor,
-                appBarTheme: AppBarThemeConstants.lightAppBarTheme,
-                textTheme: TextThemeConstants.lightTextTheme,
-                brightness: Brightness.light),
-            darkTheme: ThemeData(
-                shadowColor: Colors.white70,
-                scaffoldBackgroundColor: Constants.darkBGColor,
-                primaryColor: Constants.darkPrimaryColor,
-                secondaryHeaderColor: Constants.darkSecondaryColor,
-                appBarTheme: AppBarThemeConstants.darkAppBarTheme,
-                textTheme: TextThemeConstants.darkTextTheme,
-                brightness: Brightness.dark),
-            // You can use the library anywhere in the app even in theme
-            // theme: ThemeData(
-            //   primarySwatch: Colors.blue,
-            //   textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-            // ),
-            home: SplashScreen(isUserLoggedIn: isUserLoggedIn),
+          return BlocBuilder<LanguageCubit, LanguageState>(
+            builder: (context, state) {
+              String? language = CacheHelper.getData(key: "language");
+
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                locale: Locale(language ?? "en"),
+                localizationsDelegates: const [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: S.delegate.supportedLocales,
+                title: Constants.appName,
+                themeMode: ThemeMode.system,
+                theme: ThemeData(
+                    shadowColor: Colors.black54,
+                    scaffoldBackgroundColor: Colors.white,
+                    primaryColor: Constants.primaryColor,
+                    secondaryHeaderColor: Constants.secondaryColor,
+                    appBarTheme: AppBarThemeConstants.lightAppBarTheme,
+                    textTheme: TextThemeConstants.lightTextTheme,
+                    brightness: Brightness.light),
+                darkTheme: ThemeData(
+                    shadowColor: Colors.white70,
+                    scaffoldBackgroundColor: Constants.darkBGColor,
+                    primaryColor: Constants.darkPrimaryColor,
+                    secondaryHeaderColor: Constants.darkSecondaryColor,
+                    appBarTheme: AppBarThemeConstants.darkAppBarTheme,
+                    textTheme: TextThemeConstants.darkTextTheme,
+                    brightness: Brightness.dark),
+                // You can use the library anywhere in the app even in theme
+                // theme: ThemeData(
+                //   primarySwatch: Colors.blue,
+                //   textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+                // ),
+                home: SplashScreen(isUserLoggedIn: isUserLoggedIn),
+              );
+            },
           );
         },
       ),

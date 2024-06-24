@@ -74,7 +74,9 @@ class SettingScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(100),
                             color: Colors.transparent),
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            GetUserDataCubit.get(context).getImage();
+                          },
                           icon: Icon(
                             Icons.camera_alt,
                             color: Theme.of(context).hintColor,

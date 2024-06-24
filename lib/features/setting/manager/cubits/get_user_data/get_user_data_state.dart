@@ -16,3 +16,11 @@ final class GetUserDataFailure extends GetUserDataState {
 
   final String error;
 }
+
+final class GetImageSuccess extends GetUserDataState {}
+
+final class GetImageFailure extends GetUserDataState {}
+
+final class UploadImageSuccess extends GetUserDataState {}
+
+final class UploadImageFailure extends GetUserDataState {}

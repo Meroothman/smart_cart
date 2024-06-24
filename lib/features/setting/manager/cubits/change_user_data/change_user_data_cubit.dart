@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:meta/meta.dart';
 import '/../core/utils/constants.dart';
+
 part 'change_user_data_state.dart';
 
 class ChangeUserDataCubit extends Cubit<ChangeUserDataState> {
