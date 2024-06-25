@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_cart_payment_project/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
-import 'package:smart_cart_payment_project/features/home/manager/cubits/language/language_cubit.dart';
-import 'package:smart_cart_payment_project/generated/l10n.dart';
+import 'package:Auto_Shop/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
+import 'package:Auto_Shop/features/home/manager/cubits/language/language_cubit.dart';
+import 'package:Auto_Shop/generated/l10n.dart';
 import '../screens/history_screen.dart';
 import '/../core/utils/constants.dart';
 

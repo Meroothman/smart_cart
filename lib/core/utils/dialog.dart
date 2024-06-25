@@ -1,8 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/core/utils/functions.dart';
-import 'package:smart_cart_payment_project/generated/l10n.dart';
+import 'package:Auto_Shop/core/utils/functions.dart';
+import 'package:Auto_Shop/generated/l10n.dart';
 
 class CustomSimpleDialog {
   static void showCustomDialog(BuildContext context, String title,

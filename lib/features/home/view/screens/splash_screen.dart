@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/features/home/view/screens/home_screen.dart';
-import 'package:smart_cart_payment_project/features/setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
+import 'package:Auto_Shop/features/home/view/screens/home_screen.dart';
+import 'package:Auto_Shop/features/setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
 import '/../core/utils/constants.dart';
 import '/../core/utils/functions.dart';
 import '/../features/auth/view/screens/Auth_screen.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key, required this.isUserLoggedIn});
   final bool isUserLoggedIn;

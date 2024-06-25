@@ -1,7 +1,7 @@
-import 'package:smart_cart_payment_project/features/payment_feature/data/models/amout_model/amout_model.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/data/models/amout_model/details.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/data/models/item_list_model/item.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/data/models/item_list_model/item_model.dart';
+import 'package:Auto_Shop/features/payment_feature/data/models/amout_model/amout_model.dart';
+import 'package:Auto_Shop/features/payment_feature/data/models/amout_model/details.dart';
+import 'package:Auto_Shop/features/payment_feature/data/models/item_list_model/item.dart';
+import 'package:Auto_Shop/features/payment_feature/data/models/item_list_model/item_model.dart';
 
 ({AmoutModel amount, ItemListModel itemList}) getTransctionsData() {
   var amount = AmoutModel(

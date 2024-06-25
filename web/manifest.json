@@ -1,6 +1,6 @@
 {
-    "name": "smart_cart_payment_project",
-    "short_name": "smart_cart_payment_project",
+    "name": "Auto_Shop",
+    "short_name": "Auto_Shop",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/features/home/view/screens/home_screen.dart';
+import 'package:Auto_Shop/features/home/view/screens/home_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../generated/l10n.dart';
@@ -20,35 +20,34 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    
-  List<BoardingModel> boarding = [
-    BoardingModel(
-      title: S.of(context).on_board_title,
-      image: "assets/images/1.png",
-      body:S.of(context).on_board_body,
-    ),
-    BoardingModel(
-      title: S.of(context).on_board_title2,
-      image: "assets/images/2.png",
-      body:S.of(context).on_board_body2,
-    ),
-    BoardingModel(
-      title: S.of(context).on_board_title3,
-      image: "assets/images/3.png",
-      body:S.of(context).on_board_body3,
-    ),
-    BoardingModel(
-      title: S.of(context).on_board_title4,
-      image: "assets/images/4.png",
-      body:S.of(context).on_board_body4,
-    ),
-    BoardingModel(
-      title: S.of(context).on_board_title5,
-      image: "assets/images/5.png",
-      body:S.of(context).on_board_body5,
-    ),
-  ];
- 
+    List<BoardingModel> boarding = [
+      BoardingModel(
+        title: S.of(context).on_board_title,
+        image: "assets/images/1.png",
+        body: S.of(context).on_board_body,
+      ),
+      BoardingModel(
+        title: S.of(context).on_board_title2,
+        image: "assets/images/2.png",
+        body: S.of(context).on_board_body2,
+      ),
+      BoardingModel(
+        title: S.of(context).on_board_title3,
+        image: "assets/images/3.png",
+        body: S.of(context).on_board_body3,
+      ),
+      BoardingModel(
+        title: S.of(context).on_board_title4,
+        image: "assets/images/4.png",
+        body: S.of(context).on_board_body4,
+      ),
+      BoardingModel(
+        title: S.of(context).on_board_title5,
+        image: "assets/images/5.png",
+        body: S.of(context).on_board_body5,
+      ),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         actions: [

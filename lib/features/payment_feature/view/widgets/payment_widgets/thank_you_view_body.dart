@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/custom_check_icon.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/custom_dashed_line.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/thank_you_card.dart';
+import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/custom_check_icon.dart';
+import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/custom_dashed_line.dart';
+import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/thank_you_card.dart';
 
 class ThankYouViewBody extends StatelessWidget {
   const ThankYouViewBody({super.key});
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Stack(

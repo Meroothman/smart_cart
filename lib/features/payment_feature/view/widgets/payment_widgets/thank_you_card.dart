@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smart_cart_payment_project/core/utils/constants.dart';
-import 'package:smart_cart_payment_project/features/home/data/product_model.dart';
-import 'package:smart_cart_payment_project/features/home/manager/cubits/order/order_cubit.dart';
+import 'package:Auto_Shop/core/utils/constants.dart';
+import 'package:Auto_Shop/features/home/data/product_model.dart';
+import 'package:Auto_Shop/features/home/manager/cubits/order/order_cubit.dart';
 //import 'package:intl/intl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:smart_cart_payment_project/features/payment_feature/core/utils/styles.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/payment_info_item.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/total_price_widget.dart';
+import 'package:Auto_Shop/features/payment_feature/core/utils/styles.dart';
+import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/payment_info_item.dart';
+import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/total_price_widget.dart';
 
 import '../../../../../core/helper/cache_helper.dart';
 

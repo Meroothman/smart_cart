@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:smart_cart_payment_project/generated/l10n.dart';
+import 'package:Auto_Shop/generated/l10n.dart';
 
 import '../../../../../core/helper/cache_helper.dart';
 import '../../../../../core/utils/constants.dart';
@@ -28,8 +28,7 @@ class UserLoginCubit extends Cubit<UserLoginState> {
       } else if (e.code == 'user-disabled') {
         emit(LoginFailure(message: S.of(context).user_disabled_text));
       } else {
-        emit(LoginFailure(
-            message: S.of(context).failure_text));
+        emit(LoginFailure(message: S.of(context).failure_text));
       }
     });
   }

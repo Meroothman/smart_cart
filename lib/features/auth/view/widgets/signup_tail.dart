@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smart_cart_payment_project/generated/l10n.dart';
+import 'package:Auto_Shop/generated/l10n.dart';
 import '/../core/utils/constants.dart';
 import '/../features/auth/manager/cubits/auth/auth_cubit.dart';
 import '/../features/auth/manager/cubits/user_register/user_register_cubit.dart';
@@ -82,7 +82,7 @@ class SignUpTail extends StatelessWidget {
                         lastName = data;
                       },
                       controller: lastNameController,
-                      label: S.of(context).lName_title  ),
+                      label: S.of(context).lName_title),
                 ),
               ],
             ),

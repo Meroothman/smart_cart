@@ -1,8 +1,8 @@
 import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/data/models/payment_intent_input_model.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/data/repos/checkout_repo.dart';
+import 'package:Auto_Shop/features/payment_feature/data/models/payment_intent_input_model.dart';
+import 'package:Auto_Shop/features/payment_feature/data/repos/checkout_repo.dart';
 
 part 'payment_state.dart';
 

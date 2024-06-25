@@ -1,4 +1,4 @@
-# smart_cart_payment_project
+# Auto_Shop
 
 A new Flutter project.
 

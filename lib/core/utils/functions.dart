@@ -2,10 +2,10 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/core/utils/constants.dart';
-import 'package:smart_cart_payment_project/core/utils/dialog.dart';
-import 'package:smart_cart_payment_project/features/home/view/screens/home_screen.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/screens/my_card_view.dart';
+import 'package:Auto_Shop/core/utils/constants.dart';
+import 'package:Auto_Shop/core/utils/dialog.dart';
+import 'package:Auto_Shop/features/home/view/screens/home_screen.dart';
+import 'package:Auto_Shop/features/payment_feature/view/screens/my_card_view.dart';
 import 'package:toastification/toastification.dart';
 
 import '../../features/auth/view/screens/auth_screen.dart';
@@ -43,7 +43,8 @@ void pushNavigate(BuildContext context, Widget widget) {
 }
 
 void logOut(BuildContext context) {
-  return CustomSimpleDialog.showCustomDialog(context, S.of(context).logout_text, () async {
+  return CustomSimpleDialog.showCustomDialog(context, S.of(context).logout_text,
+      () async {
     await FirebaseAuth.instance.signOut();
     CacheHelper.removeData(key: "uId");
     replacementNavigate(context, const AuthScreen());
@@ -51,14 +52,16 @@ void logOut(BuildContext context) {
 }
 
 void cancelOrder(BuildContext context) {
-  return CustomSimpleDialog.showCustomDialog(context, S.of(context).cancel_order_text, () {
+  return CustomSimpleDialog.showCustomDialog(
+      context, S.of(context).cancel_order_text, () {
     OrderCubit.get(context).cancelOrder();
     replacementNavigate(context, const HomeScreen());
   }, S.of(context).confirm_text, S.of(context).cancel_title);
 }
 
 void finishOrder(BuildContext context, int totalPrice) {
-  return CustomSimpleDialog.showCustomDialog(context, S.of(context).finish_order_text, () {
+  return CustomSimpleDialog.showCustomDialog(
+      context, S.of(context).finish_order_text, () {
     CacheHelper.saveData(key: "totalPrice", value: totalPrice);
     Constants.totalPrice = CacheHelper.getData(key: "totalPrice");
     replacementNavigate(context, const MyCartView());

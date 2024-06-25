@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smart_cart_payment_project/generated/l10n.dart';
+import 'package:Auto_Shop/generated/l10n.dart';
 import '/../core/utils/constants.dart';
 import '/../features/auth/manager/cubits/auth/auth_cubit.dart';
 import '/../features/auth/manager/cubits/user_login/user_login_cubit.dart';
@@ -61,7 +61,7 @@ class LoginTail extends StatelessWidget {
                     password = data;
                   },
                   controller: passwordController,
-                  label:S.of(context).password_title,
+                  label: S.of(context).password_title,
                   obscureText: true),
             ),
             Padding(
@@ -69,7 +69,8 @@ class LoginTail extends StatelessWidget {
               child: defaultButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      UserLoginCubit.get(context).userLogin(email!, password!,context);
+                      UserLoginCubit.get(context)
+                          .userLogin(email!, password!, context);
                     }
                   },
                   text: S.of(context).login_title,

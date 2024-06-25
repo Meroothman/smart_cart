@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smart_cart_payment_project/features/home/data/order_model.dart';
-import 'package:smart_cart_payment_project/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
+import 'package:Auto_Shop/features/home/data/order_model.dart';
+import 'package:Auto_Shop/features/home/manager/cubits/get_orders/get_orders_cubit.dart';
 
 import '../../../../generated/l10n.dart';
 

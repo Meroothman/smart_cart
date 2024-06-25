@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/core/utils/api_keys.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/core/utils/api_service.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/data/models/ephemeral_key_model/ephemeral_key_model.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/data/models/init_payment_sheet_input_model.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/data/models/payment_intent_input_model.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/data/models/payment_intent_model/payment_intent_model.dart';
+import 'package:Auto_Shop/features/payment_feature/core/utils/api_keys.dart';
+import 'package:Auto_Shop/features/payment_feature/core/utils/api_service.dart';
+import 'package:Auto_Shop/features/payment_feature/data/models/ephemeral_key_model/ephemeral_key_model.dart';
+import 'package:Auto_Shop/features/payment_feature/data/models/init_payment_sheet_input_model.dart';
+import 'package:Auto_Shop/features/payment_feature/data/models/payment_intent_input_model.dart';
+import 'package:Auto_Shop/features/payment_feature/data/models/payment_intent_model/payment_intent_model.dart';
 
 class StripeService {
   // create payment intent model

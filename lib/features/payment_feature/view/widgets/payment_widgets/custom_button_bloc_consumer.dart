@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/manger/payment_cubit.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/screens/thank_you_view.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/custom_button.dart';
+import 'package:Auto_Shop/features/payment_feature/manger/payment_cubit.dart';
+import 'package:Auto_Shop/features/payment_feature/view/screens/thank_you_view.dart';
+import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/custom_button.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../core/functions/excete_stripe_payment.dart';
 import '../../../core/functions/exceute_paypal_payment.dart';
@@ -47,8 +47,4 @@ class CustomButtonBlocConsumer extends StatelessWidget {
       },
     );
   }
-
- 
-
- 
 }

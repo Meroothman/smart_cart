@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/core/utils/styles.dart';
+import 'package:Auto_Shop/features/payment_feature/core/utils/styles.dart';
 
 class PaymentItemInfo extends StatelessWidget {
   const PaymentItemInfo({super.key, required this.title, required this.value});

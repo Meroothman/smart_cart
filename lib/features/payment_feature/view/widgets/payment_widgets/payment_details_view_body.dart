@@ -1,10 +1,10 @@
 //import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/screens/thank_you_view.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/custom_credit_card.dart';
+import 'package:Auto_Shop/features/payment_feature/view/screens/thank_you_view.dart';
+import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/custom_credit_card.dart';
 
 import '../../../../../core/utils/functions.dart';
-//import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/payment_methods_list_view.dart';
+//import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/payment_methods_list_view.dart';
 
 class PaymentDetailsViewBody extends StatefulWidget {
   const PaymentDetailsViewBody({super.key});

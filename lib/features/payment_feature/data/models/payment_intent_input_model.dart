@@ -1,6 +1,6 @@
 //import '../../../home/manager/cubits/order/order_cubit.dart';
 
-import 'package:smart_cart_payment_project/core/utils/constants.dart';
+import 'package:Auto_Shop/core/utils/constants.dart';
 
 class PaymentIntentInputModel {
   final String amount;
@@ -13,7 +13,7 @@ class PaymentIntentInputModel {
   toJson() {
     //to convert data to map
     return {
-      'amount':'${Constants.totalPrice}00', 
+      'amount': '${Constants.totalPrice}00',
       //'${OrderCubit().orderModel!.totalPrice}00',
       'currency': currency,
       'customer': customerId,

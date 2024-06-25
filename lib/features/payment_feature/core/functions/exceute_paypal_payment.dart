@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_paypal_payment/flutter_paypal_payment.dart';
-import 'package:smart_cart_payment_project/features/home/view/screens/home_screen.dart';
+import 'package:Auto_Shop/features/home/view/screens/home_screen.dart';
 import '../../data/models/amout_model/amout_model.dart';
 import '../../data/models/item_list_model/item_model.dart';
 import '../../view/screens/thank_you_view.dart';

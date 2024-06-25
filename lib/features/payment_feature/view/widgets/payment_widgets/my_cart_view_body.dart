@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/data/repos/ckeckout_repo_impl.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/manger/payment_cubit.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/cart_info_item.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/payment_methods_bottom_sheet.dart';
-import 'package:smart_cart_payment_project/features/payment_feature/view/widgets/payment_widgets/total_price_widget.dart';
+import 'package:Auto_Shop/features/payment_feature/data/repos/ckeckout_repo_impl.dart';
+import 'package:Auto_Shop/features/payment_feature/manger/payment_cubit.dart';
+import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/cart_info_item.dart';
+import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/payment_methods_bottom_sheet.dart';
+import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/total_price_widget.dart';
 
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/utils/functions.dart';
@@ -35,7 +35,7 @@ class MyCartViewBody extends StatelessWidget {
           const SizedBox(
             height: 3,
           ),
-           OrderInfoItem(
+          OrderInfoItem(
             title: S.of(context).order_discount_title,
             value: ' 0  ${S.of(context).EGP}',
           ),
