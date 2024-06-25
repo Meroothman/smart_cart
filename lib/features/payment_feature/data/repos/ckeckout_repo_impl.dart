@@ -1,3 +1,5 @@
+// ignore_for_file: unused_catch_clause
+
 import 'package:dartz/dartz.dart';
 import 'package:Auto_Shop/features/payment_feature/core/errors/failures.dart';
 import 'package:Auto_Shop/features/payment_feature/core/utils/stripe_service.dart';

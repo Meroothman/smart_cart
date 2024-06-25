@@ -1,6 +1,5 @@
 import "package:Auto_Shop/core/utils/constants.dart";
 import "package:flutter/material.dart";
-import "package:Auto_Shop/core/utils/constants.dart";
 
 class AppBarThemeConstants {
   static const lightAppBarTheme = AppBarTheme(

@@ -1,6 +1,5 @@
 import 'package:Auto_Shop/features/auth/view/screens/auth_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:Auto_Shop/features/home/view/screens/home_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../generated/l10n.dart';
