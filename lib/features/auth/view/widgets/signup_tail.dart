@@ -48,7 +48,7 @@ class SignUpTail extends StatelessWidget {
         if (state is RegisterLoading) {
           BlocProvider.of<AuthCubit>(context).loadingState(true);
         } else if (state is RegisterSuccess) {
-          GetUserDataCubit.get(context).getUserData();
+          GetUserDataCubit.get(context).getUserData(Constants.uId);
           BlocProvider.of<AuthCubit>(context).loadingState(false);
           replacementNavigate(context, const HomeScreen());
         } else if (state is RegisterFailure) {
@@ -127,58 +127,6 @@ class SignUpTail extends StatelessWidget {
                   height: 45,
                   radius: 4,
                   fontSize: 20),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30, left: 15, right: 15),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: Divider(
-                        color: Constants.secondaryColor,
-                        thickness: 1,
-                      ),
-                    ),
-                  ),
-                  FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text(
-                      S.of(context).continue_with_text,
-                      style: TextStyle(color: Constants.secondaryColor),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: Divider(
-                        color: Constants.secondaryColor,
-                        thickness: 1,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                      padding: const EdgeInsets.only(right: 35),
-                      child: SizedBox(
-                        height: 25,
-                        width: 30,
-                        child: SvgPicture.asset(Constants.googleLogo),
-                      )),
-                  SizedBox(
-                    height: 25,
-                    width: 30,
-                    child: SvgPicture.asset(Constants.facebookLogo),
-                  )
-                ],
-              ),
             ),
           ],
         ),

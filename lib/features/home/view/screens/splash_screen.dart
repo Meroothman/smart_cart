@@ -5,7 +5,7 @@ import 'package:Auto_Shop/features/home/view/screens/home_screen.dart';
 import 'package:Auto_Shop/features/setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
 import '/../core/utils/constants.dart';
 import '/../core/utils/functions.dart';
-import '/../features/auth/view/screens/Auth_screen.dart';
+import 'on_boarding_screens/on_boarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key, required this.isUserLoggedIn});
@@ -20,14 +20,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void _startDelay() {
     _timer = Timer(const Duration(seconds: 2), () {
-      // replacementNavigate(context, const AuthScreen());
-
       if (widget.isUserLoggedIn == true) {
-        GetUserDataCubit.get(context).getUserData();
+        GetUserDataCubit.get(context).getUserData(Constants.uId);
 
         replacementNavigate(context, const HomeScreen());
       } else {
-        replacementNavigate(context, const AuthScreen());
+        replacementNavigate(context, const OnBoardingScreen());
       }
     });
   }

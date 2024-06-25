@@ -36,7 +36,7 @@ class LoginTail extends StatelessWidget {
         } else if (state is LoginSuccess) {
           BlocProvider.of<AuthCubit>(context).loadingState(false);
           // CacheHelper.saveData(key: "userName", value: state.name);
-          GetUserDataCubit.get(context).getUserData();
+          GetUserDataCubit.get(context).getUserData(Constants.uId);
           replacementNavigate(context, const HomeScreen());
         } else if (state is LoginFailure) {
           BlocProvider.of<AuthCubit>(context).loadingState(false);
@@ -79,58 +79,6 @@ class LoginTail extends StatelessWidget {
                   radius: 4,
                   fontSize: 20),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30, left: 15, right: 15),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: Divider(
-                        color: Constants.secondaryColor,
-                        thickness: 1,
-                      ),
-                    ),
-                  ),
-                  FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text(
-                      S.of(context).continue_with_text,
-                      style: TextStyle(color: Constants.secondaryColor),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: Divider(
-                        color: Constants.secondaryColor,
-                        thickness: 1,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                      padding: const EdgeInsets.only(right: 35),
-                      child: SizedBox(
-                        height: 25,
-                        width: 30,
-                        child: SvgPicture.asset(Constants.googleLogo),
-                      )),
-                  SizedBox(
-                    height: 25,
-                    width: 30,
-                    child: SvgPicture.asset(Constants.facebookLogo),
-                  )
-                ],
-              ),
-            )
           ],
         ),
       ),

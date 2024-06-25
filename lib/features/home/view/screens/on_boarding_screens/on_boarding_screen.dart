@@ -1,3 +1,4 @@
+import 'package:Auto_Shop/features/auth/view/screens/auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:Auto_Shop/features/home/view/screens/home_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -58,14 +59,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               });
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
-                  builder: (context) => const HomeScreen(),
+                  builder: (context) => const AuthScreen(),
                 ),
               );
             },
             child: Text(
               S.of(context).skip_text,
               style: TextStyle(
-                fontSize: 25,
+                fontSize: 20,
                 fontFamily: 'Inter',
                 fontWeight: FontWeight.w500,
                 color: skipIsActive
@@ -146,7 +147,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     if (isLast) {
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
-                          builder: (context) => const HomeScreen(),
+                          builder: (context) => const AuthScreen(),
                         ),
                       );
                     } else {

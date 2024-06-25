@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toastification/toastification.dart';
 
+import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/functions.dart';
 import '../../../../generated/l10n.dart';
 import '../../manager/cubits/change_user_data/change_user_data_cubit.dart';
@@ -51,9 +52,11 @@ class DialogUtils {
                     }
                     ChangeUserDataCubit.get(context)
                         .changeUserData(userKey, newData);
-                    showToast(context, S.of(context).data_changed_successfully_text,
+                    showToast(
+                        context,
+                        S.of(context).data_changed_successfully_text,
                         ToastificationType.success);
-                    GetUserDataCubit.get(context).getUserData();
+                    GetUserDataCubit.get(context).getUserData(Constants.uId);
 
                     Navigator.pop(context);
                   },

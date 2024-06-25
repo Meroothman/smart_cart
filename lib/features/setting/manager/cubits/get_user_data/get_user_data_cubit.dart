@@ -15,23 +15,25 @@ class GetUserDataCubit extends Cubit<GetUserDataState> {
   static GetUserDataCubit get(context) => BlocProvider.of(context);
   late UserModel model;
 
-  void getUserData() async {
-    emit(GetUserDataLoading());
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(Constants.uId)
-        .get()
-        .then((value) {
-      model = UserModel.fromJson(value.data()!);
-      Constants.userName = model.name;
+  void getUserData(uId) async {
+    if (uId != null) {
+      emit(GetUserDataLoading());
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(uId)
+          .get()
+          .then((value) {
+        model = UserModel.fromJson(value.data()!);
+        Constants.userName = model.name;
 
-      emit(GetUserDataSuccess());
-    }).catchError((e) {
-      emit(GetUserDataFailure(error: e));
-    });
+        emit(GetUserDataSuccess());
+      }).catchError((e) {
+        emit(GetUserDataFailure(error: e));
+      });
+    }
   }
 
-  final ImagePicker picker = ImagePicker();
+  var picker = ImagePicker();
   File? image;
 
   Future<void> getImage() async {
@@ -60,6 +62,11 @@ class GetUserDataCubit extends Cubit<GetUserDataState> {
       // Get the download URL
       final downloadUrl = await imagesRef.getDownloadURL();
       uploadedImage = downloadUrl;
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(Constants.uId)
+          .update({'image': downloadUrl});
+      getUserData(Constants.uId);
 
       emit(UploadImageSuccess());
     } catch (e) {
