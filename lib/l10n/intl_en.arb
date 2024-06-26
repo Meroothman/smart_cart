@@ -62,7 +62,18 @@
     "user_not_found_text":"No user found for that email.",
     "wrong_password_text":"Wrong password provided for that user.",
     "user_disabled_text":"User account has been disabled.",
-    "failure_text":"Email or password is incorrect. Please try again."
+    "failure_text":"Email or password is incorrect. Please try again.",
+    "thank_you_text":"Thank you!",
+    "Your_transaction_was_successful_text":"Your transaction was successful",
+    "date_text":"Date",
+    "time_text":"Time",
+    "to_text":"To ",
+    "pcs_text":"pcs",
+    "save_text":"SAVE",
+    "Order_Saved_Successfully_title":"Order Saved Successfully",
+    "Order_Not_Saved_title":"Order Not Saved !",
+    "total":" Total",
+    "cancel_payment":"You cannot cancel payment now"
    
 
 

@@ -23,6 +23,13 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "EGP": MessageLookupByLibrary.simpleMessage("EGP"),
+        "Order_Not_Saved_title":
+            MessageLookupByLibrary.simpleMessage("Order Not Saved !"),
+        "Order_Saved_Successfully_title":
+            MessageLookupByLibrary.simpleMessage("Order Saved Successfully"),
+        "Your_transaction_was_successful_text":
+            MessageLookupByLibrary.simpleMessage(
+                "Your transaction was successful"),
         "account_text": MessageLookupByLibrary.simpleMessage("Account"),
         "app_name": MessageLookupByLibrary.simpleMessage("Auto shop"),
         "back_text": MessageLookupByLibrary.simpleMessage("Back"),
@@ -30,6 +37,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Are you sure you want to back to your order ?!"),
         "cancel_order_text":
             MessageLookupByLibrary.simpleMessage("Cancel Order"),
+        "cancel_payment": MessageLookupByLibrary.simpleMessage(
+            "You cannot cancel payment now"),
         "cancel_text": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cancel_title": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to Cancel your order ?!"),
@@ -42,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("or continue with"),
         "data_changed_successfully_text":
             MessageLookupByLibrary.simpleMessage("Data Changed Successfully"),
+        "date_text": MessageLookupByLibrary.simpleMessage("Date"),
         "edit_email_text": MessageLookupByLibrary.simpleMessage("Edit Email"),
         "edit_name_text": MessageLookupByLibrary.simpleMessage("Edit Name"),
         "edit_phone_text": MessageLookupByLibrary.simpleMessage("Edit Phone"),
@@ -97,9 +107,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "orders_history_title":
             MessageLookupByLibrary.simpleMessage("No orders yet! Go shopping!"),
         "password_title": MessageLookupByLibrary.simpleMessage("Password"),
+        "pcs_text": MessageLookupByLibrary.simpleMessage("pcs"),
         "phone_title": MessageLookupByLibrary.simpleMessage(" Phone"),
         "price_text": MessageLookupByLibrary.simpleMessage("Price :"),
         "quantity_text": MessageLookupByLibrary.simpleMessage("quantity :"),
+        "save_text": MessageLookupByLibrary.simpleMessage("SAVE"),
         "scan_qr_title": MessageLookupByLibrary.simpleMessage(
             "Scan the QR code on your trolley to"),
         "setting_text": MessageLookupByLibrary.simpleMessage("Setting "),
@@ -107,6 +119,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip_text": MessageLookupByLibrary.simpleMessage("Skip"),
         "start_shopping_text":
             MessageLookupByLibrary.simpleMessage("Start shopping"),
+        "thank_you_text": MessageLookupByLibrary.simpleMessage("Thank you!"),
+        "time_text": MessageLookupByLibrary.simpleMessage("Time"),
+        "to_text": MessageLookupByLibrary.simpleMessage("To "),
+        "total": MessageLookupByLibrary.simpleMessage(" Total"),
         "total_price": MessageLookupByLibrary.simpleMessage(" Total Price"),
         "total_text": MessageLookupByLibrary.simpleMessage(" total:"),
         "update_failure_text": MessageLookupByLibrary.simpleMessage(

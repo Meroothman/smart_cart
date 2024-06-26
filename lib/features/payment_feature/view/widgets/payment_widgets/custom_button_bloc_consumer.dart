@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:Auto_Shop/features/payment_feature/manger/payment_cubit.dart';
 import 'package:Auto_Shop/features/payment_feature/view/screens/thank_you_view.dart';
 import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/custom_button.dart';
+import 'package:toastification/toastification.dart';
+import '../../../../../core/utils/functions.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../core/functions/excete_stripe_payment.dart';
 import '../../../core/functions/exceute_paypal_payment.dart';
@@ -28,8 +30,11 @@ class CustomButtonBlocConsumer extends StatelessWidget {
 
         if (state is PaymentFailure) {
           Navigator.of(context).pop();
-          SnackBar snackBar = SnackBar(content: Text(state.errorMessage));
-          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          // SnackBar snackBar = SnackBar(content: Text(state.errorMessage));
+          // //errorMassage
+          // ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          //edited
+          showToast(context, S.of(context).cancel_payment, ToastificationType.error);
         }
       },
       builder: (context, state) {

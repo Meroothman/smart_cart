@@ -29,7 +29,7 @@
     "continue_title_button":" متابعة " ,
     "login_title":"تسجيل الدخول ",
     "sign_up_title":"انشاء حساب",
-    "email_title":"بريدك الالكتروني",
+    "email_title":"حسابي",
     "password_title":"كلمه المرور ",
     "phone_title":" رقم الهاتف ",
     "name_title":" الاسم ",
@@ -62,5 +62,17 @@
     "user_not_found_text":"لم يتم العثور على مستخدم لهذا البريد الإلكتروني.",
     "wrong_password_text":" كلمة مرور خاطئة لهذا المستخدم.",
     "user_disabled_text":"تم تعطيل حساب المستخدم.",
-    "failure_text":"البريد الالكتروني او كلمة المرور غير صحيحة. حاول مرة اخرى."
+    "failure_text":"البريد الالكتروني او كلمة المرور غير صحيحة. حاول مرة اخرى.",
+    "thank_you_text":"شكرا لك!",
+    "Your_transaction_was_successful_text":"تم التحويل بنجاح",
+    "date_text":"اليوم",
+    "time_text":"الوقت",
+    "to_text":"من ",
+    "pcs_text":"قطعه",
+    "save_text":"حفظ",
+    "Order_Saved_Successfully_title":"تم حفظ الطلب بنجاح",
+    "Order_Not_Saved_title":"الطلب لا يمكن حفظه!",
+    "total":" الاجمالي",
+    "cancel_payment":"لا يمكن الغاء الدفع الان"
+   
 }

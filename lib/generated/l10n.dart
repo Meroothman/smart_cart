@@ -689,6 +689,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Thank you!`
+  String get thank_you_text {
+    return Intl.message(
+      'Thank you!',
+      name: 'thank_you_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your transaction was successful`
+  String get Your_transaction_was_successful_text {
+    return Intl.message(
+      'Your transaction was successful',
+      name: 'Your_transaction_was_successful_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date_text {
+    return Intl.message(
+      'Date',
+      name: 'date_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time`
+  String get time_text {
+    return Intl.message(
+      'Time',
+      name: 'time_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To `
+  String get to_text {
+    return Intl.message(
+      'To ',
+      name: 'to_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `pcs`
+  String get pcs_text {
+    return Intl.message(
+      'pcs',
+      name: 'pcs_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SAVE`
+  String get save_text {
+    return Intl.message(
+      'SAVE',
+      name: 'save_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Saved Successfully`
+  String get Order_Saved_Successfully_title {
+    return Intl.message(
+      'Order Saved Successfully',
+      name: 'Order_Saved_Successfully_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Not Saved !`
+  String get Order_Not_Saved_title {
+    return Intl.message(
+      'Order Not Saved !',
+      name: 'Order_Not_Saved_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Total`
+  String get total {
+    return Intl.message(
+      ' Total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You cannot cancel payment now`
+  String get cancel_payment {
+    return Intl.message(
+      'You cannot cancel payment now',
+      name: 'cancel_payment',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -11,6 +11,7 @@ import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/
 import 'package:Auto_Shop/features/payment_feature/view/widgets/payment_widgets/total_price_widget.dart';
 
 import '../../../../../core/helper/cache_helper.dart';
+import '../../../../../generated/l10n.dart';
 
 //import '../../../../home/manager/cubits/order/order_cubit.dart';
 
@@ -40,13 +41,13 @@ class ThankYouCard extends StatelessWidget {
         padding: const EdgeInsets.only(top: 50 + 16, left: 22, right: 22),
         child: Column(
           children: [
-            const Text(
-              'Thank you!',
+             Text(
+              S.of(context).thank_you_text,
               textAlign: TextAlign.center,
               style: Styles.style25,
             ),
             Text(
-              'Your transaction was successful',
+              S.of(context).Your_transaction_was_successful_text,
               textAlign: TextAlign.center,
               style: Styles.style20,
             ),
@@ -54,21 +55,21 @@ class ThankYouCard extends StatelessWidget {
               height: 42,
             ),
             PaymentItemInfo(
-              title: 'Date',
+              title: S.of(context).date_text,
               value: OrderCubit.get(context).orderModel.date.substring(0, 10),
             ),
             const SizedBox(
               height: 10,
             ),
             PaymentItemInfo(
-              title: 'Time',
+              title: S.of(context).time_text,
               value: OrderCubit.get(context).orderModel.date.substring(11, 16),
             ),
             const SizedBox(
               height: 10,
             ),
             PaymentItemInfo(
-              title: 'To',
+              title: S.of(context).to_text,
               value: Constants.userName,
             ),
             const Divider(
@@ -99,7 +100,7 @@ class ThankYouCard extends StatelessWidget {
                         const Spacer(
                           flex: 3,
                         ),
-                        Text("${products[index].userQuantity.toString()} pcs",
+                        Text("${products[index].userQuantity.toString()} ${S.of(context).pcs_text}",
                             style: TextStyle(
                               fontSize: 15.sp,
                               fontWeight: FontWeight.bold,
@@ -108,7 +109,7 @@ class ThankYouCard extends StatelessWidget {
                         const Spacer(
                           flex: 1,
                         ),
-                        Text("${products[index].price.toString()} EGP",
+                        Text("${products[index].price.toString()} ${S.of(context).EGP}",
                             style: TextStyle(
                               fontSize: 15.sp,
                               fontWeight: FontWeight.bold,
@@ -122,8 +123,8 @@ class ThankYouCard extends StatelessWidget {
               height: 30,
             ),
             TotalPrice(
-              title: 'Total',
-              value: "\$${Constants.totalPrice}",
+              title: S.of(context).total,
+              value: "${Constants.totalPrice}  ${S.of(context).EGP}",
             ),
             const Spacer(),
             Row(
@@ -147,7 +148,7 @@ class ThankYouCard extends StatelessWidget {
                     child: InkWell(
                       onTap: () => OrderCubit.get(context).saveOrder(context),
                       child: Text(
-                        'SAVE',
+                        S.of(context).save_text,
                         textAlign: TextAlign.center,
                         style: Styles.style24
                             .copyWith(color: Constants.primaryColor),

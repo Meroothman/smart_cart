@@ -1,7 +1,6 @@
+import 'package:Auto_Shop/features/home/view/screens/qr_code_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:Auto_Shop/features/home/manager/cubits/order/order_cubit.dart';
-import 'package:Auto_Shop/features/home/view/screens/cart_view.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../../generated/l10n.dart';
 import '../widgets/drawer.dart';
@@ -12,12 +11,12 @@ class HomeScreen extends StatelessWidget {
   @override
   @override
   Widget build(BuildContext context) {
-    void scanQrCode() {
-      // pushNavigate(context, const QrCodeScreen());
-      OrderCubit.get(context).startOrder("123456mmshf");
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const CartView()));
-    }
+    // void scanQrCode() {
+    //   // pushNavigate(context, const QrCodeScreen());
+    //   OrderCubit.get(context).startOrder("123456mmshf");
+    //   Navigator.pushReplacement(
+    //       context, MaterialPageRoute(builder: (context) => const CartView()));
+    // }
 
     return Scaffold(
         drawer: drawer(context),
@@ -25,7 +24,8 @@ class HomeScreen extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {
-                  scanQrCode();
+                Navigator.pushReplacement(
+                 context, MaterialPageRoute(builder: (context) => const QrCodeScreen()));
                 },
                 icon: const ImageIcon(
                     AssetImage("assets/images/qr_code_scanner.png"))),
@@ -55,7 +55,8 @@ class HomeScreen extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  scanQrCode();
+                  Navigator.pushReplacement(
+                 context, MaterialPageRoute(builder: (context) => const QrCodeScreen()));
                 },
                 child: Text(
                   S.of(context).start_shopping_text,

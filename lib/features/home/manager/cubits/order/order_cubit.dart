@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:toastification/toastification.dart';
 import '../../../../../core/utils/functions.dart';
+import '../../../../../generated/l10n.dart';
 import '/../core/utils/constants.dart';
 import '/../features/home/data/order_model.dart';
 
@@ -237,9 +238,9 @@ class OrderCubit extends Cubit<OrderState> {
     try {
       orderSaved = true;
       showToast(
-          context, "Order Saved Successfully", ToastificationType.success);
+          context, S.of(context).Order_Saved_Successfully_title, ToastificationType.success);
     } on Exception catch (e) {
-      showToast(context, "Order Not Saved !", ToastificationType.error);
+      showToast(context, S.of(context).Order_Not_Saved_title, ToastificationType.error);
     }
   }
 }

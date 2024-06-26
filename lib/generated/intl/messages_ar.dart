@@ -23,6 +23,12 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "EGP": MessageLookupByLibrary.simpleMessage(" جنيه"),
+        "Order_Not_Saved_title":
+            MessageLookupByLibrary.simpleMessage("الطلب لا يمكن حفظه!"),
+        "Order_Saved_Successfully_title":
+            MessageLookupByLibrary.simpleMessage("تم حفظ الطلب بنجاح"),
+        "Your_transaction_was_successful_text":
+            MessageLookupByLibrary.simpleMessage("تم التحويل بنجاح"),
         "account_text": MessageLookupByLibrary.simpleMessage("حسابي "),
         "app_name": MessageLookupByLibrary.simpleMessage(" التسوق التلقائي"),
         "back_text": MessageLookupByLibrary.simpleMessage("رجوع"),
@@ -30,6 +36,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "هل أنت متأكد أنك تريد العودة إلى طلبك؟!"),
         "cancel_order_text":
             MessageLookupByLibrary.simpleMessage("الغاء الطلب"),
+        "cancel_payment":
+            MessageLookupByLibrary.simpleMessage("لا يمكن الغاء الدفع الان"),
         "cancel_text": MessageLookupByLibrary.simpleMessage("الغاء"),
         "cancel_title": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد أنك تريد إلغاء طلبك ؟!"),
@@ -42,12 +50,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الاستمرار عن طريق"),
         "data_changed_successfully_text":
             MessageLookupByLibrary.simpleMessage("تم تغيير البيانات بنجاح"),
+        "date_text": MessageLookupByLibrary.simpleMessage("اليوم"),
         "edit_email_text":
             MessageLookupByLibrary.simpleMessage("تعديل البريد الالكتروني"),
         "edit_name_text": MessageLookupByLibrary.simpleMessage(" تعديل الاسم "),
         "edit_phone_text":
             MessageLookupByLibrary.simpleMessage("تعديل رقم الهاتف"),
-        "email_title": MessageLookupByLibrary.simpleMessage("بريدك الالكتروني"),
+        "email_title": MessageLookupByLibrary.simpleMessage("حسابي"),
         "fName_title": MessageLookupByLibrary.simpleMessage("الاسم الاول"),
         "failure_text": MessageLookupByLibrary.simpleMessage(
             "البريد الالكتروني او كلمة المرور غير صحيحة. حاول مرة اخرى."),
@@ -98,9 +107,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "orders_history_title": MessageLookupByLibrary.simpleMessage(
             "لا توجد طلبات بعد! اذهب للتسوق!"),
         "password_title": MessageLookupByLibrary.simpleMessage("كلمه المرور "),
+        "pcs_text": MessageLookupByLibrary.simpleMessage("قطعه"),
         "phone_title": MessageLookupByLibrary.simpleMessage(" رقم الهاتف "),
         "price_text": MessageLookupByLibrary.simpleMessage("السعر :"),
         "quantity_text": MessageLookupByLibrary.simpleMessage("الكمية :"),
+        "save_text": MessageLookupByLibrary.simpleMessage("حفظ"),
         "scan_qr_title": MessageLookupByLibrary.simpleMessage(
             "امسح رمز الاستجابة السريعة الموجود على عربتك"),
         "setting_text": MessageLookupByLibrary.simpleMessage("الاعدادات "),
@@ -108,6 +119,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip_text": MessageLookupByLibrary.simpleMessage("تخطي"),
         "start_shopping_text":
             MessageLookupByLibrary.simpleMessage("لبدء التسوق"),
+        "thank_you_text": MessageLookupByLibrary.simpleMessage("شكرا لك!"),
+        "time_text": MessageLookupByLibrary.simpleMessage("الوقت"),
+        "to_text": MessageLookupByLibrary.simpleMessage("من "),
+        "total": MessageLookupByLibrary.simpleMessage(" الاجمالي"),
         "total_price": MessageLookupByLibrary.simpleMessage("الاجمالي"),
         "total_text": MessageLookupByLibrary.simpleMessage("  الاجمالي : "),
         "update_failure_text": MessageLookupByLibrary.simpleMessage(
