@@ -73,7 +73,8 @@
     "Order_Saved_Successfully_title":"Order Saved Successfully",
     "Order_Not_Saved_title":"Order Not Saved !",
     "total":" Total",
-    "cancel_payment":"You cannot cancel payment now"
+    "cancel_payment":"You cannot cancel payment now",
+    "cancel_saved_order_title":"Are you sure you want to continue without save order ?!"
    
 
 

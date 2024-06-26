@@ -38,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الغاء الطلب"),
         "cancel_payment":
             MessageLookupByLibrary.simpleMessage("لا يمكن الغاء الدفع الان"),
+        "cancel_saved_order_title": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد أنك تريد المتابعة بدون حفظ الطلب ?!"),
         "cancel_text": MessageLookupByLibrary.simpleMessage("الغاء"),
         "cancel_title": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد أنك تريد إلغاء طلبك ؟!"),

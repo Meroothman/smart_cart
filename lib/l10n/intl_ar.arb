@@ -73,6 +73,7 @@
     "Order_Saved_Successfully_title":"تم حفظ الطلب بنجاح",
     "Order_Not_Saved_title":"الطلب لا يمكن حفظه!",
     "total":" الاجمالي",
-    "cancel_payment":"لا يمكن الغاء الدفع الان"
+    "cancel_payment":"لا يمكن الغاء الدفع الان",
+    "cancel_saved_order_title":"هل أنت متأكد أنك تريد المتابعة بدون حفظ الطلب ?!"
    
 }

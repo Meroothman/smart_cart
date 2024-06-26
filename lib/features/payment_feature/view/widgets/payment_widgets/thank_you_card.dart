@@ -158,9 +158,10 @@ class ThankYouCard extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(
-              height: ((MediaQuery.sizeOf(context).height * .2 + 20) / 2) - 29,
-            ),
+            // SizedBox(
+            //   height: ((MediaQuery.sizeOf(context).height * .2 + 20) / 2) - 29,
+            // ),
+            const Spacer()
           ],
         ),
       ),

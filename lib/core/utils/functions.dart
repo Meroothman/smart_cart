@@ -80,9 +80,9 @@ void secondFinishOrder(BuildContext context) {
 }
 
 void orderNotSaved(context) {
-  CustomSimpleDialog.showCustomDialog(context, "order Not Saved", () {
+  CustomSimpleDialog.showCustomDialog(context, S.of(context).Order_Not_Saved_title, () {
     secondFinishOrder(context);
-  }, "Continue", "Are you sure you want to continue without save order ?!");
+  }, S.of(context).continue_title_button, S.of(context).cancel_saved_order_title);
 }
 
 defaultButton({

@@ -799,6 +799,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Are you sure you want to continue without save order ?!`
+  String get cancel_saved_order_title {
+    return Intl.message(
+      'Are you sure you want to continue without save order ?!',
+      name: 'cancel_saved_order_title',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

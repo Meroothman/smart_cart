@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cancel Order"),
         "cancel_payment": MessageLookupByLibrary.simpleMessage(
             "You cannot cancel payment now"),
+        "cancel_saved_order_title": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to continue without save order ?!"),
         "cancel_text": MessageLookupByLibrary.simpleMessage("Cancel"),
         "cancel_title": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to Cancel your order ?!"),
