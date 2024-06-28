@@ -1,11 +1,11 @@
 import 'dart:async';
 
+import 'package:Auto_Shop/features/home/view/screens/switch_page.dart';
 import 'package:flutter/material.dart';
 import 'package:Auto_Shop/features/home/view/screens/home_screen.dart';
 import 'package:Auto_Shop/features/setting/manager/cubits/get_user_data/get_user_data_cubit.dart';
 import '/../core/utils/constants.dart';
 import '/../core/utils/functions.dart';
-import 'on_boarding_screens/on_boarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key, required this.isUserLoggedIn});
@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
         replacementNavigate(context, const HomeScreen());
       } else {
-        replacementNavigate(context, const OnBoardingScreen());
+        replacementNavigate(context, const SwitchPage());
       }
     });
   }

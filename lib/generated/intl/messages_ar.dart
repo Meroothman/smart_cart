@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم التحويل بنجاح"),
         "account_text": MessageLookupByLibrary.simpleMessage("حسابي "),
         "app_name": MessageLookupByLibrary.simpleMessage(" التسوق التلقائي"),
+        "arabic_text": MessageLookupByLibrary.simpleMessage("العربيه"),
         "back_text": MessageLookupByLibrary.simpleMessage("رجوع"),
         "back_title": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد أنك تريد العودة إلى طلبك؟!"),
@@ -45,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "هل أنت متأكد أنك تريد إلغاء طلبك ؟!"),
         "check_out_text": MessageLookupByLibrary.simpleMessage(" الدفع  >"),
         "check_out_title": MessageLookupByLibrary.simpleMessage("الدفع"),
+        "chose_language_text":
+            MessageLookupByLibrary.simpleMessage("اختار اللغه "),
         "confirm_text": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "continue_title_button":
             MessageLookupByLibrary.simpleMessage(" متابعة "),
@@ -59,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_phone_text":
             MessageLookupByLibrary.simpleMessage("تعديل رقم الهاتف"),
         "email_title": MessageLookupByLibrary.simpleMessage("حسابي"),
+        "english_text": MessageLookupByLibrary.simpleMessage("الانجليزيه"),
         "fName_title": MessageLookupByLibrary.simpleMessage("الاسم الاول"),
         "failure_text": MessageLookupByLibrary.simpleMessage(
             "البريد الالكتروني او كلمة المرور غير صحيحة. حاول مرة اخرى."),

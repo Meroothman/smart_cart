@@ -809,6 +809,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Select your language`
+  String get chose_language_text {
+    return Intl.message(
+      'Select your language',
+      name: 'chose_language_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english_text {
+    return Intl.message(
+      'English',
+      name: 'english_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic_text {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic_text',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

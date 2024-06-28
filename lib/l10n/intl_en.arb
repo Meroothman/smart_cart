@@ -74,7 +74,10 @@
     "Order_Not_Saved_title":"Order Not Saved !",
     "total":" Total",
     "cancel_payment":"You cannot cancel payment now",
-    "cancel_saved_order_title":"Are you sure you want to continue without save order ?!"
+    "cancel_saved_order_title":"Are you sure you want to continue without save order ?!",
+    "chose_language_text":"Select your language",
+    "english_text":"English",
+    "arabic_text":"Arabic"
    
 
 

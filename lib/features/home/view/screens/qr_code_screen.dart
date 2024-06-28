@@ -1,3 +1,4 @@
+import 'package:Auto_Shop/features/home/view/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:Auto_Shop/features/home/manager/cubits/order/order_cubit.dart';
@@ -25,6 +26,10 @@ class _QrCodeScreenState extends State<QrCodeScreen> {
             OrderCubit.get(context).startOrder("123456mmshf");
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const CartView()));
+           } 
+          else {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()));
           }
         },
       ),

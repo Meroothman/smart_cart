@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Your transaction was successful"),
         "account_text": MessageLookupByLibrary.simpleMessage("Account"),
         "app_name": MessageLookupByLibrary.simpleMessage("Auto shop"),
+        "arabic_text": MessageLookupByLibrary.simpleMessage("Arabic"),
         "back_text": MessageLookupByLibrary.simpleMessage("Back"),
         "back_title": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to back to your order ?!"),
@@ -46,6 +47,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Are you sure you want to Cancel your order ?!"),
         "check_out_text": MessageLookupByLibrary.simpleMessage("CheckOut  >"),
         "check_out_title": MessageLookupByLibrary.simpleMessage("CheckOut"),
+        "chose_language_text":
+            MessageLookupByLibrary.simpleMessage("Select your language"),
         "confirm_text": MessageLookupByLibrary.simpleMessage("Confirm"),
         "continue_title_button":
             MessageLookupByLibrary.simpleMessage(" Continue "),
@@ -58,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_name_text": MessageLookupByLibrary.simpleMessage("Edit Name"),
         "edit_phone_text": MessageLookupByLibrary.simpleMessage("Edit Phone"),
         "email_title": MessageLookupByLibrary.simpleMessage("Email"),
+        "english_text": MessageLookupByLibrary.simpleMessage("English"),
         "fName_title": MessageLookupByLibrary.simpleMessage("First Name"),
         "failure_text": MessageLookupByLibrary.simpleMessage(
             "Email or password is incorrect. Please try again."),
